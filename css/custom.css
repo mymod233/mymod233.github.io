@@ -1,0 +1,48 @@
+/* 一张全站壁纸：滚动也不换场景 */
+html,body{height:100%}
+body{
+  background-image:url('/images/icons/wall.jpg');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+/* 封面就是“文字层”：把封面自己的底图和大遮罩关掉 */
+.cover, .cover .cover-img, .cover .bg{
+  background:transparent !important;
+  background-image:none !important;
+}
+.cover .mask, .cover .cover-mask{
+  background: rgba(0,0,0,0.15) !important; /* 想更通透就再小点或直接透明 */
+}
+
+/* 封面高度铺满一屏，像你给的样例一样 */
+.cover{height:100vh !important}
+
+/* 下面整块布局别再铺白底，全部透下去 */
+#page, #body-wrap, .layout, .main-inner, #content-inner, #recent-posts, .aside-content{
+  background:transparent !important;
+}
+
+/* 卡片半透明 + 轻磨砂，保证读得清 */
+.card, .card-widget, .recent-posts .recent-post-item, .post-block, .post-content,
+.timeline, .category-list, .tag-cloud, .pagination .page-number, .pagination .extend{
+  background: rgba(255,255,255,0.82) !important;
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
+
+/* 夜间模式下的卡片透明度 */
+[data-theme="dark"] .card, [data-theme="dark"] .card-widget,
+[data-theme="dark"] .recent-posts .recent-post-item, [data-theme="dark"] .post-block,
+[data-theme="dark"] .post-content, [data-theme="dark"] .timeline,
+[data-theme="dark"] .category-list, [data-theme="dark"] .tag-cloud,
+[data-theme="dark"] .pagination .page-number, [data-theme="dark"] .pagination .extend{
+  background: rgba(0,0,0,0.42) !important;
+}
+
+/* 顶栏也做成悬浮透明（需要的话） */
+#nav{background:transparent !important; box-shadow:none !important}
+#nav .menus_items .menus_item:hover{background:rgba(0,0,0,0.08)}
+[data-theme="dark"] #nav .menus_items .menus_item:hover{background:rgba(255,255,255,0.08)}

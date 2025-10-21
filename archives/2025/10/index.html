@@ -142,8 +142,59 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'archive'
-}</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="mymod的博客" type="application/atom+xml">
-</head><body><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">mymod的博客</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="page-site-info"><h1 id="site-title">十月 2025</h1></div></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">全部文章 - 1</div><div class="article-sort"><div class="article-sort-item year">2025</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2025-10-18T07:49:04.987Z" title="发表于 2025-10-18 15:49:04">2025-10-18</time></div><a class="article-sort-item-title" href="/posts/4a17b156.html" title="Hello World">Hello World</a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">mymod</div><div class="author-info-description">这是属于本人的博客啦 本人十分友好是好人哦嘻嘻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4a17b156.html" title="Hello World">Hello World</a><time datetime="2025-10-18T07:49:04.987Z" title="发表于 2025-10-18 15:49:04">2025-10-18</time></div></div></div></div><div class="card-widget card-archives">
+}</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="manifest" href="/manifest.json"><style>
+html,body{height:100%;margin:0}
+/* 全站唯一壁纸：滚动不换场景 */
+body{
+  background-image:url('/images/wall.jpg');   /* ← 把文件放在 source/images/wall.jpg */
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+/* 封面只留打字机文本，别再铺自己的底图 */
+.cover, .cover .cover-img, .cover .bg,
+.cover:before, .cover:after{
+  background:transparent !important;
+  background-image:none !important;
+}
+.cover .mask, .cover .cover-mask{
+  background:rgba(0,0,0,0.12) !important;  /* 想更通透就调更小或设为0 */
+}
+.cover{height:100vh !important}
+
+/* 把封面下面那些爱铺白底的容器统统打透明 */
+#web_bg,#page,#body-wrap,.layout,.main-inner,#content-inner,#recent-posts,.aside-content{
+  background:transparent !important;
+}
+
+/* 卡片半透明 + 轻磨砂，保证可读 */
+.card,.card-widget,.recent-posts .recent-post-item,.post-block,.post-content,
+.timeline,.category-list,.tag-cloud,.pagination .page-number,.pagination .extend{
+  background:rgba(255,255,255,0.82) !important;
+  backdrop-filter:blur(10px) saturate(180%);
+  -webkit-backdrop-filter:blur(10px) saturate(180%);
+}
+[data-theme="dark"] .card,[data-theme="dark"] .card-widget,
+[data-theme="dark"] .recent-posts .recent-post-item,[data-theme="dark"] .post-block,
+[data-theme="dark"] .post-content,[data-theme="dark"] .timeline,
+[data-theme="dark"] .category-list,[data-theme="dark"] .tag-cloud,
+[data-theme="dark"] .pagination .page-number,[data-theme="dark"] .pagination .extend{
+  background:rgba(0,0,0,0.42) !important;
+}
+/* 顶栏透明悬浮（不想透明就删掉这行） */
+#nav{background:transparent !important;box-shadow:none !important}
+/* 页脚透明 */
+#footer, .footer, footer{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#footer:before, #footer:after{
+  background: transparent !important;
+}
+</style>
+<meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="mymod的博客" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(/url('/images/%E5%A3%81%E7%BA%B8.jpg'));"></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">mymod的博客</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav><div id="page-site-info"><h1 id="site-title">十月 2025</h1></div></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">全部文章 - 1</div><div class="article-sort"><div class="article-sort-item year">2025</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2025-10-18T07:49:04.987Z" title="发表于 2025-10-18 15:49:04">2025-10-18</time></div><a class="article-sort-item-title" href="/posts/4a17b156.html" title="Hello World">Hello World</a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">mymod</div><div class="author-info-description">这是属于本人的博客啦 本人十分友好是好人哦嘻嘻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4a17b156.html" title="Hello World">Hello World</a><time datetime="2025-10-18T07:49:04.987Z" title="发表于 2025-10-18 15:49:04">2025-10-18</time></div></div></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
       <span>归档</span>
@@ -162,7 +213,7 @@
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-20T07:52:15.071Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By mymod</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-21T02:07:45.738Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By mymod</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div><script>
   (function () {
     if (window.__L2D_LOADED__) return;
     window.__L2D_LOADED__ = true;
@@ -274,7 +325,13 @@
     window.addEventListener('pjax:complete', createOnce);
   })();
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+<style> .pwa-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111827;color:#e5e7eb; border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;display:flex;gap:10px; align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:9999} .pwa-btn{appearance:none;border:none;border-radius:10px;padding:6px 10px;font-weight:700;cursor:pointer} .pwa-primary{background:linear-gradient(135deg,#3b82f6,#a855f7);color:#fff} .pwa-ghost{background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,.15)} </style><script> (function(){ if(!('serviceWorker' in navigator)) return;
+// 注册 SW navigator.serviceWorker.register('/sw.js').then(function(reg){ // 首次安装的更新监听 function promptUpdate(waitingSW){ // 弹个小条：有新版本，是否刷新 const bar = document.createElement('div'); bar.className = 'pwa-toast'; bar.innerHTML = '<span>发现新版本</span>' + '<button class="pwa-btn pwa-primary" id="pwa-refresh">立即更新</button>' + '<button class="pwa-btn pwa-ghost" id="pwa-later">稍后</button>'; document.body.appendChild(bar);
+document.getElementById('pwa-refresh').onclick = function(){ waitingSW.postMessage('SKIP_WAITING'); }; document.getElementById('pwa-later').onclick = function(){ bar.remove(); };
+// 当新的 SW 接管后，刷新页面 navigator.serviceWorker.addEventListener('controllerchange', function(){ location.reload(); }); }
+// 情况1注册后立即出现 waiting if(reg.waiting) { promptUpdate(reg.waiting); }
+// 情况2更新时 installing -> installed(waiting) reg.addEventListener('updatefound', function(){ const newSW = reg.installing; if(!newSW) return; newSW.addEventListener('statechange', function(){ if(newSW.state === 'installed' && navigator.serviceWorker.controller){ promptUpdate(newSW); } }); });
+// Edge/Chrome 有时更新后的SW会在 `waiting`，再刷新才触发，这里轮询触发一次检查 setInterval(function(){ reg.update(); }, 60*1000); }); })(); </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
   const destroyAplayer = () => {
     if (window.aplayers) {
       for (let i = 0; i < window.aplayers.length; i++) {
