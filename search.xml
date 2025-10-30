@@ -83,6 +83,17 @@
     
     <entry>
       <title></title>
+      <link href="/manifest.json"/>
+      <url>/manifest.json</url>
+      
+        <content type="html"><![CDATA[{"name":"mymod233","short_name":"mymod","start_url":"/","display":"standalone","background_color":"#1e1e2e","theme_color":"#1e1e2e","icons":[{"src":"/images/icons/icon-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}]}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/offline.html"/>
       <url>/offline.html</url>
       
@@ -94,43 +105,10 @@
     
     <entry>
       <title></title>
-      <link href="/manifest.json"/>
-      <url>/manifest.json</url>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
-        <content type="html"><![CDATA[{"name":"mymod233","short_name":"mymod","start_url":"/","display":"standalone","background_color":"#1e1e2e","theme_color":"#1e1e2e","icons":[{"src":"/images/icons/icon-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}]}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p class='p center logo large'>个人介绍</p><p class='p center small'>A Wonderful Theme for Hexo</p><h2 id="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠"><a href="#大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠" class="headerlink" title="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)"></a>大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)</h2><p>本人也就只是懂<strong>一点点</strong>电脑技术罢了 并不是那种比较会的哦 什么<strong>GitHub</strong>那些也都是最近才弄的啦！(⁠╯⁠︵⁠╰⁠,⁠)</p><p>本人的<strong>兴趣爱好</strong>都比较多啦 最喜欢的就是<strong>听音乐</strong> (<psw>猜猜我喜欢听什么www</psw>)其次才是弄<strong>电脑</strong> 体育的话喜欢<strong>棒球</strong>和<strong>职业摔角</strong>(<del>这么小众的爱好应该没有人喜欢</del>) 但是最喜欢的运动还是<strong>职业摔角</strong>啦 当然最了解的也是职业摔角www（我可是5岁看摔角看到现在的呢！(⁠ ⁠；⁠∀⁠；⁠)）</p><p>我大学的专业是<strong>计算机科学与技术</strong> 因为我想<strong>逃避算法</strong>www(<emp>事实证明我是错的呜呜呜</emp>) 我初中就是打<strong>算法竞赛</strong>的 给我弄的长脑子了</p><p>我听音乐的话主要是我小时候<strong>学架子鼓</strong> 因此对音乐都是<strong>非常敏感</strong>的 小<strong>时候还被老师夸过说我很有天赋欸嘿嘿</strong>(<del>真的很自豪的说</del>) 所以说我<strong>听音乐也是很广泛</strong>的 中文的话比较喜欢<strong>中文说唱 主要是旋律说唱emo说唱二次元说唱之类的</strong> 因为听这些其实对于我来说<strong>像是找共鸣 因为他们的歌词很直白也很贴近生活嘛 正是因为门槛低所以我就很喜欢</strong> 日语的歌的话倒是流行的都听 因为日本那边的音乐都是挺好的嘛 <strong>至于欧美的话我就偏向于neo-soul啊R&amp;B之类</strong>(<del>又小众了起来嘤嘤</del>)的 我很喜欢爵士还有neo-soul 类似的风格 因为很独特很舒服 这一类的歌就不在意歌词了 如果是听中文说唱对于我来说那就是旋律+歌词和那种意识是我最喜欢的啦</p><p>说到这里推荐几位歌手啦!(<del>当然是中文说唱的www</del>)<br><div class="tag link"><a class="link-card" title="MISTERK" href="https://music.163.com/#/artist?id=12256230"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">MISTERK</p><p class="url">https://music.163.com/#/artist?id=12256230</p></div></a></div></p><h2 id="这位是真的非常非常喜欢啦-二次原说唱是最屌的"><a href="#这位是真的非常非常喜欢啦-二次原说唱是最屌的" class="headerlink" title="这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!()"></a>这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!(<del>不接受任何反驳</del>)</h2><div class="tag link"><a class="link-card" title="河南说唱之神" href="https://music.163.com/#/artist?id=15194340"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">河南说唱之神</p><p class="url">https://music.163.com/#/artist?id=15194340</p></div></a></div><h2 id="忧郁之神啦-母庸置疑的"><a href="#忧郁之神啦-母庸置疑的" class="headerlink" title="忧郁之神啦!!!母庸置疑的"></a>忧郁之神啦!!!母庸置疑的</h2><div class="tag link"><a class="link-card" title="BOBBYNOPACE" href="https://music.163.com/#/artist?id=48277407"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">BOBBYNOPACE</p><p class="url">https://music.163.com/#/artist?id=48277407</p></div></a></div><h2 id=""><a href="#" class="headerlink" title=""></a><del>永远的佐助</del></h2><h2 id="总而言之-最喜欢大家啦"><a href="#总而言之-最喜欢大家啦" class="headerlink" title="总而言之 最喜欢大家啦!!!"></a>总而言之 最喜欢大家啦!!!</h2>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/sw.js"/>
-      <url>/sw.js</url>
-      
-        <content type="html"><![CDATA[/* sw.js — mymod233 进阶版 PWA   功能：静态资源 Cache First、页面 Network First、离线 fallback、更新提醒*/const CACHE_VERSION = 'v3';              // ← 每次改动SW时+1，强制让用户拿到新版本const RUNTIME_CACHE = `pwa-mymod-${CACHE_VERSION}`;const STATIC_PATTERN = /\.(?:js|css|png|jpg|jpeg|gif|svg|woff2?)$/i;const OFFLINE_URL = '/offline.html';// 安装：预缓存离线页（不要预缓存一大堆，Hexo 更新频繁）self.addEventListener('install', event => {  event.waitUntil(    caches.open(RUNTIME_CACHE).then(cache => cache.addAll([OFFLINE_URL])).then(() => self.skipWaiting())  );});// 激活：清理旧缓存，接管页面self.addEventListener('activate', event => {  event.waitUntil(    caches.keys().then(keys =>      Promise.all(keys.filter(k => k !== RUNTIME_CACHE).map(k => caches.delete(k)))    ).then(() => self.clients.claim())  );});// 获取：静态资源 Cache First，页面 Network First + 离线兜底self.addEventListener('fetch', event => {  const req = event.request;  if (req.method !== 'GET') return;  const url = new URL(req.url);  // 静态资源：缓存优先  if (STATIC_PATTERN.test(url.pathname)) {    event.respondWith(      caches.open(RUNTIME_CACHE).then(cache =>        cache.match(req).then(hit => {          const fromNet = fetch(req).then(res => {            if (res.ok) cache.put(req, res.clone());            return res;          }).catch(() => hit);          return hit || fromNet;        })      )    );    return;  }  // 页面：网络优先，失败用缓存，再失败给离线页  if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {    event.respondWith(      fetch(req).then(res => {        const clone = res.clone();        caches.open(RUNTIME_CACHE).then(c => c.put(req, clone));        return res;      }).catch(async () => {        const cached = await caches.match(req);        return cached || caches.match(OFFLINE_URL);      })    );    return;  }  // 其他 GET：尽量走网络，失败尝试缓存  event.respondWith(    fetch(req).catch(() => caches.match(req))  );});// 接收页面消息：允许页面请求立即激活新SWself.addEventListener('message', event => {  if (!event.data) return;  if (event.data === 'SKIP_WAITING') {    self.skipWaiting();  }});]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/force-dark-pages.js"/>
-      <url>/js/force-dark-pages.js</url>
-      
-        <content type="html"><![CDATA[;(function () {  // 需要强制暗色的路径规则，自行补充  var forceDark = /^\/(page|about|links|music)(\/|$)/i.test(location.pathname);  if (!forceDark) return;  // 1) 立刻设为 dark  try { localStorage.setItem('theme', 'dark'); } catch (e) {}  var html = document.documentElement;  html.setAttribute('data-theme', 'dark');  html.classList.add('force-dark-page');  // 2) 隐藏可能存在的主题切换按钮（多写几种常见选择器以防主题版本差异）  var hideSwitch = function () {    var selectors = [      '#toggle-mode', '.toggle-mode', '.toggle-theme', '.darkmode-switch',      '.mode', '.site-nav .mode', '.navbar .mode'    ];    selectors.forEach(function (sel) {      document.querySelectorAll(sel).forEach(function (el) {        el.style.setProperty('display', 'none', 'important');        el.setAttribute('aria-hidden', 'true');      });    });  };  hideSwitch();  // 3) 监听 data-theme，防止被外部脚本改回 light  var obs = new MutationObserver(function (muts) {    if (html.getAttribute('data-theme') !== 'dark') {      html.setAttribute('data-theme', 'dark');    }    hideSwitch();  });  obs.observe(html, { attributes: true, attributeFilter: ['data-theme'] });  // 4) 某些主题用 prefers-color-scheme，直接硬顶一层样式变量  var css = document.createElement('style');  css.textContent =    'html.force-dark-page{color-scheme: dark !important;}';  document.head.appendChild(css);})();]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!DOCTYPE html><html><head>  <meta charset="utf-8">  <title>Music</title>  <meta name="viewport" content="width=device-width, initial-scale=1" />  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>  <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>  <style>    body { margin: 0; padding: 2rem; font-family: system-ui, sans-serif; }    .wrap { max-width: 960px; margin: 0 auto; }  </style></head><body>  <div class="wrap">    <h1>My Playlist</h1>    <!-- 页内可见列表播放器 -->    <meting-js      server="netease"      type="playlist"      id="14437180364"      fixed="false"      autoplay="false"      order="random"      loop="all"      list-folded="false"      list-max-height="420"      preload="auto">    </meting-js>  </div>]]></content>
       
     </entry>
     
@@ -149,10 +127,21 @@
     
     <entry>
       <title></title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <link href="/sw.js"/>
+      <url>/sw.js</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!DOCTYPE html><html><head>  <meta charset="utf-8">  <title>Music</title>  <meta name="viewport" content="width=device-width, initial-scale=1" />  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>  <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>  <style>    body { margin: 0; padding: 2rem; font-family: system-ui, sans-serif; }    .wrap { max-width: 960px; margin: 0 auto; }  </style></head><body>  <div class="wrap">    <h1>My Playlist</h1>    <!-- 页内可见列表播放器 -->    <meting-js      server="netease"      type="playlist"      id="14437180364"      fixed="false"      autoplay="false"      order="random"      loop="all"      list-folded="false"      list-max-height="420"      preload="auto">    </meting-js>  </div>]]></content>
+        <content type="html"><![CDATA[/* sw.js — mymod233 进阶版 PWA   功能：静态资源 Cache First、页面 Network First、离线 fallback、更新提醒*/const CACHE_VERSION = 'v3';              // ← 每次改动SW时+1，强制让用户拿到新版本const RUNTIME_CACHE = `pwa-mymod-${CACHE_VERSION}`;const STATIC_PATTERN = /\.(?:js|css|png|jpg|jpeg|gif|svg|woff2?)$/i;const OFFLINE_URL = '/offline.html';// 安装：预缓存离线页（不要预缓存一大堆，Hexo 更新频繁）self.addEventListener('install', event => {  event.waitUntil(    caches.open(RUNTIME_CACHE).then(cache => cache.addAll([OFFLINE_URL])).then(() => self.skipWaiting())  );});// 激活：清理旧缓存，接管页面self.addEventListener('activate', event => {  event.waitUntil(    caches.keys().then(keys =>      Promise.all(keys.filter(k => k !== RUNTIME_CACHE).map(k => caches.delete(k)))    ).then(() => self.clients.claim())  );});// 获取：静态资源 Cache First，页面 Network First + 离线兜底self.addEventListener('fetch', event => {  const req = event.request;  if (req.method !== 'GET') return;  const url = new URL(req.url);  // 静态资源：缓存优先  if (STATIC_PATTERN.test(url.pathname)) {    event.respondWith(      caches.open(RUNTIME_CACHE).then(cache =>        cache.match(req).then(hit => {          const fromNet = fetch(req).then(res => {            if (res.ok) cache.put(req, res.clone());            return res;          }).catch(() => hit);          return hit || fromNet;        })      )    );    return;  }  // 页面：网络优先，失败用缓存，再失败给离线页  if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {    event.respondWith(      fetch(req).then(res => {        const clone = res.clone();        caches.open(RUNTIME_CACHE).then(c => c.put(req, clone));        return res;      }).catch(async () => {        const cached = await caches.match(req);        return cached || caches.match(OFFLINE_URL);      })    );    return;  }  // 其他 GET：尽量走网络，失败尝试缓存  event.respondWith(    fetch(req).catch(() => caches.match(req))  );});// 接收页面消息：允许页面请求立即激活新SWself.addEventListener('message', event => {  if (!event.data) return;  if (event.data === 'SKIP_WAITING') {    self.skipWaiting();  }});]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p class='p center logo large'>个人介绍</p><p class='p center small'>A Wonderful Theme for Hexo</p><h2 id="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠"><a href="#大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠" class="headerlink" title="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)"></a>大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)</h2><p>本人也就只是懂<strong>一点点</strong>电脑技术罢了 并不是那种比较会的哦 什么<strong>GitHub</strong>那些也都是最近才弄的啦！(⁠╯⁠︵⁠╰⁠,⁠)</p><p>本人的<strong>兴趣爱好</strong>都比较多啦 最喜欢的就是<strong>听音乐</strong> (<psw>猜猜我喜欢听什么www</psw>)其次才是弄<strong>电脑</strong> 体育的话喜欢<strong>棒球</strong>和<strong>职业摔角</strong>(<del>这么小众的爱好应该没有人喜欢</del>) 但是最喜欢的运动还是<strong>职业摔角</strong>啦 当然最了解的也是职业摔角www（我可是5岁看摔角看到现在的呢！(⁠ ⁠；⁠∀⁠；⁠)）</p><p>我大学的专业是<strong>计算机科学与技术</strong> 因为我想<strong>逃避算法</strong>www(<emp>事实证明我是错的呜呜呜</emp>) 我初中就是打<strong>算法竞赛</strong>的 给我弄的长脑子了</p><p>我听音乐的话主要是我小时候<strong>学架子鼓</strong> 因此对音乐都是<strong>非常敏感</strong>的 小<strong>时候还被老师夸过说我很有天赋欸嘿嘿</strong>(<del>真的很自豪的说</del>) 所以说我<strong>听音乐也是很广泛</strong>的 中文的话比较喜欢<strong>中文说唱 主要是旋律说唱emo说唱二次元说唱之类的</strong> 因为听这些其实对于我来说<strong>像是找共鸣 因为他们的歌词很直白也很贴近生活嘛 正是因为门槛低所以我就很喜欢</strong> 日语的歌的话倒是流行的都听 因为日本那边的音乐都是挺好的嘛 <strong>至于欧美的话我就偏向于neo-soul啊R&amp;B之类</strong>(<del>又小众了起来嘤嘤</del>)的 我很喜欢爵士还有neo-soul 类似的风格 因为很独特很舒服 这一类的歌就不在意歌词了 如果是听中文说唱对于我来说那就是旋律+歌词和那种意识是我最喜欢的啦</p><p>说到这里推荐几位歌手啦!(<del>当然是中文说唱的www</del>)<br><div class="tag link"><a class="link-card" title="MISTERK" href="https://music.163.com/#/artist?id=12256230"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">MISTERK</p><p class="url">https://music.163.com/#/artist?id=12256230</p></div></a></div></p><h2 id="这位是真的非常非常喜欢啦-二次原说唱是最屌的"><a href="#这位是真的非常非常喜欢啦-二次原说唱是最屌的" class="headerlink" title="这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!()"></a>这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!(<del>不接受任何反驳</del>)</h2><div class="tag link"><a class="link-card" title="河南说唱之神" href="https://music.163.com/#/artist?id=15194340"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">河南说唱之神</p><p class="url">https://music.163.com/#/artist?id=15194340</p></div></a></div><h2 id="忧郁之神啦-母庸置疑的"><a href="#忧郁之神啦-母庸置疑的" class="headerlink" title="忧郁之神啦!!!母庸置疑的"></a>忧郁之神啦!!!母庸置疑的</h2><div class="tag link"><a class="link-card" title="BOBBYNOPACE" href="https://music.163.com/#/artist?id=48277407"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">BOBBYNOPACE</p><p class="url">https://music.163.com/#/artist?id=48277407</p></div></a></div><h2 id=""><a href="#" class="headerlink" title=""></a><del>永远的佐助</del></h2><h2 id="总而言之-最喜欢大家啦"><a href="#总而言之-最喜欢大家啦" class="headerlink" title="总而言之 最喜欢大家啦!!!"></a>总而言之 最喜欢大家啦!!!</h2>]]></content>
       
     </entry>
     
@@ -164,6 +153,17 @@
       <url>/message/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/force-dark-pages.js"/>
+      <url>/js/force-dark-pages.js</url>
+      
+        <content type="html"><![CDATA[;(function () {  // 需要强制暗色的路径规则，自行补充  var forceDark = /^\/(page|about|links|music)(\/|$)/i.test(location.pathname);  if (!forceDark) return;  // 1) 立刻设为 dark  try { localStorage.setItem('theme', 'dark'); } catch (e) {}  var html = document.documentElement;  html.setAttribute('data-theme', 'dark');  html.classList.add('force-dark-page');  // 2) 隐藏可能存在的主题切换按钮（多写几种常见选择器以防主题版本差异）  var hideSwitch = function () {    var selectors = [      '#toggle-mode', '.toggle-mode', '.toggle-theme', '.darkmode-switch',      '.mode', '.site-nav .mode', '.navbar .mode'    ];    selectors.forEach(function (sel) {      document.querySelectorAll(sel).forEach(function (el) {        el.style.setProperty('display', 'none', 'important');        el.setAttribute('aria-hidden', 'true');      });    });  };  hideSwitch();  // 3) 监听 data-theme，防止被外部脚本改回 light  var obs = new MutationObserver(function (muts) {    if (html.getAttribute('data-theme') !== 'dark') {      html.setAttribute('data-theme', 'dark');    }    hideSwitch();  });  obs.observe(html, { attributes: true, attributeFilter: ['data-theme'] });  // 4) 某些主题用 prefers-color-scheme，直接硬顶一层样式变量  var css = document.createElement('style');  css.textContent =    'html.force-dark-page{color-scheme: dark !important;}';  document.head.appendChild(css);})();]]></content>
       
     </entry>
     
