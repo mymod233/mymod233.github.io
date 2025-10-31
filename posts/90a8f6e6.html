@@ -1,13 +1,19 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>关于素数的一系列解决办法 | mymod的博客</title><meta name="author" content="mymod"><meta name="copyright" content="mymod"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>关于素数的一系列解决办法 | mymod的博客</title><meta name="author" content="mymod"><meta name="copyright" content="mymod"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="🚀 排行总结（按实际运行速度和复杂度综合）    排名 名称 理论复杂度 实际速度 特点     🥇 1 线性筛（Euler Sieve） O(n) ⚡⚡⚡⚡⚡ 每个合数只标一次，最干净最快   🥈 2 快速埃式（奇数筛&#x2F;位压缩版） O(n log log n) ⚡⚡⚡⚡ 节省空间、跳偶数   🥉 3 标准埃式筛（Eratosthenes） O(n log log n) ⚡⚡⚡ 简单、稳健">
+<meta property="og:type" content="article">
 <meta property="og:title" content="关于素数的一系列解决办法">
 <meta property="og:url" content="http://example.com/posts/90a8f6e6.html">
 <meta property="og:site_name" content="mymod的博客">
+<meta property="og:description" content="🚀 排行总结（按实际运行速度和复杂度综合）    排名 名称 理论复杂度 实际速度 特点     🥇 1 线性筛（Euler Sieve） O(n) ⚡⚡⚡⚡⚡ 每个合数只标一次，最干净最快   🥈 2 快速埃式（奇数筛&#x2F;位压缩版） O(n log log n) ⚡⚡⚡⚡ 节省空间、跳偶数   🥉 3 标准埃式筛（Eratosthenes） O(n log log n) ⚡⚡⚡ 简单、稳健">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg">
 <meta property="article:published_time" content="2025-10-30T11:32:53.000Z">
-<meta property="article:modified_time" content="2025-10-30T11:40:48.656Z">
+<meta property="article:modified_time" content="2025-10-31T13:51:38.031Z">
 <meta property="article:author" content="mymod">
-<meta property="article:tag" content="这是属于本人的博客啦 本人十分友好是好人哦嘻嘻">
+<meta property="article:tag" content="快筛">
+<meta property="article:tag" content="标准筛">
+<meta property="article:tag" content="求素数">
+<meta property="article:tag" content="算法类">
+<meta property="article:tag" content="线性筛">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg"><script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -16,7 +22,7 @@
   "url": "http://example.com/posts/90a8f6e6.html",
   "image": "http://example.com/img/%E5%A4%B4%E5%83%8F.jpg",
   "datePublished": "2025-10-30T11:32:53.000Z",
-  "dateModified": "2025-10-30T11:40:48.656Z",
+  "dateModified": "2025-10-31T13:51:38.031Z",
   "author": [
     {
       "@type": "Person",
@@ -155,7 +161,7 @@
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '关于素数的一系列解决办法',
   isHighlightShrink: false,
-  isToc: false,
+  isToc: true,
   pageType: 'post'
 }</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="manifest" href="/manifest.json"><style>
 html,body{height:100%;margin:0}
@@ -269,7 +275,552 @@ body{
 }
 </style>
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="mymod的博客" type="application/atom+xml">
-</head><body><div id="web_bg" style="background-image: url(/url('/images/%E5%A3%81%E7%BA%B8.jpg'));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">mymod的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">关于素数的一系列解决办法</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">关于素数的一系列解决办法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-30T11:32:53.000Z" title="发表于 2025-10-30 19:32:53">2025-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-30T11:40:48.656Z" title="更新于 2025-10-30 19:40:48">2025-10-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">mymod</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/90a8f6e6.html">http://example.com/posts/90a8f6e6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">mymod的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/%E5%A4%B4%E5%83%8F.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/97980273.html" title="我的恋爱日记10.30"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">我的恋爱日记10.30</div></div><div class="info-2"><div class="info-item-1">好棒哦明天就是周五 可以睡很久啦!!!今天过得还好 虽然说确实是发病了 感觉脑子里有点波在震荡www 我是不是中了毒电波(不是其余的日常都很简短 但是今天脑子里一直有一个很强烈的想法 就是超级想我的宝宝想死了想到快疯掉!!!!!呜呜呜好像让我的宝宝身体好起来 超级想哦 每天都想 不想让他不好 能不能锁住他的喉咙 把他绑起来 这样他就不会走了 当然她本身也不会走 我就是怕嘛我就是好想我的宝宝能够快快好起来 不管怎么样好起来就好 !!!呜呜呜宝宝快好起来qwq这篇日记好抽象 我就喜欢抽象的 正好作为开端 但是没办法 今天就是超级想超级想我的宝宝呜呜呜希望我的宝宝好好的 我们一直好好的 我爱你 爱死你了 要把全世界送给你!!!爱你哦（づ￣3￣）づ╭❤～Mua!!!</div></div></div></a><a class="pagination-related" href="/posts/ac6b0799.html" title="gcd的一些用法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">gcd的一些用法</div></div><div class="info-2"><div class="info-item-1">最大公因数与最小公倍数✅ 什么是欧几里得算法（辗转相除法）？一句话：  就是不断用“大数 ÷ 小数”，然后把“小数”与“余数”继续来除，直到余数变成 0，那个最后的除数就是最大公因数。   ✅ 为什么这么做是对的？（傻瓜理解逻辑）假设你要找两个数的最大公因数，比如 18 和 12。 你可能第一想法：“我把它们俩共同的因数列出来比较一下？” 18 的因数：1 2 3 6 9 18 12 的因数：1 2 3 4 6 12 共同的：1 2 3 6 最大：6 对！结果是6。 但欧几里得算法的做法是：  ✅ 按步骤傻瓜化演示（以 18 和 12 为例）    步骤 操作 说明     1 18 ÷ 12 = 商 1 余 6 原来18和12的“共同因数”能帮我产生这个 6   2 接下来把“12”和“6”继续做除法 也就是 12 ÷ 6   3 12 ÷ 6 = 商 2 余 0 余数为0说明整除了   4 最后一次 被除数 就是最大公因数 6 就是最大公因数     记住一句核心口诀：  大数 ÷ 小数 = 余数 再用小数 ÷ 余数 循环到余数是0为止 最后的除数 = 最大公因数   ✅ 再...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">mymod</div><div class="author-info-description">这是属于本人的博客啦 本人十分友好是好人哦嘻嘻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/mymod233" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/images/qr/wechat.png" target="_blank" title="WeChat"><i class="fab fa-weixin" style="color: #1aad19;"></i></a><a class="social-icon" href="https://t.me/mymod114" target="_blank" title="Telegram"><i class="fab fa-telegram-plane" style="color: #179cde;"></i></a><a class="social-icon" href="https://x.com/Anei1Ma" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a><a class="social-icon" href="https://www.instagram.com/jim31104?igsh=MXg3cXQwbmZ2Mnl5cQ==" target="_blank" title="Instagram"><i class="fab fa-instagram" style="color: #d63384;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/97980273.html" title="我的恋爱日记10.30">我的恋爱日记10.30</a><time datetime="2025-10-30T12:00:35.000Z" title="发表于 2025-10-30 20:00:35">2025-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/90a8f6e6.html" title="关于素数的一系列解决办法">关于素数的一系列解决办法</a><time datetime="2025-10-30T11:32:53.000Z" title="发表于 2025-10-30 19:32:53">2025-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/ac6b0799.html" title="gcd的一些用法">gcd的一些用法</a><time datetime="2025-10-30T11:19:30.000Z" title="发表于 2025-10-30 19:19:30">2025-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By mymod</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div>/js/force-dark-pages.js<script>
+</head><body><div id="web_bg" style="background-image: url(/url('/images/%E5%A3%81%E7%BA%B8.jpg'));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">mymod的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">关于素数的一系列解决办法</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">关于素数的一系列解决办法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-30T11:32:53.000Z" title="发表于 2025-10-30 19:32:53">2025-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-31T13:51:38.031Z" title="更新于 2025-10-31 21:51:38">2025-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h2 id="🚀-排行总结（按实际运行速度和复杂度综合）"><a href="#🚀-排行总结（按实际运行速度和复杂度综合）" class="headerlink" title="🚀 排行总结（按实际运行速度和复杂度综合）"></a>🚀 排行总结（按实际运行速度和复杂度综合）</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>名称</th>
+<th>理论复杂度</th>
+<th>实际速度</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🥇 1</td>
+<td><strong>线性筛（Euler Sieve）</strong></td>
+<td>O(n)</td>
+<td>⚡⚡⚡⚡⚡</td>
+<td>每个合数只标一次，最干净最快</td>
+</tr>
+<tr>
+<td>🥈 2</td>
+<td><strong>快速埃式（奇数筛/位压缩版）</strong></td>
+<td>O(n log log n)</td>
+<td>⚡⚡⚡⚡</td>
+<td>节省空间、跳偶数</td>
+</tr>
+<tr>
+<td>🥉 3</td>
+<td><strong>标准埃式筛（Eratosthenes）</strong></td>
+<td>O(n log log n)</td>
+<td>⚡⚡⚡</td>
+<td>简单、稳健，入门首选</td>
+</tr>
+<tr>
+<td>🪨 4</td>
+<td><strong>试除法（6k±1 或暴力）</strong></td>
+<td>O(n√n)</td>
+<td>🐢</td>
+<td>太慢，只适合单个数判素</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="💬-总结一句人话："><a href="#💬-总结一句人话：" class="headerlink" title="💬 总结一句人话："></a>💬 总结一句人话：</h2><ul>
+<li><strong>只想快速写完题 → 标准埃式筛。</strong></li>
+<li><strong>想搞高效算法 / 竞赛用 → 线性筛。</strong></li>
+<li><strong>只判断一个数是不是素数 → 6k±1试除法。</strong></li>
+<li><strong>还用暴力除法 → 你在浪费电。</strong></li>
+</ul>
+<p>上述就是筛法的一个排行 <strong>试除法</strong>和<strong>暴力除法</strong>我们这里不涉及 <strong>因为一点意义都没有!!!!!</strong></p>
+<h1 id="埃式筛-也就是标准筛"><a href="#埃式筛-也就是标准筛" class="headerlink" title="埃式筛(也就是标准筛)"></a>埃式筛(也就是标准筛)</h1><p>好，那我用最“人话”的方式教你学会埃式筛。就当我们在教一个刚学会 <code>for</code> 循环的小孩。<br> 我们一步一念，绝对不会跳。</p>
+<hr>
+<h2 id="🧠-你要干什么？"><a href="#🧠-你要干什么？" class="headerlink" title="🧠 你要干什么？"></a>🧠 你要干什么？</h2><p>找出 1 到 200 里所有的素数。<br> 素数就是——只能被 1 和自己整除的数，比如：2, 3, 5, 7, 11…</p>
+<hr>
+<h2 id="🧩-第一步：准备一张表"><a href="#🧩-第一步：准备一张表" class="headerlink" title="🧩 第一步：准备一张表"></a>🧩 第一步：准备一张表</h2><p>想象一张表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">编号： 0  1  2  3  4  5  6  7  8  9  10 ... 200</span><br><span class="line">内容： 否 否 是 是 是 是 是 是 是 是 ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们先假设所有数字都是素数，用 <code>1</code> 表示“是素数”，用 <code>0</code> 表示“不是”。</li>
+<li>但是我们知道 0 和 1 不是素数，所以把它俩设为 <code>0</code>。</li>
+</ul>
+<p>C 语言实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> is_prime[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">200</span>; i++) &#123;</span><br><span class="line">    is_prime[i] = <span class="number">1</span>;  <span class="comment">// 先都当作是素数</span></span><br><span class="line">&#125;</span><br><span class="line">is_prime[<span class="number">0</span>] = is_prime[<span class="number">1</span>] = <span class="number">0</span>;  <span class="comment">// 0和1不是素数</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="🧩-第二步：从-2-开始圈掉倍数"><a href="#🧩-第二步：从-2-开始圈掉倍数" class="headerlink" title="🧩 第二步：从 2 开始圈掉倍数"></a>🧩 第二步：从 2 开始圈掉倍数</h2><p>我们从第一个素数 2 开始。<br> 2 的倍数（除了 2 本身）都不是素数，比如 4、6、8、10……<br> 所以我们把这些位置标成 0。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">2</span> * <span class="number">2</span>; j &lt;= <span class="number">200</span>; j += <span class="number">2</span>) &#123;</span><br><span class="line">    is_prime[j] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="🧩-第三步：找下一个没被划掉的数"><a href="#🧩-第三步：找下一个没被划掉的数" class="headerlink" title="🧩 第三步：找下一个没被划掉的数"></a>🧩 第三步：找下一个没被划掉的数</h2><p>划完 2 的倍数后，表里下一个没被划掉的数是 3。<br> 那 3 就是下一个素数。<br> 再把 3 的倍数（9, 12, 15, 18…）划掉。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">3</span> * <span class="number">3</span>; j &lt;= <span class="number">200</span>; j += <span class="number">3</span>) &#123;</span><br><span class="line">    is_prime[j] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="🧩-第四步：重复这个过程"><a href="#🧩-第四步：重复这个过程" class="headerlink" title="🧩 第四步：重复这个过程"></a>🧩 第四步：重复这个过程</h2><p>继续往后找：</p>
+<ul>
+<li>下一个没被划掉的是 5 → 划掉 25, 30, 35…</li>
+<li>再下一个是 7 → 划掉 49, 56, 63…</li>
+<li>一直循环，直到 √200 ≈ 14 为止。</li>
+</ul>
+<p>完整循环写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i * i &lt;= <span class="number">200</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (is_prime[i] == <span class="number">1</span>) &#123;  <span class="comment">// 如果这个数还没被划掉</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i * i; j &lt;= <span class="number">200</span>; j += i) &#123;</span><br><span class="line">            is_prime[j] = <span class="number">0</span>; <span class="comment">// 划掉它的倍数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="🧩-第五步：打印结果"><a href="#🧩-第五步：打印结果" class="headerlink" title="🧩 第五步：打印结果"></a>🧩 第五步：打印结果</h2><p>最后，把还没被划掉（值为1）的数都输出，就是所有素数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">200</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (is_prime[i] == <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="✨-最终完整代码"><a href="#✨-最终完整代码" class="headerlink" title="✨ 最终完整代码"></a>✨ 最终完整代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> is_prime[<span class="number">201</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">200</span>; i++) &#123;</span><br><span class="line">        is_prime[i] = <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="comment">//给他们带上素数的棋子</span></span><br><span class="line">    is_prime[<span class="number">0</span>] = is_prime[<span class="number">1</span>] = <span class="number">0</span>;<span class="comment">//这两个不是素数 直接抬走</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i * i &lt;= <span class="number">200</span><span class="comment">/*这里这样写就是可以降低重复率*/</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_prime[i] == <span class="number">1</span>) &#123;<span class="comment">//先给那些标称素数的进行一个验证</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i * i; j &lt;= <span class="number">200</span>; j += i) &#123;</span><br><span class="line">                is_prime[j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;200以内的素数：\n&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">200</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_prime[i] == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="🪄-你可以这么理解它："><a href="#🪄-你可以这么理解它：" class="headerlink" title="🪄 你可以这么理解它："></a>🪄 你可以这么理解它：</h2><ul>
+<li><code>is_prime</code> 就是一堆小旗子。</li>
+<li>你从 2 开始，一个一个数过去。</li>
+<li>每当遇到一个还竖着的小旗（说明它是素数），<br> 你就拿着大笔刷去把它的倍数“涂掉”。</li>
+<li>最后剩下没被涂掉的，都是素数。</li>
+</ul>
+<h1 id="快筛"><a href="#快筛" class="headerlink" title="快筛"></a>快筛</h1><h2 id="🧠-先搞清楚："><a href="#🧠-先搞清楚：" class="headerlink" title="🧠 先搞清楚："></a>🧠 先搞清楚：</h2><p>“快筛”不是新算法，它就是普通埃式筛的小升级：<br> 👉 不去处理所有偶数（因为除了 2，偶数全是合数）。<br> 👉 所以我们只管奇数，少干一半活。</p>
+<p>你可以理解成：</p>
+<blockquote>
+<p>原本你要清理 200 个房间，现在只清理奇数号的那 100 个，速度自然翻倍。</p>
+</blockquote>
+<hr>
+<h2 id="🧩-我们来一步步写："><a href="#🧩-我们来一步步写：" class="headerlink" title="🧩 我们来一步步写："></a>🧩 我们来一步步写：</h2><h3 id="第一步：准备数组"><a href="#第一步：准备数组" class="headerlink" title="第一步：准备数组"></a>第一步：准备数组</h3><p>我们只存<strong>奇数</strong>的状态。<br> 下标 <code>i</code> 代表数字 <code>2*i + 1</code>。<br> 比如：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>表示的数字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>9</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>C代码里：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> N = <span class="number">200</span>;</span><br><span class="line">    <span class="type">int</span> size = (N - <span class="number">1</span>) / <span class="number">2</span> + <span class="number">1</span>;  <span class="comment">// 表示到N的奇数数量</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> is_prime[size];</span><br><span class="line">    <span class="built_in">memset</span>(is_prime, <span class="number">1</span>, <span class="keyword">sizeof</span>(is_prime)); <span class="comment">// 全部假设是素数</span></span><br><span class="line">    is_prime[<span class="number">0</span>] = <span class="number">0</span>; <span class="comment">// 1 不是素数</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="第二步：开始筛"><a href="#第二步：开始筛" class="headerlink" title="第二步：开始筛"></a>第二步：开始筛</h3><p>我们要从 3 开始（下标 1），只筛奇数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; (<span class="number">2</span>*i + <span class="number">1</span>) * (<span class="number">2</span>*i + <span class="number">1</span>) &lt;= N; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (is_prime[i]) &#123;</span><br><span class="line">        <span class="type">int</span> p = <span class="number">2</span>*i + <span class="number">1</span>; <span class="comment">// 还原真实数字</span></span><br><span class="line">        <span class="comment">// 从 p*p 开始划去奇数倍</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = (p*p - <span class="number">1</span>)/<span class="number">2</span>; j &lt; size; j += p) &#123;</span><br><span class="line">            is_prime[j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>逻辑解释：</p>
+<ul>
+<li>从第一个奇数素数 3 开始；</li>
+<li>不用标偶数倍，比如 6、12、18；</li>
+<li>只标奇数倍，比如 9、15、21；</li>
+<li>所以只动一半的数，速度翻倍。</li>
+</ul>
+<hr>
+<h3 id="第三步：输出结果"><a href="#第三步：输出结果" class="headerlink" title="第三步：输出结果"></a>第三步：输出结果</h3><p>别忘了 2 是唯一的偶数素数，要单独打印。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;200以内的素数：\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;2 &quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; size; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_prime[i])</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, <span class="number">2</span>*i + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="📜-最终完整代码："><a href="#📜-最终完整代码：" class="headerlink" title="📜 最终完整代码："></a>📜 最终完整代码：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> N = <span class="number">200</span>;</span><br><span class="line">    <span class="type">int</span> size = (N - <span class="number">1</span>) / <span class="number">2</span> + <span class="number">1</span>;        <span class="comment">// 奇数数量</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> is_prime[size];</span><br><span class="line">    <span class="built_in">memset</span>(is_prime, <span class="number">1</span>, <span class="keyword">sizeof</span>(is_prime));</span><br><span class="line">    is_prime[<span class="number">0</span>] = <span class="number">0</span>;                   <span class="comment">// 1 不是素数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; (<span class="number">2</span>*i + <span class="number">1</span>) * (<span class="number">2</span>*i + <span class="number">1</span>) &lt;= N; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_prime[i]) &#123;</span><br><span class="line">            <span class="type">int</span> p = <span class="number">2</span>*i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = (p*p - <span class="number">1</span>)/<span class="number">2</span>; j &lt; size; j += p)</span><br><span class="line">                is_prime[j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;200以内的素数：\n2 &quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; size; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_prime[i])</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, <span class="number">2</span>*i + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="🎯-傻瓜总结"><a href="#🎯-傻瓜总结" class="headerlink" title="🎯 傻瓜总结"></a>🎯 傻瓜总结</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>意思</th>
+<th>为什么这样做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只存奇数</td>
+<td>少一半空间</td>
+<td>偶数没必要筛</td>
+</tr>
+<tr>
+<td>从 p*p 开始</td>
+<td>前面的倍数早被更小素数划了</td>
+<td>省事</td>
+</tr>
+<tr>
+<td>每次加 p</td>
+<td>跳到下一个奇数倍</td>
+<td>不碰偶数</td>
+</tr>
+<tr>
+<td>单独打印 2</td>
+<td>唯一的偶数素数</td>
+<td>特殊待遇</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🧮-运行结果："><a href="#🧮-运行结果：" class="headerlink" title="🧮 运行结果："></a>🧮 运行结果：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">200以内的素数：</span><br><span class="line">2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199</span><br></pre></td></tr></table></figure>
+<hr>
+<p>一句话记住：</p>
+<blockquote>
+<p>“快筛”就是埃式筛 + 跳偶数。<br> 做的事一样，干得更快。</p>
+</blockquote>
+<h1 id="线性筛"><a href="#线性筛" class="headerlink" title="线性筛"></a>线性筛</h1><h2 id="🍎-故事开场："><a href="#🍎-故事开场：" class="headerlink" title="🍎 故事开场："></a>🍎 故事开场：</h2><p>我们要从 1 数到 20，找出哪些数是素数。<br> 你是“质数班长”，手里拿一支笔，要在黑板上划掉不是素数的数字。</p>
+<hr>
+<h2 id="🧩-规则很简单："><a href="#🧩-规则很简单：" class="headerlink" title="🧩 规则很简单："></a>🧩 规则很简单：</h2><ol>
+<li>从 2 开始，一个个往上看。</li>
+<li>如果这个数还没被划掉 → 它就是素数。</li>
+<li>然后你拿“你已经认识的所有素数”去乘它。</li>
+<li>每乘出来一个结果，就把那个结果划掉。</li>
+<li>一旦发现这个素数整除了你当前的数字，就停下来，不划更多。</li>
+</ol>
+<hr>
+<h2 id="👀-举例说明："><a href="#👀-举例说明：" class="headerlink" title="👀 举例说明："></a>👀 举例说明：</h2><h3 id="第一个数字：2"><a href="#第一个数字：2" class="headerlink" title="第一个数字：2"></a>第一个数字：2</h3><ul>
+<li>没被划掉 → 是素数。</li>
+<li>素数表：<code>[2]</code></li>
+<li>拿 2 去乘它自己：<code>2*2=4</code> → 划掉 4。</li>
+<li>因为 2%2==0 → 停。</li>
+</ul>
+<hr>
+<h3 id="下一个数字：3"><a href="#下一个数字：3" class="headerlink" title="下一个数字：3"></a>下一个数字：3</h3><ul>
+<li>没被划 → 是素数。</li>
+<li>素数表：<code>[2, 3]</code></li>
+<li>用 2 去乘：<code>3*2=6</code> → 划掉 6。<br> 因为 3%2!=0，继续；</li>
+<li>用 3 去乘：<code>3*3=9</code> → 划掉 9。<br> 因为 3%3==0，停。</li>
+</ul>
+<hr>
+<h3 id="下一个数字：4"><a href="#下一个数字：4" class="headerlink" title="下一个数字：4"></a>下一个数字：4</h3><ul>
+<li>4 已经被划掉 → 跳过，不是素数。</li>
+<li>但我们也要拿 2 去乘：<br> <code>4*2=8</code> → 划掉。<br> 因为 4%2==0 → 停。</li>
+</ul>
+<hr>
+<h3 id="继续到-5："><a href="#继续到-5：" class="headerlink" title="继续到 5："></a>继续到 5：</h3><ul>
+<li>没被划 → 是素数。</li>
+<li>素数表 <code>[2,3,5]</code></li>
+<li>乘：<br> <code>5*2=10</code> → 划掉<br> <code>5*3=15</code> → 划掉<br> <code>5*5=25</code> 超出范围 → 停</li>
+</ul>
+<hr>
+<h3 id="6："><a href="#6：" class="headerlink" title="6："></a>6：</h3><ul>
+<li>已被标 → 合数</li>
+<li>拿 2 乘：<code>6*2=12</code> → 划掉</li>
+<li>因为 6%2==0 → 停</li>
+</ul>
+<p>就这样一轮一轮下去，每个数字只被“第一个能整除它的质数”划一次。</p>
+<hr>
+<h2 id="🧮-结果："><a href="#🧮-结果：" class="headerlink" title="🧮 结果："></a>🧮 结果：</h2><p>没被划掉的数字 = 素数。<br> 对 1~20 来说：<br> <code>2, 3, 5, 7, 11, 13, 17, 19</code></p>
+<hr>
+<h2 id="💻-C语言实现（超级傻瓜版）"><a href="#💻-C语言实现（超级傻瓜版）" class="headerlink" title="💻 C语言实现（超级傻瓜版）"></a>💻 C语言实现（超级傻瓜版）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    const int N = 200;</span><br><span class="line">    int is_comp[N + 1];  // 0 表示还没划掉，1 表示已经划掉</span><br><span class="line">    int primes[N + 1];   // 存所有素数</span><br><span class="line">    int count = 0;</span><br><span class="line"></span><br><span class="line">    memset(is_comp, 0, sizeof(is_comp));</span><br><span class="line"></span><br><span class="line">    for (int i = 2; i &lt;= N; i++) &#123;</span><br><span class="line">        if (!is_comp[i]) &#123;</span><br><span class="line">            primes[count++] = i;   // 这个数没被划掉，是素数</span><br><span class="line">        &#125;</span><br><span class="line">        for (int j = 0; j &lt; count; j++) &#123;</span><br><span class="line">            int p = primes[j];</span><br><span class="line">            if (i * p &gt; N) break;  // 超出范围就别划了</span><br><span class="line">            is_comp[i * p] = 1;    // 划掉这个合数</span><br><span class="line">            if (i % p == 0) break; // 一旦被这个质数整除，就停</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;200以内的素数：\n&quot;);</span><br><span class="line">    for (int i = 0; i &lt; count; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, primes[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="🎯-一句话总结"><a href="#🎯-一句话总结" class="headerlink" title="🎯 一句话总结"></a>🎯 一句话总结</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>规则</th>
+<th>重复划吗</th>
+<th>速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>暴力试除</td>
+<td>一个个除</td>
+<td>很多</td>
+<td>最慢</td>
+</tr>
+<tr>
+<td>埃式筛</td>
+<td>一个素数划所有倍数</td>
+<td>有点重复</td>
+<td>快</td>
+</tr>
+<tr>
+<td>线性筛</td>
+<td>每个合数只被最小质因子划一次</td>
+<td>不重复</td>
+<td>最快</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>如果你能记住一句话，你就懂线性筛了：</p>
+<blockquote>
+<p><strong>“每个数只让它的第一个质因子出手一次。”</strong></p>
+</blockquote>
+<p>要不要我帮你画成一张表格（比如1到30）告诉你每个数是被谁“干掉”的？那张表会让你彻底看懂原理。</p>
+<h5 id="您说："><a href="#您说：" class="headerlink" title="您说："></a>您说：</h5><p>我理解他的逻辑但是我不理解为什么是这么做的</p>
+<h6 id="ChatGPT-说："><a href="#ChatGPT-说：" class="headerlink" title="ChatGPT 说："></a>ChatGPT 说：</h6><p>非常好，这个问题说明你已经不只是“会抄算法”，而是真的想<strong>理解它的逻辑根源</strong>。<br> 我来用<strong>非常通俗的方式</strong>告诉你，为什么线性筛要“这么做”，而且“这么做就对了”。</p>
+<hr>
+<h2 id="🧠-一句话先定调"><a href="#🧠-一句话先定调" class="headerlink" title="🧠 一句话先定调"></a>🧠 一句话先定调</h2><p>线性筛的那句核心代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (i % p == 0) break;</span><br></pre></td></tr></table></figure>
+<p>其实就是在控制——<br> 👉 每个合数，只被“它的最小质因子”负责一次。<br> 这就是整个算法的灵魂。<br> 下面我分成三个阶段帮你想透它。</p>
+<hr>
+<h2 id="🧩-一、回忆一下埃式筛的问题"><a href="#🧩-一、回忆一下埃式筛的问题" class="headerlink" title="🧩 一、回忆一下埃式筛的问题"></a>🧩 一、回忆一下埃式筛的问题</h2><p>埃式筛干的活是：</p>
+<ul>
+<li>每发现一个素数，就去划它的倍数。</li>
+<li>比如 12 会被谁划？<ul>
+<li>被 2 划一次（2×6）</li>
+<li>被 3 又划一次（3×4）</li>
+<li>被 4 还可能划（虽然4不是素数）</li>
+</ul>
+</li>
+</ul>
+<p>这就叫“<strong>重复劳动</strong>”。<br> 埃式筛虽然已经很快，但它对每个合数都可能划很多次。</p>
+<hr>
+<h2 id="🧩-二、那我们能不能让每个合数只被“一个人”划？"><a href="#🧩-二、那我们能不能让每个合数只被“一个人”划？" class="headerlink" title="🧩 二、那我们能不能让每个合数只被“一个人”划？"></a>🧩 二、那我们能不能让每个合数只被“一个人”划？</h2><p>我们希望：</p>
+<ul>
+<li>12 只被 2 处理一次；</li>
+<li>18 只被 3 处理一次；</li>
+<li>25 只被 5 处理一次。</li>
+</ul>
+<p>那怎么办？<br> 我们规定：</p>
+<blockquote>
+<p><strong>一个合数只能被它的最小质因子负责。</strong></p>
+</blockquote>
+<hr>
+<h2 id="🧩-三、算法的关键思想：i-×-p"><a href="#🧩-三、算法的关键思想：i-×-p" class="headerlink" title="🧩 三、算法的关键思想：i × p"></a>🧩 三、算法的关键思想：i × p</h2><p>我们从小到大枚举 i，然后拿素数表里的质数去乘它。</p>
+<p>每当我们在循环中计算：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i * p</span><br></pre></td></tr></table></figure>
+<p>这个结果就是一个合数。<br> <strong>那这个合数的最小质因子是谁？</strong><br> 答案：一定是 <code>p</code>。</p>
+<p>为什么？看下面的分析。</p>
+<hr>
+<h3 id="🔍-情况1：i-没有被-p-整除"><a href="#🔍-情况1：i-没有被-p-整除" class="headerlink" title="🔍 情况1：i 没有被 p 整除"></a>🔍 情况1：i 没有被 p 整除</h3><p>比如 i = 9, p = 2。<br> → i * p = 18。<br> 18 的质因子有 2, 3, 6…<br> 最小质因子确实是 2。✅<br> 说明标记 18 的动作是正确的。</p>
+<hr>
+<h3 id="🔍-情况2：i-能被-p-整除"><a href="#🔍-情况2：i-能被-p-整除" class="headerlink" title="🔍 情况2：i 能被 p 整除"></a>🔍 情况2：i 能被 p 整除</h3><p>比如 i = 6, p = 2。<br> → i * p = 12。<br> 12 的质因子里，最小质因子也是 2。✅<br> 所以标记 12 这次没问题。</p>
+<p>但再往后如果我用 p=3，再标一次：<br> i = 6, p = 3 → i*p = 18。<br> 18 的最小质因子其实是 2，不是 3。<br> 那 18 已经在“2”那轮被标过了，<br> 这次再标就是重复劳动。❌</p>
+<p>所以，我们一旦发现 i 已经被 p 整除（<code>i % p == 0</code>），<br> 我们就知道：</p>
+<blockquote>
+<p>“再往后的质数都会比 p 大，它们标出来的乘积 i<em>p’ 的最小质因子仍然是 p。”<br> 于是我们<em>*立即停下</em></em>。</p>
+</blockquote>
+<hr>
+<h2 id="⚙️-用人话总结整个逻辑链"><a href="#⚙️-用人话总结整个逻辑链" class="headerlink" title="⚙️ 用人话总结整个逻辑链"></a>⚙️ 用人话总结整个逻辑链</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>我们要标出所有合数。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>每个合数应该只被它的最小质因子标一次。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>枚举 i，并用所有质数 p 去乘 i。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>当 i%p==0 时，说明 p 是 i 的最小质因子。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>那 i*p 也一定以 p 为最小质因子；更大的质数乘它都是重复。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>所以我们停下。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这就是为什么“<strong>这么做</strong>”是正确的。</p>
+<hr>
+<h2 id="🎯-一句话记死："><a href="#🎯-一句话记死：" class="headerlink" title="🎯 一句话记死："></a>🎯 一句话记死：</h2><blockquote>
+<p>“因为 i 是被从小到大遍历的，所以当 i%p==0 时，p 一定是 i 的最小质因子。<br> 所以 i*p 的最小质因子也是 p。<br> 因此它只该被 p 这一轮标记一次，之后全跳过。”</p>
+</blockquote>
+<hr>
+<h2 id="💡-对比图（简化）："><a href="#💡-对比图（简化）：" class="headerlink" title="💡 对比图（简化）："></a>💡 对比图（简化）：</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数</th>
+<th>最小质因子</th>
+<th>谁标的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>2×2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>3×2</td>
+</tr>
+<tr>
+<td>9</td>
+<td>3</td>
+<td>3×3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2</td>
+<td>5×2</td>
+</tr>
+<tr>
+<td>15</td>
+<td>3</td>
+<td>5×3</td>
+</tr>
+<tr>
+<td>25</td>
+<td>5</td>
+<td>5×5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>每个合数，只出现一次标记，完美。</p>
+<hr>
+<p>你现在的感觉可能是：“哦——它不是魔法，是逻辑顺序决定的！”<br> 没错。线性筛看起来像“有技巧”，其实它只是精确地利用了：</p>
+<blockquote>
+<p>“从小到大遍历 + 最小质因子规律”。</p>
+</blockquote>
+<hr>
+<p>要不要我帮你画出一个“6×6 的乘法表”，<br> 在上面标出哪些格子会被线性筛划掉、哪些会被跳过？<br> 那张表一看就能直观理解“为什么停得刚刚好”。</p>
+<h5 id="您说：-1"><a href="#您说：-1" class="headerlink" title="您说："></a>您说：</h5><p>为什么因为 6%2==0 → 停</p>
+<h6 id="ChatGPT-说：-1"><a href="#ChatGPT-说：-1" class="headerlink" title="ChatGPT 说："></a>ChatGPT 说：</h6><p>这句“因为 6%2==0 → 停”，是整个<strong>线性筛的灵魂</strong>，但第一次看到确实容易懵。<br> 别怕，我们不讲数学名词，就用生活比喻让你一秒懂。</p>
+<hr>
+<h2 id="🎯-我们先说结论："><a href="#🎯-我们先说结论：" class="headerlink" title="🎯 我们先说结论："></a>🎯 我们先说结论：</h2><blockquote>
+<p>当 <code>i % p == 0</code>，说明 <strong>p 已经是 i 的最小质因子</strong>，<br> 所以任何比 p 更大的质数再去乘 i，得到的结果都会“被多次标记”，<br> 我们要及时“刹车”。</p>
+</blockquote>
+<hr>
+<h2 id="🧩-用现实比喻理解："><a href="#🧩-用现实比喻理解：" class="headerlink" title="🧩 用现实比喻理解："></a>🧩 用现实比喻理解：</h2><p>想象你在工厂贴标签。</p>
+<ul>
+<li>每个数代表一个产品编号。</li>
+<li>每个素数代表一个“质检员”。</li>
+<li>合数的工作是：要被它的<strong>第一个能整除它的质检员</strong>打上“非合格”标签。</li>
+</ul>
+<p>工厂规定：</p>
+<blockquote>
+<p>任何产品只允许被最小质检员打一次标签，别重复浪费时间。</p>
+</blockquote>
+<hr>
+<p>现在你是检查员，轮到你在看 <code>i = 6</code> 这件产品。</p>
+<p>你的质检员名单是 <code>[2, 3, 5, 7...]</code>。</p>
+<p>开始干活：</p>
+<ol>
+<li>第一个质检员 2 来检查：<ul>
+<li>6%2==0 → “哦，这件产品（6）能被我整除，所以我是它的最小质因子。”</li>
+<li>于是他打上标签，并负责它的“后代产品”：<code>6*2=12</code>。</li>
+<li>打完后，他喊：“后面的人别来了，这活我干完了。”</li>
+<li>所以你 <code>break</code> 停止循环。</li>
+</ul>
+</li>
+<li>如果你不停止，后面的质检员（3、5、7）还会来：<ul>
+<li>3 会再标 18</li>
+<li>5 会再标 30</li>
+<li>但这些数的最小质因子都是 2，本该在 2 那一轮就被标过。</li>
+<li>所以他们做的都是重复劳动。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="🧮-换成数学语言："><a href="#🧮-换成数学语言：" class="headerlink" title="🧮 换成数学语言："></a>🧮 换成数学语言：</h2><p>当我们在循环：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (int j = 0; j &lt; count; j++) &#123;</span><br><span class="line">    int p = primes[j];</span><br><span class="line">    if (i * p &gt; N) break;</span><br><span class="line">    is_comp[i * p] = 1;</span><br><span class="line">    if (i % p == 0) break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的意思就是：</p>
+<ul>
+<li>对每个 i，我们拿质数 p 去生成新数 i*p。</li>
+<li>但一旦 <code>i</code> 能被 <code>p</code> 整除：<ul>
+<li>那说明 p 是 i 的最小质因子。</li>
+<li>那 i*p 的最小质因子也一定是 p（而不是别的质数）。</li>
+<li>所以之后再用更大的质数 q 去乘 i（比如 i<em>q），<br> 那个结果 i</em>q 的最小质因子仍然是 p，而不是 q。<br> 它以后会在“p 那轮”被标，不归你这轮负责。</li>
+<li>所以我们直接停下，不再继续循环。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="🧱-举例说明（实打实的数字）："><a href="#🧱-举例说明（实打实的数字）：" class="headerlink" title="🧱 举例说明（实打实的数字）："></a>🧱 举例说明（实打实的数字）：</h2><p>i = 6，素数表 [2,3,5]</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>i*p</th>
+<th>i%p</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>12</td>
+<td>0</td>
+<td>2 是 6 的最小质因子 → 停</td>
+</tr>
+<tr>
+<td>3</td>
+<td>18</td>
+<td>（没机会执行）</td>
+<td>本来该由 2 那轮标掉</td>
+</tr>
+<tr>
+<td>5</td>
+<td>30</td>
+<td>（也不用标）</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>结果：12 被标一次，18、30 由别的人标，不重复。</p>
+<hr>
+<h2 id="💡-再看一个不会停的例子："><a href="#💡-再看一个不会停的例子：" class="headerlink" title="💡 再看一个不会停的例子："></a>💡 再看一个不会停的例子：</h2><p>i = 9，素数表 [2,3,5]</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>i*p</th>
+<th>i%p</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>18</td>
+<td>≠0</td>
+<td>继续，因为 2 不是 9 的因子</td>
+</tr>
+<tr>
+<td>3</td>
+<td>27</td>
+<td>=0</td>
+<td>3 是 9 的最小质因子 → 停</td>
+</tr>
+<tr>
+<td>5</td>
+<td>（不执行）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这样就保证了：</p>
+<ul>
+<li>18 被 2 标一次。</li>
+<li>27 被 3 标一次。</li>
+<li>没有人重复干活。</li>
+</ul>
+<hr>
+<h2 id="🧩-一句话总结："><a href="#🧩-一句话总结：" class="headerlink" title="🧩 一句话总结："></a>🧩 一句话总结：</h2><blockquote>
+<p><strong>“当 i 能被 p 整除时，p 已经是 i 的最小质因子，<br> 所以后面的质数就不该再碰 i 的倍数，<br> 否则他们会抢活干，浪费时间。”</strong></p>
+</blockquote>
+<hr>
+<p>你可以把那句 <code>if (i % p == 0) break;</code> 想成工厂里的“禁止重复贴标签”按钮。<br> 按下去，就代表“这批货我负责，后面的别动”。</p>
+<p>这，就是线性筛为什么这么做。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">mymod</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/90a8f6e6.html">http://example.com/posts/90a8f6e6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">mymod的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E7%B1%BB/">算法类</a><a class="post-meta__tags" href="/tags/%E5%BF%AB%E7%AD%9B/">快筛</a><a class="post-meta__tags" href="/tags/%E6%A0%87%E5%87%86%E7%AD%9B/">标准筛</a><a class="post-meta__tags" href="/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/">线性筛</a><a class="post-meta__tags" href="/tags/%E6%B1%82%E7%B4%A0%E6%95%B0/">求素数</a></div><div class="post-share"><div class="social-share" data-image="/img/%E5%A4%B4%E5%83%8F.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/97980273.html" title="我的恋爱日记10.30"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">我的恋爱日记10.30</div></div><div class="info-2"><div class="info-item-1">好棒哦明天就是周五 可以睡很久啦!!!今天过得还好 虽然说确实是发病了 感觉脑子里有点波在震荡www 我是不是中了毒电波(不是其余的日常都很简短 但是今天脑子里一直有一个很强烈的想法 就是超级想我的宝宝想死了想到快疯掉!!!!!呜呜呜好像让我的宝宝身体好起来 超级想哦 每天都想 不想让他不好 能不能锁住他的喉咙 把他绑起来 这样他就不会走了 当然她本身也不会走 我就是怕嘛我就是好想我的宝宝能够快快好起来 不管怎么样好起来就好 !!!呜呜呜宝宝快好起来qwq这篇日记好抽象 我就喜欢抽象的 正好作为开端 但是没办法 今天就是超级想超级想我的宝宝呜呜呜希望我的宝宝好好的 我们一直好好的 我爱你 爱死你了 要把全世界送给你!!!爱你哦（づ￣3￣）づ╭❤～Mua!!!</div></div></div></a><a class="pagination-related" href="/posts/ac6b0799.html" title="gcd的一些用法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">gcd的一些用法</div></div><div class="info-2"><div class="info-item-1">最大公因数与最小公倍数✅ 什么是欧几里得算法（辗转相除法）？一句话：  就是不断用“大数 ÷ 小数”，然后把“小数”与“余数”继续来除，直到余数变成 0，那个最后的除数就是最大公因数。   ✅ 为什么这么做是对的？（傻瓜理解逻辑）假设你要找两个数的最大公因数，比如 18 和 12。 你可能第一想法：“我把它们俩共同的因数列出来比较一下？” 18 的因数：1 2 3 6 9 18 12 的因数：1 2 3 4 6 12 共同的：1 2 3 6 最大：6 对！结果是6。 但欧几里得算法的做法是：  ✅ 按步骤傻瓜化演示（以 18 和 12 为例）    步骤 操作 说明     1 18 ÷ 12 = 商 1 余 6 原来18和12的“共同因数”能帮我产生这个 6   2 接下来把“12”和“6”继续做除法 也就是 12 ÷ 6   3 12 ÷ 6 = 商 2 余 0 余数为0说明整除了   4 最后一次 被除数 就是最大公因数 6 就是最大公因数     记住一句核心口诀：  大数 ÷ 小数 = 余数 再用小数 ÷ 余数 循环到余数是0为止 最后的除数 = 最大公因数   ✅ 再...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/ac6b0799.html" title="gcd的一些用法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-30</div><div class="info-item-2">gcd的一些用法</div></div><div class="info-2"><div class="info-item-1">最大公因数与最小公倍数✅ 什么是欧几里得算法（辗转相除法）？一句话：  就是不断用“大数 ÷ 小数”，然后把“小数”与“余数”继续来除，直到余数变成 0，那个最后的除数就是最大公因数。   ✅ 为什么这么做是对的？（傻瓜理解逻辑）假设你要找两个数的最大公因数，比如 18 和 12。 你可能第一想法：“我把它们俩共同的因数列出来比较一下？” 18 的因数：1 2 3 6 9 18 12 的因数：1 2 3 4 6 12 共同的：1 2 3 6 最大：6 对！结果是6。 但欧几里得算法的做法是：  ✅ 按步骤傻瓜化演示（以 18 和 12 为例）    步骤 操作 说明     1 18 ÷ 12 = 商 1 余 6 原来18和12的“共同因数”能帮我产生这个 6   2 接下来把“12”和“6”继续做除法 也就是 12 ÷ 6   3 12 ÷ 6 = 商 2 余 0 余数为0说明整除了   4 最后一次 被除数 就是最大公因数 6 就是最大公因数     记住一句核心口诀：  大数 ÷ 小数 = 余数 再用小数 ÷ 余数 循环到余数是0为止 最后的除数 = 最大公因数   ✅ 再...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">mymod</div><div class="author-info-description">这是属于本人的博客啦 本人十分友好是好人哦嘻嘻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/mymod233" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/images/qr/wechat.png" target="_blank" title="WeChat"><i class="fab fa-weixin" style="color: #1aad19;"></i></a><a class="social-icon" href="https://t.me/mymod114" target="_blank" title="Telegram"><i class="fab fa-telegram-plane" style="color: #179cde;"></i></a><a class="social-icon" href="https://x.com/Anei1Ma" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a><a class="social-icon" href="https://www.instagram.com/jim31104?igsh=MXg3cXQwbmZ2Mnl5cQ==" target="_blank" title="Instagram"><i class="fab fa-instagram" style="color: #d63384;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%80-%E6%8E%92%E8%A1%8C%E6%80%BB%E7%BB%93%EF%BC%88%E6%8C%89%E5%AE%9E%E9%99%85%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E5%92%8C%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%BB%BC%E5%90%88%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">🚀 排行总结（按实际运行速度和复杂度综合）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%AC-%E6%80%BB%E7%BB%93%E4%B8%80%E5%8F%A5%E4%BA%BA%E8%AF%9D%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">💬 总结一句人话：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%83%E5%BC%8F%E7%AD%9B-%E4%B9%9F%E5%B0%B1%E6%98%AF%E6%A0%87%E5%87%86%E7%AD%9B"><span class="toc-number"></span> <span class="toc-text">埃式筛(也就是标准筛)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A0-%E4%BD%A0%E8%A6%81%E5%B9%B2%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">🧠 你要干什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%87%86%E5%A4%87%E4%B8%80%E5%BC%A0%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">🧩 第一步：准备一张表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E4%BB%8E-2-%E5%BC%80%E5%A7%8B%E5%9C%88%E6%8E%89%E5%80%8D%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">🧩 第二步：从 2 开始圈掉倍数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%89%BE%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B2%A1%E8%A2%AB%E5%88%92%E6%8E%89%E7%9A%84%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">🧩 第三步：找下一个没被划掉的数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E9%87%8D%E5%A4%8D%E8%BF%99%E4%B8%AA%E8%BF%87%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">🧩 第四步：重复这个过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C"><span class="toc-number">6.</span> <span class="toc-text">🧩 第五步：打印结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-%E6%9C%80%E7%BB%88%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text">✨ 最终完整代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%AA%84-%E4%BD%A0%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E7%90%86%E8%A7%A3%E5%AE%83%EF%BC%9A"><span class="toc-number">8.</span> <span class="toc-text">🪄 你可以这么理解它：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E7%AD%9B"><span class="toc-number"></span> <span class="toc-text">快筛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A0-%E5%85%88%E6%90%9E%E6%B8%85%E6%A5%9A%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">🧠 先搞清楚：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E6%88%91%E4%BB%AC%E6%9D%A5%E4%B8%80%E6%AD%A5%E6%AD%A5%E5%86%99%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">🧩 我们来一步步写：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%87%86%E5%A4%87%E6%95%B0%E7%BB%84"><span class="toc-number">2.1.</span> <span class="toc-text">第一步：准备数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%BC%80%E5%A7%8B%E7%AD%9B"><span class="toc-number">2.2.</span> <span class="toc-text">第二步：开始筛</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="toc-number">2.3.</span> <span class="toc-text">第三步：输出结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9C-%E6%9C%80%E7%BB%88%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">📜 最终完整代码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E5%82%BB%E7%93%9C%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">🎯 傻瓜总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%AE-%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">🧮 运行结果：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%AD%9B"><span class="toc-number"></span> <span class="toc-text">线性筛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8D%8E-%E6%95%85%E4%BA%8B%E5%BC%80%E5%9C%BA%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">🍎 故事开场：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E8%A7%84%E5%88%99%E5%BE%88%E7%AE%80%E5%8D%95%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">🧩 规则很简单：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%80-%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">👀 举例说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%EF%BC%9A2"><span class="toc-number">3.1.</span> <span class="toc-text">第一个数字：2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%EF%BC%9A3"><span class="toc-number">3.2.</span> <span class="toc-text">下一个数字：3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97%EF%BC%9A4"><span class="toc-number">3.3.</span> <span class="toc-text">下一个数字：4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E5%88%B0-5%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">继续到 5：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%EF%BC%9A"><span class="toc-number">3.5.</span> <span class="toc-text">6：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%AE-%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">🧮 结果：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%BB-C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%EF%BC%88%E8%B6%85%E7%BA%A7%E5%82%BB%E7%93%9C%E7%89%88%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">💻 C语言实现（超级傻瓜版）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">🎯 一句话总结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%82%A8%E8%AF%B4%EF%BC%9A"><span class="toc-number">6.0.0.1.</span> <span class="toc-text">您说：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ChatGPT-%E8%AF%B4%EF%BC%9A"><span class="toc-number">6.0.0.1.1.</span> <span class="toc-text">ChatGPT 说：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A0-%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%85%88%E5%AE%9A%E8%B0%83"><span class="toc-number">7.</span> <span class="toc-text">🧠 一句话先定调</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E4%B8%80%E3%80%81%E5%9B%9E%E5%BF%86%E4%B8%80%E4%B8%8B%E5%9F%83%E5%BC%8F%E7%AD%9B%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">8.</span> <span class="toc-text">🧩 一、回忆一下埃式筛的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E4%BA%8C%E3%80%81%E9%82%A3%E6%88%91%E4%BB%AC%E8%83%BD%E4%B8%8D%E8%83%BD%E8%AE%A9%E6%AF%8F%E4%B8%AA%E5%90%88%E6%95%B0%E5%8F%AA%E8%A2%AB%E2%80%9C%E4%B8%80%E4%B8%AA%E4%BA%BA%E2%80%9D%E5%88%92%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">🧩 二、那我们能不能让每个合数只被“一个人”划？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E4%B8%89%E3%80%81%E7%AE%97%E6%B3%95%E7%9A%84%E5%85%B3%E9%94%AE%E6%80%9D%E6%83%B3%EF%BC%9Ai-%C3%97-p"><span class="toc-number">10.</span> <span class="toc-text">🧩 三、算法的关键思想：i × p</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%8D-%E6%83%85%E5%86%B51%EF%BC%9Ai-%E6%B2%A1%E6%9C%89%E8%A2%AB-p-%E6%95%B4%E9%99%A4"><span class="toc-number">10.1.</span> <span class="toc-text">🔍 情况1：i 没有被 p 整除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%8D-%E6%83%85%E5%86%B52%EF%BC%9Ai-%E8%83%BD%E8%A2%AB-p-%E6%95%B4%E9%99%A4"><span class="toc-number">10.2.</span> <span class="toc-text">🔍 情况2：i 能被 p 整除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9A%99%EF%B8%8F-%E7%94%A8%E4%BA%BA%E8%AF%9D%E6%80%BB%E7%BB%93%E6%95%B4%E4%B8%AA%E9%80%BB%E8%BE%91%E9%93%BE"><span class="toc-number">11.</span> <span class="toc-text">⚙️ 用人话总结整个逻辑链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E4%B8%80%E5%8F%A5%E8%AF%9D%E8%AE%B0%E6%AD%BB%EF%BC%9A"><span class="toc-number">12.</span> <span class="toc-text">🎯 一句话记死：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-%E5%AF%B9%E6%AF%94%E5%9B%BE%EF%BC%88%E7%AE%80%E5%8C%96%EF%BC%89%EF%BC%9A"><span class="toc-number">13.</span> <span class="toc-text">💡 对比图（简化）：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%82%A8%E8%AF%B4%EF%BC%9A-1"><span class="toc-number">13.0.0.1.</span> <span class="toc-text">您说：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ChatGPT-%E8%AF%B4%EF%BC%9A-1"><span class="toc-number">13.0.0.1.1.</span> <span class="toc-text">ChatGPT 说：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E6%88%91%E4%BB%AC%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA%EF%BC%9A"><span class="toc-number">14.</span> <span class="toc-text">🎯 我们先说结论：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E7%94%A8%E7%8E%B0%E5%AE%9E%E6%AF%94%E5%96%BB%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="toc-number">15.</span> <span class="toc-text">🧩 用现实比喻理解：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%AE-%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%A6%E8%AF%AD%E8%A8%80%EF%BC%9A"><span class="toc-number">16.</span> <span class="toc-text">🧮 换成数学语言：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%B1-%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%EF%BC%88%E5%AE%9E%E6%89%93%E5%AE%9E%E7%9A%84%E6%95%B0%E5%AD%97%EF%BC%89%EF%BC%9A"><span class="toc-number">17.</span> <span class="toc-text">🧱 举例说明（实打实的数字）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-%E5%86%8D%E7%9C%8B%E4%B8%80%E4%B8%AA%E4%B8%8D%E4%BC%9A%E5%81%9C%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-number">18.</span> <span class="toc-text">💡 再看一个不会停的例子：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A9-%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">19.</span> <span class="toc-text">🧩 一句话总结：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/97980273.html" title="我的恋爱日记10.30">我的恋爱日记10.30</a><time datetime="2025-10-30T12:00:35.000Z" title="发表于 2025-10-30 20:00:35">2025-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/90a8f6e6.html" title="关于素数的一系列解决办法">关于素数的一系列解决办法</a><time datetime="2025-10-30T11:32:53.000Z" title="发表于 2025-10-30 19:32:53">2025-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/ac6b0799.html" title="gcd的一些用法">gcd的一些用法</a><time datetime="2025-10-30T11:19:30.000Z" title="发表于 2025-10-30 19:19:30">2025-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By mymod</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div>/js/force-dark-pages.js<script>
   (function () {
     if (window.__L2D_LOADED__) return;
     window.__L2D_LOADED__ = true;
