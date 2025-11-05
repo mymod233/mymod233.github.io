@@ -1,0 +1,959 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>深搜的相关的知识 | mymod的博客</title><meta name="author" content="mymod"><meta name="copyright" content="mymod"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="深搜的相关的知识想象有一棵树： 12345  1 &#x2F; \2   3   &#x2F; \  4   5 这5个点我们就给它们编号：1, 2, 3, 4, 5。 编号相当于“身份证号”，每个节点都有一个独一无二的号码。  二、我们要干的事我们要告诉电脑：  每个节点有哪些孩子； 然后从根（1号）出发，去深搜所有节点。   三、先造存储结构（这部分最关键）在C++里，我们用一个邻接表（adjacency lis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深搜的相关的知识">
+<meta property="og:url" content="http://example.com/posts/3ca83f46.html">
+<meta property="og:site_name" content="mymod的博客">
+<meta property="og:description" content="深搜的相关的知识想象有一棵树： 12345  1 &#x2F; \2   3   &#x2F; \  4   5 这5个点我们就给它们编号：1, 2, 3, 4, 5。 编号相当于“身份证号”，每个节点都有一个独一无二的号码。  二、我们要干的事我们要告诉电脑：  每个节点有哪些孩子； 然后从根（1号）出发，去深搜所有节点。   三、先造存储结构（这部分最关键）在C++里，我们用一个邻接表（adjacency lis">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg">
+<meta property="article:published_time" content="2025-11-05T05:39:39.000Z">
+<meta property="article:modified_time" content="2025-11-05T05:40:22.352Z">
+<meta property="article:author" content="mymod">
+<meta property="article:tag" content="树">
+<meta property="article:tag" content="深度优先搜索">
+<meta property="article:tag" content="算法类">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "深搜的相关的知识",
+  "url": "http://example.com/posts/3ca83f46.html",
+  "image": "http://example.com/img/%E5%A4%B4%E5%83%8F.jpg",
+  "datePublished": "2025-11-05T05:39:39.000Z",
+  "dateModified": "2025-11-05T05:40:22.352Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "mymod",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/posts/3ca83f46.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '深搜的相关的知识',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="manifest" href="/manifest.json"><style>
+html,body{height:100%;margin:0}
+/* 全站唯一壁纸：滚动不换场景 */
+body{
+  background-image:url('/images/wall.jpg');   /* ← 把文件放在 source/images/wall.jpg */
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+/* 封面只留打字机文本，别再铺自己的底图 */
+.cover, .cover .cover-img, .cover .bg,
+.cover:before, .cover:after{
+  background:transparent !important;
+  background-image:none !important;
+}
+.cover .mask, .cover .cover-mask{
+  background:rgba(0,0,0,0.12) !important;  /* 想更通透就调更小或设为0 */
+}
+.cover{height:100vh !important}
+
+/* 把封面下面那些爱铺白底的容器统统打透明 */
+#web_bg,#page,#body-wrap,.layout,.main-inner,#content-inner,#recent-posts,.aside-content{
+  background:transparent !important;
+}
+
+/* 卡片半透明 + 轻磨砂，保证可读 */
+.card,.card-widget,.recent-posts .recent-post-item,.post-block,.post-content,
+.timeline,.category-list,.tag-cloud,.pagination .page-number,.pagination .extend{
+  background:rgba(255,255,255,0.82) !important;
+  backdrop-filter:blur(10px) saturate(180%);
+  -webkit-backdrop-filter:blur(10px) saturate(180%);
+}
+[data-theme="dark"] .card,[data-theme="dark"] .card-widget,
+[data-theme="dark"] .recent-posts .recent-post-item,[data-theme="dark"] .post-block,
+[data-theme="dark"] .post-content,[data-theme="dark"] .timeline,
+[data-theme="dark"] .category-list,[data-theme="dark"] .tag-cloud,
+[data-theme="dark"] .pagination .page-number,[data-theme="dark"] .pagination .extend{
+  background:rgba(0,0,0,0.42) !important;
+}
+/* 顶栏透明悬浮（不想透明就删掉这行） */
+#nav{background:transparent !important;box-shadow:none !important}
+/* 页脚透明 */
+#footer, .footer, footer{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#footer:before, #footer:after{
+  background: transparent !important;
+}
+/* 1) 页面头部容器改透明，不要背景色 */
+/* 保留主页透明，但恢复正文容器为非透明以承托文字 *
+#web_bg, .cover, .aside-content { background: transparent !important; }
+/* 恢复正文外围容器的背景承托 */
+</style>
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script><style>
+  /* 恋爱计时卡片（与公告一致） */
+  #card-love.card-widget{padding:0;position:relative;overflow:hidden;}
+  #card-love .item-headline{
+    display:flex;align-items:center;gap:.5rem;
+    padding:14px 18px;border-bottom:1px solid rgba(0,0,0,.06)
+  }
+  [data-theme="dark"] #card-love .item-headline{border-color:rgba(255,255,255,.06)}
+  #card-love .item-headline i{color:#e25555}
+  #card-love .love-body{padding:18px;position:relative;z-index:2;}
+  #card-love .love-avatars{
+    display:flex;align-items:center;justify-content:center;
+    gap:18px;margin-bottom:10px
+  }
+  #card-love .love-avatars .avatar{
+    width:58px;height:58px;border-radius:50%;
+    object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,.12)
+  }
+  #card-love .love-avatars .heart{
+    font-size:18px;color:#e25555;opacity:.9
+  }
+  #card-love .love-text{
+    text-align:center;font-size:18px;font-weight:600;margin:8px 0 2px;
+  }
+  #card-love .love-sub{text-align:center;font-size:12px;opacity:.7}
+
+  /* 飘心层与动画（仅在卡片内部） */
+  #card-love .love-hearts{position:absolute;inset:0;z-index:1;pointer-events:none;}
+  #card-love .heart-bubble{
+    position:absolute;bottom:-12px;opacity:0;line-height:1;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));
+    animation:love-rise 3.6s ease-in forwards;
+  }
+  @keyframes love-rise{
+     0%{transform:translateY(0) scale(.8) rotate(0deg);opacity:0;}
+    10%{opacity:.9;}
+    70%{opacity:.9;}
+   100%{transform:translateY(-120%) scale(1.25) rotate(12deg);opacity:0;}
+  }
+</style>
+<style>
+/* 精准隐藏侧栏个人卡片里的 Follow Me 按钮（不伤社交图标） */
+#card-info #card-info-btn,
+#card-info .card-info-btn {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+/* 如果主题原本给按钮下方预留了空隙，顺手收一下间距 */
+#card-info .card-info-social-icons {
+  margin-top: 12px !important; /* 需要更紧就改小；需要更松就改大 */
+}
+</style>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="mymod的博客" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(/url('/images/%E5%A3%81%E7%BA%B8.jpg'));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">mymod的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">深搜的相关的知识</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">深搜的相关的知识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-05T05:39:39.000Z" title="发表于 2025-11-05 13:39:39">2025-11-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-05T05:40:22.352Z" title="更新于 2025-11-05 13:40:22">2025-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="深搜的相关的知识"><a href="#深搜的相关的知识" class="headerlink" title="深搜的相关的知识"></a>深搜的相关的知识</h1><p>想象有一棵树：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line"> / \</span><br><span class="line">2   3</span><br><span class="line">   / \</span><br><span class="line">  4   5</span><br></pre></td></tr></table></figure>
+<p>这5个点我们就给它们编号：<code>1, 2, 3, 4, 5</code>。<br> 编号相当于“身份证号”，每个节点都有一个独一无二的号码。</p>
+<hr>
+<h2 id="二、我们要干的事"><a href="#二、我们要干的事" class="headerlink" title="二、我们要干的事"></a>二、我们要干的事</h2><p>我们要告诉电脑：</p>
+<ul>
+<li>每个节点有哪些孩子；</li>
+<li>然后从根（1号）出发，去深搜所有节点。</li>
+</ul>
+<hr>
+<h2 id="三、先造存储结构（这部分最关键）"><a href="#三、先造存储结构（这部分最关键）" class="headerlink" title="三、先造存储结构（这部分最关键）"></a>三、先造存储结构（这部分最关键）</h2><p>在C++里，我们用一个<strong>邻接表（adjacency list）</strong>表示“谁连着谁”。</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int N = 100;         // 最多100个节点</span><br><span class="line">vector&lt;int&gt; tree[N];       // 每个节点的孩子列表</span><br></pre></td></tr></table></figure>
+<p>解释：</p>
+<ul>
+<li><code>tree[1]</code> 是一个数组，里面放着“1的孩子”；</li>
+<li><code>tree[2]</code> 是“2的孩子”；</li>
+<li>以此类推。</li>
+</ul>
+<hr>
+<h2 id="四、把上面的树存进去"><a href="#四、把上面的树存进去" class="headerlink" title="四、把上面的树存进去"></a>四、把上面的树存进去</h2><p>根据图：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 -&gt; 2, 3</span><br><span class="line">3 -&gt; 4, 5</span><br></pre></td></tr></table></figure>
+<p>所以我们写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tree[1].push_back(2);</span><br><span class="line">tree[1].push_back(3);</span><br><span class="line">tree[3].push_back(4);</span><br><span class="line">tree[3].push_back(5);</span><br></pre></td></tr></table></figure>
+<p>现在内存里相当于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tree[1] = [2, 3]</span><br><span class="line">tree[2] = []</span><br><span class="line">tree[3] = [4, 5]</span><br><span class="line">tree[4] = []</span><br><span class="line">tree[5] = []</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="五、写-DFS-函数（核心！）"><a href="#五、写-DFS-函数（核心！）" class="headerlink" title="五、写 DFS 函数（核心！）"></a>五、写 DFS 函数（核心！）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void dfs(int u) &#123;</span><br><span class="line">    cout &lt;&lt; u &lt;&lt; &quot; &quot;;             // 访问当前节点</span><br><span class="line">    for (int v : tree[u]) &#123;       // 遍历当前节点的孩子</span><br><span class="line">        dfs(v);                   // 深度优先地访问</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解释成日常语言：</p>
+<blockquote>
+<p>“我现在在节点u，我先打印自己。<br> 然后看看我的每个孩子v，挨个去访问。<br> 每次都走到底，再回来。”</p>
+</blockquote>
+<hr>
+<h2 id="六、主函数完整代码"><a href="#六、主函数完整代码" class="headerlink" title="六、主函数完整代码"></a>六、主函数完整代码</h2><p>把上面都拼起来：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; tree[N]; <span class="comment">// 存树结构</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; u &lt;&lt; <span class="string">&quot; &quot;</span>;             <span class="comment">// 打印当前节点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> v : tree[u]) &#123;       <span class="comment">// 遍历孩子</span></span><br><span class="line">        <span class="built_in">dfs</span>(v);                   <span class="comment">// 深入孩子</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 建树</span></span><br><span class="line">    tree[<span class="number">1</span>].<span class="built_in">push_back</span>(<span class="number">2</span>);</span><br><span class="line">    tree[<span class="number">1</span>].<span class="built_in">push_back</span>(<span class="number">3</span>);</span><br><span class="line">    tree[<span class="number">3</span>].<span class="built_in">push_back</span>(<span class="number">4</span>);</span><br><span class="line">    tree[<span class="number">3</span>].<span class="built_in">push_back</span>(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从1号节点开始深搜</span></span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure>
+<p>访问顺序：<br> 1 → 2（到头）→ 回来 → 3 → 4 → 回来 → 5</p>
+<p>完美的深搜逻辑！</p>
+<hr>
+<h2 id="七、要理解的关键点"><a href="#七、要理解的关键点" class="headerlink" title="七、要理解的关键点"></a>七、要理解的关键点</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>傻瓜理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vector&lt;int&gt; tree[N];</code></td>
+<td>N个小盒子，每个盒子装当前节点的孩子编号</td>
+</tr>
+<tr>
+<td><code>push_back(x)</code></td>
+<td>把编号x放进这个节点的孩子列表</td>
+</tr>
+<tr>
+<td><code>dfs(u)</code></td>
+<td>看自己 → 递归去找所有孩子</td>
+</tr>
+<tr>
+<td>递归</td>
+<td>程序会“自己调用自己”，走到底再回来</td>
+</tr>
+<tr>
+<td>没有指针</td>
+<td>因为我们用编号连关系，电脑自己能找得到孩子</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="关于深搜的核心写法的疑惑"><a href="#关于深搜的核心写法的疑惑" class="headerlink" title="关于深搜的核心写法的疑惑:"></a>关于深搜的核心写法的疑惑:</h1><h3 id="一、先看原句"><a href="#一、先看原句" class="headerlink" title="一、先看原句"></a>一、先看原句</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int v : tree[u]) &#123;</span><br><span class="line">    dfs(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它的作用是：</p>
+<blockquote>
+<p>遍历当前节点 <code>u</code> 的所有孩子节点（存在 <code>tree[u]</code> 这个列表里），<br> 对每个孩子 <code>v</code> 都递归调用 <code>dfs(v)</code>，去继续往下搜。</p>
+</blockquote>
+<hr>
+<h3 id="二、先解释-tree-u"><a href="#二、先解释-tree-u" class="headerlink" title="二、先解释 tree[u]"></a>二、先解释 <code>tree[u]</code></h3><p>在数组版树结构里：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; tree[N];</span><br></pre></td></tr></table></figure>
+<p><code>tree</code> 是一个“数组”，它里面的每个元素都是一个“孩子列表”。</p>
+<p>举个例子（刚才那棵树）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tree[1] = [2, 3]</span><br><span class="line">tree[2] = []</span><br><span class="line">tree[3] = [4, 5]</span><br></pre></td></tr></table></figure>
+<p>这意思就是：</p>
+<ul>
+<li>1 号节点有孩子 2、3</li>
+<li>2 没孩子</li>
+<li>3 的孩子是 4、5</li>
+</ul>
+<p>所以 <code>tree[u]</code> 就是“u号节点的所有孩子”。</p>
+<hr>
+<h3 id="三、再解释-for-int-v-tree-u"><a href="#三、再解释-for-int-v-tree-u" class="headerlink" title="三、再解释 for (int v : tree[u])"></a>三、再解释 <code>for (int v : tree[u])</code></h3><p>这是 <strong>C++ 的范围 for 循环（range-based for loop）</strong>，<br> 读法是：</p>
+<blockquote>
+<p>“对于 <code>tree[u]</code> 里的每一个元素，依次取出放进变量 <code>v</code> 里”。</p>
+</blockquote>
+<p>等价的老式写法是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; tree[u].size(); ++i) &#123;</span><br><span class="line">    int v = tree[u][i];</span><br><span class="line">    dfs(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以这句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for (int v : tree[u])</span><br></pre></td></tr></table></figure>
+<p>其实就是：</p>
+<blockquote>
+<p>“拿出当前节点u的每一个孩子v”。</p>
+</blockquote>
+<hr>
+<h3 id="四、然后执行-dfs-v"><a href="#四、然后执行-dfs-v" class="headerlink" title="四、然后执行 dfs(v)"></a>四、然后执行 <code>dfs(v)</code></h3><p><code>dfs(v)</code> 就是让程序“去访问这个孩子”。<br> 因为DFS是<strong>递归</strong>，它自己又会：</p>
+<ol>
+<li>打印v；</li>
+<li>再去访问v的孩子；</li>
+<li>直到走到底；</li>
+<li>再回来继续访问下一个孩子。</li>
+</ol>
+<p>整个过程像人钻洞：</p>
+<ul>
+<li>你现在在洞口u；</li>
+<li>看看有几个分岔口（孩子）；</li>
+<li>每个口（v）都钻到底；</li>
+<li>再返回来钻下一个。</li>
+</ul>
+<hr>
+<h3 id="五、加点“傻瓜式比喻”"><a href="#五、加点“傻瓜式比喻”" class="headerlink" title="五、加点“傻瓜式比喻”"></a>五、加点“傻瓜式比喻”</h3><p>假设 <code>tree[1] = [2, 3]</code>，<code>tree[3] = [4, 5]</code>。</p>
+<p>程序运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfs(1)</span><br></pre></td></tr></table></figure>
+<p>流程是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">进入1：</span><br><span class="line">  打印1</span><br><span class="line">  for循环拿到v=2 → dfs(2)</span><br><span class="line">    打印2（没孩子）</span><br><span class="line">  for循环拿到v=3 → dfs(3)</span><br><span class="line">    打印3</span><br><span class="line">    for循环拿到v=4 → dfs(4)</span><br><span class="line">      打印4</span><br><span class="line">    for循环拿到v=5 → dfs(5)</span><br><span class="line">      打印5</span><br><span class="line">全部结束</span><br></pre></td></tr></table></figure>
+<p>最后输出：<code>1 2 3 4 5</code>。</p>
+<hr>
+<h3 id="六、总结成一句话："><a href="#六、总结成一句话：" class="headerlink" title="六、总结成一句话："></a>六、总结成一句话：</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>for (int v : tree[u])</code></td>
+<td>从节点u的孩子列表中，一个一个取出孩子v</td>
+</tr>
+<tr>
+<td><code>dfs(v)</code></td>
+<td>对每个孩子再递归进行DFS</td>
+</tr>
+<tr>
+<td>整体逻辑</td>
+<td>“访问u → 对每个孩子都做DFS”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>所以它其实干的事很像一句人话：</p>
+<blockquote>
+<p>“我现在在u节点，我要去看它所有的孩子，每个孩子都得进去转一圈。”</p>
+</blockquote>
+<hr>
+<p>如果你愿意，我可以帮你把这两行“展开成一整轮递归过程图”，<br> 就能直观地看到程序是怎么一层层下去、又一层层回来的。</p>
+<h1 id="关于深搜老式写法的疑惑"><a href="#关于深搜老式写法的疑惑" class="headerlink" title="关于深搜老式写法的疑惑:"></a>关于深搜老式写法的疑惑:</h1><h2 id="一、背景先记牢"><a href="#一、背景先记牢" class="headerlink" title="一、背景先记牢"></a>一、背景先记牢</h2><p>我们在干的事是：</p>
+<blockquote>
+<p>对当前节点 <code>u</code>，找到它的所有孩子，然后对每个孩子都 <code>dfs(v)</code>。</p>
+</blockquote>
+<p>你可以理解成：</p>
+<blockquote>
+<p>“我现在在 1 号点，看看它有几个孩子（比如 2 和 3），我一个个去拜访。”</p>
+</blockquote>
+<hr>
+<h2 id="二、先看大框架"><a href="#二、先看大框架" class="headerlink" title="二、先看大框架"></a>二、先看大框架</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; tree[u].size(); ++i) &#123;</span><br><span class="line">    int v = tree[u][i];</span><br><span class="line">    dfs(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一种普通的 <strong>for循环</strong>。<br> 我们来翻译成中文：</p>
+<blockquote>
+<p>“从 i = 0 开始，一直数到 <code>tree[u].size() - 1</code>，<br> 每次都取出第 i 个孩子 <code>v</code>，<br> 然后对这个孩子执行 <code>dfs(v)</code>。”</p>
+</blockquote>
+<hr>
+<h2 id="三、逐个词拆开解释"><a href="#三、逐个词拆开解释" class="headerlink" title="三、逐个词拆开解释"></a>三、逐个词拆开解释</h2><h3 id="tree-u"><a href="#tree-u" class="headerlink" title="tree[u]"></a><code>tree[u]</code></h3><p>还是那句话：<br> <code>tree[u]</code> 是“u号节点的所有孩子”。<br> 比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree[1] = [2, 3]</span><br></pre></td></tr></table></figure>
+<p>说明 1 的孩子是 2 和 3。</p>
+<hr>
+<h3 id="tree-u-size"><a href="#tree-u-size" class="headerlink" title="tree[u].size()"></a><code>tree[u].size()</code></h3><p>表示孩子的数量。<br> 比如 <code>tree[1].size()</code> = 2（因为1有两个孩子）。</p>
+<p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; tree[u].size(); ++i)</span><br></pre></td></tr></table></figure>
+<p>就等于：</p>
+<blockquote>
+<p>“从第 0 个孩子开始，一直到最后一个孩子。”</p>
+</blockquote>
+<hr>
+<h3 id="tree-u-i"><a href="#tree-u-i" class="headerlink" title="tree[u][i]"></a><code>tree[u][i]</code></h3><p>这表示：</p>
+<blockquote>
+<p>取出 <code>u</code> 的第 i 个孩子。</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree[1] = [2, 3]</span><br></pre></td></tr></table></figure>
+<p>那：</p>
+<ul>
+<li><code>tree[1][0] = 2</code></li>
+<li><code>tree[1][1] = 3</code></li>
+</ul>
+<p>这两个值分别是“1号节点的第0个孩子”“1号节点的第1个孩子”。</p>
+<hr>
+<h3 id="int-v-tree-u-i"><a href="#int-v-tree-u-i" class="headerlink" title="int v = tree[u][i];"></a><code>int v = tree[u][i];</code></h3><p>意思是：</p>
+<blockquote>
+<p>把当前孩子的编号取出来，放进变量 <code>v</code>。</p>
+</blockquote>
+<p>比如第一次循环：</p>
+<ul>
+<li>i=0 → v=2<br> 第二次循环：</li>
+<li>i=1 → v=3</li>
+</ul>
+<hr>
+<h3 id="dfs-v"><a href="#dfs-v" class="headerlink" title="dfs(v);"></a><code>dfs(v);</code></h3><p>这句就是：</p>
+<blockquote>
+<p>“对孩子节点 v 再进行一次深度优先搜索。”</p>
+</blockquote>
+<hr>
+<h2 id="四、把整个循环翻译成人话："><a href="#四、把整个循环翻译成人话：" class="headerlink" title="四、把整个循环翻译成人话："></a>四、把整个循环翻译成人话：</h2><p>以 <code>u = 1</code> 为例（假设 tree[1] = [2, 3]）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; 2; ++i) &#123;</span><br><span class="line">    int v = tree[1][i];</span><br><span class="line">    dfs(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序执行过程：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>tree[1][i]</th>
+<th>v的值</th>
+<th>做的事</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2</td>
+<td>v=2</td>
+<td>调用 <code>dfs(2)</code></td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>v=3</td>
+<td>调用 <code>dfs(3)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>所以它干的事其实就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dfs(2);</span><br><span class="line">dfs(3);</span><br></pre></td></tr></table></figure>
+<p>只是写成循环自动处理，不用你手动列。</p>
+<hr>
+<h2 id="五、再画个逻辑图（想象程序脑子里的流程）"><a href="#五、再画个逻辑图（想象程序脑子里的流程）" class="headerlink" title="五、再画个逻辑图（想象程序脑子里的流程）"></a>五、再画个逻辑图（想象程序脑子里的流程）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">进入 dfs(1)</span><br><span class="line">|</span><br><span class="line">|—— i=0 → v=2 → dfs(2)</span><br><span class="line">|—— i=1 → v=3 → dfs(3)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="六、和新写法对比一下（你会立刻懂）"><a href="#六、和新写法对比一下（你会立刻懂）" class="headerlink" title="六、和新写法对比一下（你会立刻懂）"></a>六、和新写法对比一下（你会立刻懂）</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>新写法（简化版）</th>
+<th>老写法（展开版）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>for (int v : tree[u]) dfs(v);</code></td>
+<td><code>for (int i = 0; i &lt; tree[u].size(); ++i) { int v = tree[u][i]; dfs(v); }</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>意思完全一样。<br> 新写法更短、更清爽，<br> 老写法是手动数下标的版本，适合旧标准（C++98）。</p>
+<hr>
+<h2 id="七、终极一句话总结"><a href="#七、终极一句话总结" class="headerlink" title="七、终极一句话总结"></a>七、终极一句话总结</h2><blockquote>
+<p>这三行代码的意思是：<br> “从第0个孩子开始，一个个取出来，<br> 让每个孩子都跑一遍DFS。”</p>
+</blockquote>
+<h1 id="可是要是有一个点上没有孩子-那为什么不会返回0呢"><a href="#可是要是有一个点上没有孩子-那为什么不会返回0呢" class="headerlink" title="可是要是有一个点上没有孩子 那为什么不会返回0呢"></a>可是要是有一个点上没有孩子 那为什么不会返回0呢</h1><h2 id="一、先看你说的情况"><a href="#一、先看你说的情况" class="headerlink" title="一、先看你说的情况"></a>一、先看你说的情况</h2><p>假设我们有一棵树：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line"> / \</span><br><span class="line">2   3</span><br></pre></td></tr></table></figure>
+<p>那在代码里是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tree[1] = [2, 3];</span><br><span class="line">tree[2] = [];</span><br><span class="line">tree[3] = [];</span><br></pre></td></tr></table></figure>
+<p>也就是说：</p>
+<ul>
+<li>1号节点有两个孩子；</li>
+<li>2号和3号是“叶子节点”，没有孩子；</li>
+<li>对应的 <code>tree[2]</code> 和 <code>tree[3]</code> 都是空的 <code>vector&lt;int&gt;</code>。</li>
+</ul>
+<hr>
+<h2 id="二、DFS会怎么跑？"><a href="#二、DFS会怎么跑？" class="headerlink" title="二、DFS会怎么跑？"></a>二、DFS会怎么跑？</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void dfs(int u) &#123;</span><br><span class="line">    cout &lt;&lt; u &lt;&lt; &quot; &quot;;              // 先打印自己</span><br><span class="line">    for (int v : tree[u]) &#123;        // 遍历孩子</span><br><span class="line">        dfs(v);                    // 深入孩子</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假设我们从 <code>dfs(2)</code> 开始执行。</p>
+<hr>
+<h3 id="第一步：进入函数"><a href="#第一步：进入函数" class="headerlink" title="第一步：进入函数"></a>第一步：进入函数</h3><p><code>u = 2</code><br> 打印出 <code>2</code></p>
+<hr>
+<h3 id="第二步：执行-for-循环"><a href="#第二步：执行-for-循环" class="headerlink" title="第二步：执行 for 循环"></a>第二步：执行 for 循环</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int v : tree[2]) &#123;</span><br><span class="line">    dfs(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题来了：<code>tree[2]</code> 是空的 <code>[]</code>，对吧？</p>
+<p>那<strong>for循环里根本就没有元素可以遍历</strong>。<br> 程序就直接<strong>跳过循环体</strong>。</p>
+<p>这时候程序不会“返回0”，因为循环本身没结果可返回。<br> C++ 的 <code>for</code> 不是返回值，而是一个<strong>控制语句</strong>，只控制“要不要执行循环体”。</p>
+<hr>
+<h2 id="三、重点理解："><a href="#三、重点理解：" class="headerlink" title="三、重点理解："></a>三、重点理解：</h2><p>C++ 的 <code>for</code> 不是函数，不会“返回”任何值。<br> 所以你写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int v : tree[u]) &#123;</span><br><span class="line">    dfs(v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>意思是：</p>
+<blockquote>
+<p>“对每个孩子v，执行dfs(v)；<br> 如果没孩子，那就什么都不做。”</p>
+</blockquote>
+<p>它不会返回 0，也不会出错。<br> 程序执行完循环后，就继续往下走（也就是递归结束）。</p>
+<hr>
+<h2 id="四、那DFS怎么“知道”到头了？"><a href="#四、那DFS怎么“知道”到头了？" class="headerlink" title="四、那DFS怎么“知道”到头了？"></a>四、那DFS怎么“知道”到头了？</h2><p>它其实通过两层逻辑：</p>
+<ol>
+<li>如果 <code>tree[u]</code> 是空的，就不会进入for循环。</li>
+<li>递归到这个节点时，发现没孩子可递归，于是<strong>自然返回上层</strong>。</li>
+</ol>
+<p>举个流程（以 <code>dfs(1)</code> 为例）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dfs(1)</span><br><span class="line"> ├── 打印 1</span><br><span class="line"> ├── 进入 for 循环 → 拿到 v=2 → dfs(2)</span><br><span class="line"> │      ├── 打印 2</span><br><span class="line"> │      ├── tree[2] 空 → 不进循环 → 返回</span><br><span class="line"> │</span><br><span class="line"> ├── 再拿 v=3 → dfs(3)</span><br><span class="line"> │      ├── 打印 3</span><br><span class="line"> │      ├── tree[3] 空 → 不进循环 → 返回</span><br><span class="line">返回上层，结束</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="五、你要牢牢记住一句话："><a href="#五、你要牢牢记住一句话：" class="headerlink" title="五、你要牢牢记住一句话："></a>五、你要牢牢记住一句话：</h2><blockquote>
+<p><strong>没有孩子 ≠ 返回0。</strong><br> 只是没有孩子可以递归了，所以“自然结束函数”。</p>
+</blockquote>
+<p>C++ 的函数如果写成 <code>void dfs(...)</code>，本身就没有返回值。<br> 所以DFS这种函数从头到尾都不“return 某个数”，<br> 它只是“执行完任务就返回上一级”。</p>
+<hr>
+<h2 id="六、打个比喻："><a href="#六、打个比喻：" class="headerlink" title="六、打个比喻："></a>六、打个比喻：</h2><p>DFS像是你带孩子探险。</p>
+<ul>
+<li>每次进一个洞（节点u），<br> 你会说“我来了（打印u）”。</li>
+<li>然后你看看有没有岔路（<code>tree[u]</code>）。<ul>
+<li>有，就挨个进去；</li>
+<li>没有，就转身原路返回。</li>
+</ul>
+</li>
+</ul>
+<p>“返回”这个动作是自动发生的，不是“返回0”。</p>
+<hr>
+<h2 id="✅-总结"><a href="#✅-总结" class="headerlink" title="✅ 总结"></a>✅ 总结</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>程序行为</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>节点有孩子</td>
+<td>依次对每个孩子递归DFS</td>
+<td>for循环遍历非空vector</td>
+</tr>
+<tr>
+<td>节点没孩子</td>
+<td>for循环直接跳过，函数结束</td>
+<td>空vector导致循环体不执行</td>
+</tr>
+<tr>
+<td>是否返回0</td>
+<td>否</td>
+<td>dfs是<code>void</code>函数，无返回值</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">mymod</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/3ca83f46.html">http://example.com/posts/3ca83f46.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">mymod的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E7%B1%BB/">算法类</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">深度优先搜索</a><a class="post-meta__tags" href="/tags/%E6%A0%91/">树</a></div><div class="post-share"><div class="social-share" data-image="/img/%E5%A4%B4%E5%83%8F.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/97980273.html" title="我的恋爱日记10.30"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">我的恋爱日记10.30</div></div><div class="info-2"><div class="info-item-1">好棒哦明天就是周五 可以睡很久啦!!!今天过得还好 虽然说确实是发病了 感觉脑子里有点波在震荡www 我是不是中了毒电波(不是其余的日常都很简短 但是今天脑子里一直有一个很强烈的想法 就是超级想我的宝宝想死了想到快疯掉!!!!!呜呜呜好像让我的宝宝身体好起来 超级想哦 每天都想 不想让他不好 能不能锁住他的喉咙 把他绑起来 这样他就不会走了 当然她本身也不会走 我就是怕嘛我就是好想我的宝宝能够快快好起来 不管怎么样好起来就好 !!!呜呜呜宝宝快好起来qwq这篇日记好抽象 我就喜欢抽象的 正好作为开端 但是没办法 今天就是超级想超级想我的宝宝呜呜呜希望我的宝宝好好的 我们一直好好的 我爱你 爱死你了 要把全世界送给你!!!爱你哦（づ￣3￣）づ╭❤～Mua!!!</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/90a8f6e6.html" title="关于素数的一系列解决办法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-30</div><div class="info-item-2">关于素数的一系列解决办法</div></div><div class="info-2"><div class="info-item-1">🚀 排行总结（按实际运行速度和复杂度综合）    排名 名称 理论复杂度 实际速度 特点     🥇 1 线性筛（Euler Sieve） O(n) ⚡⚡⚡⚡⚡ 每个合数只标一次，最干净最快   🥈 2 快速埃式（奇数筛/位压缩版） O(n log log n) ⚡⚡⚡⚡ 节省空间、跳偶数   🥉 3 标准埃式筛（Eratosthenes） O(n log log n) ⚡⚡⚡ 简单、稳健，入门首选   🪨 4 试除法（6k±1 或暴力） O(n√n) 🐢 太慢，只适合单个数判素      💬 总结一句人话： 只想快速写完题 → 标准埃式筛。 想搞高效算法 / 竞赛用 → 线性筛。 只判断一个数是不是素数 → 6k±1试除法。 还用暴力除法 → 你在浪费电。  上述就是筛法的一个排行 试除法和暴力除法我们这里不涉及 因为一点意义都没有!!!!! 埃式筛(也就是标准筛)好，那我用最“人话”的方式教你学会埃式筛。就当我们在教一个刚学会 for 循环的小孩。 我们一步一念，绝对不会跳。  🧠 你要干什么？找出 1 到 200 里所有的素数。 素数就是——只能被 1 和自...</div></div></div></a><a class="pagination-related" href="/posts/ac6b0799.html" title="gcd的一些用法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-30</div><div class="info-item-2">gcd的一些用法</div></div><div class="info-2"><div class="info-item-1">最大公因数与最小公倍数✅ 什么是欧几里得算法（辗转相除法）？一句话：  就是不断用“大数 ÷ 小数”，然后把“小数”与“余数”继续来除，直到余数变成 0，那个最后的除数就是最大公因数。   ✅ 为什么这么做是对的？（傻瓜理解逻辑）假设你要找两个数的最大公因数，比如 18 和 12。 你可能第一想法：“我把它们俩共同的因数列出来比较一下？” 18 的因数：1 2 3 6 9 18 12 的因数：1 2 3 4 6 12 共同的：1 2 3 6 最大：6 对！结果是6。 但欧几里得算法的做法是：  ✅ 按步骤傻瓜化演示（以 18 和 12 为例）    步骤 操作 说明     1 18 ÷ 12 = 商 1 余 6 原来18和12的“共同因数”能帮我产生这个 6   2 接下来把“12”和“6”继续做除法 也就是 12 ÷ 6   3 12 ÷ 6 = 商 2 余 0 余数为0说明整除了   4 最后一次 被除数 就是最大公因数 6 就是最大公因数     记住一句核心口诀：  大数 ÷ 小数 = 余数 再用小数 ÷ 余数 循环到余数是0为止 最后的除数 = 最大公因数   ✅ 再...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">mymod</div><div class="author-info-description">这是属于本人的博客啦 本人十分友好是好人哦嘻嘻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/mymod233" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/images/qr/wechat.png" target="_blank" title="WeChat"><i class="fab fa-weixin" style="color: #1aad19;"></i></a><a class="social-icon" href="https://t.me/mymod114" target="_blank" title="Telegram"><i class="fab fa-telegram-plane" style="color: #179cde;"></i></a><a class="social-icon" href="https://x.com/Anei1Ma" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a><a class="social-icon" href="https://www.instagram.com/jim31104?igsh=MXg3cXQwbmZ2Mnl5cQ==" target="_blank" title="Instagram"><i class="fab fa-instagram" style="color: #d63384;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E6%90%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">深搜的相关的知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%88%91%E4%BB%AC%E8%A6%81%E5%B9%B2%E7%9A%84%E4%BA%8B"><span class="toc-number">1.1.</span> <span class="toc-text">二、我们要干的事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%85%88%E9%80%A0%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%EF%BC%88%E8%BF%99%E9%83%A8%E5%88%86%E6%9C%80%E5%85%B3%E9%94%AE%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">三、先造存储结构（这部分最关键）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">定义：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%8A%8A%E4%B8%8A%E9%9D%A2%E7%9A%84%E6%A0%91%E5%AD%98%E8%BF%9B%E5%8E%BB"><span class="toc-number">1.3.</span> <span class="toc-text">四、把上面的树存进去</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%86%99-DFS-%E5%87%BD%E6%95%B0%EF%BC%88%E6%A0%B8%E5%BF%83%EF%BC%81%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">五、写 DFS 函数（核心！）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%B8%BB%E5%87%BD%E6%95%B0%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">1.5.</span> <span class="toc-text">六、主函数完整代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%A6%81%E7%90%86%E8%A7%A3%E7%9A%84%E5%85%B3%E9%94%AE%E7%82%B9"><span class="toc-number">1.6.</span> <span class="toc-text">七、要理解的关键点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%B7%B1%E6%90%9C%E7%9A%84%E6%A0%B8%E5%BF%83%E5%86%99%E6%B3%95%E7%9A%84%E7%96%91%E6%83%91"><span class="toc-number">2.</span> <span class="toc-text">关于深搜的核心写法的疑惑:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E7%9C%8B%E5%8E%9F%E5%8F%A5"><span class="toc-number">2.0.1.</span> <span class="toc-text">一、先看原句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%88%E8%A7%A3%E9%87%8A-tree-u"><span class="toc-number">2.0.2.</span> <span class="toc-text">二、先解释 tree[u]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%86%8D%E8%A7%A3%E9%87%8A-for-int-v-tree-u"><span class="toc-number">2.0.3.</span> <span class="toc-text">三、再解释 for (int v : tree[u])</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%84%B6%E5%90%8E%E6%89%A7%E8%A1%8C-dfs-v"><span class="toc-number">2.0.4.</span> <span class="toc-text">四、然后执行 dfs(v)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8A%A0%E7%82%B9%E2%80%9C%E5%82%BB%E7%93%9C%E5%BC%8F%E6%AF%94%E5%96%BB%E2%80%9D"><span class="toc-number">2.0.5.</span> <span class="toc-text">五、加点“傻瓜式比喻”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93%E6%88%90%E4%B8%80%E5%8F%A5%E8%AF%9D%EF%BC%9A"><span class="toc-number">2.0.6.</span> <span class="toc-text">六、总结成一句话：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%B7%B1%E6%90%9C%E8%80%81%E5%BC%8F%E5%86%99%E6%B3%95%E7%9A%84%E7%96%91%E6%83%91"><span class="toc-number">3.</span> <span class="toc-text">关于深搜老式写法的疑惑:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E6%99%AF%E5%85%88%E8%AE%B0%E7%89%A2"><span class="toc-number">3.1.</span> <span class="toc-text">一、背景先记牢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%88%E7%9C%8B%E5%A4%A7%E6%A1%86%E6%9E%B6"><span class="toc-number">3.2.</span> <span class="toc-text">二、先看大框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%80%90%E4%B8%AA%E8%AF%8D%E6%8B%86%E5%BC%80%E8%A7%A3%E9%87%8A"><span class="toc-number">3.3.</span> <span class="toc-text">三、逐个词拆开解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tree-u"><span class="toc-number">3.3.1.</span> <span class="toc-text">tree[u]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tree-u-size"><span class="toc-number">3.3.2.</span> <span class="toc-text">tree[u].size()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tree-u-i"><span class="toc-number">3.3.3.</span> <span class="toc-text">tree[u][i]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#int-v-tree-u-i"><span class="toc-number">3.3.4.</span> <span class="toc-text">int v &#x3D; tree[u][i];</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dfs-v"><span class="toc-number">3.3.5.</span> <span class="toc-text">dfs(v);</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%8A%8A%E6%95%B4%E4%B8%AA%E5%BE%AA%E7%8E%AF%E7%BF%BB%E8%AF%91%E6%88%90%E4%BA%BA%E8%AF%9D%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">四、把整个循环翻译成人话：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%86%8D%E7%94%BB%E4%B8%AA%E9%80%BB%E8%BE%91%E5%9B%BE%EF%BC%88%E6%83%B3%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%84%91%E5%AD%90%E9%87%8C%E7%9A%84%E6%B5%81%E7%A8%8B%EF%BC%89"><span class="toc-number">3.5.</span> <span class="toc-text">五、再画个逻辑图（想象程序脑子里的流程）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%92%8C%E6%96%B0%E5%86%99%E6%B3%95%E5%AF%B9%E6%AF%94%E4%B8%80%E4%B8%8B%EF%BC%88%E4%BD%A0%E4%BC%9A%E7%AB%8B%E5%88%BB%E6%87%82%EF%BC%89"><span class="toc-number">3.6.</span> <span class="toc-text">六、和新写法对比一下（你会立刻懂）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%BB%88%E6%9E%81%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="toc-number">3.7.</span> <span class="toc-text">七、终极一句话总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AF%E6%98%AF%E8%A6%81%E6%98%AF%E6%9C%89%E4%B8%80%E4%B8%AA%E7%82%B9%E4%B8%8A%E6%B2%A1%E6%9C%89%E5%AD%A9%E5%AD%90-%E9%82%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BC%9A%E8%BF%94%E5%9B%9E0%E5%91%A2"><span class="toc-number">4.</span> <span class="toc-text">可是要是有一个点上没有孩子 那为什么不会返回0呢</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E7%9C%8B%E4%BD%A0%E8%AF%B4%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">4.1.</span> <span class="toc-text">一、先看你说的情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81DFS%E4%BC%9A%E6%80%8E%E4%B9%88%E8%B7%91%EF%BC%9F"><span class="toc-number">4.2.</span> <span class="toc-text">二、DFS会怎么跑？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E8%BF%9B%E5%85%A5%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.1.</span> <span class="toc-text">第一步：进入函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%89%A7%E8%A1%8C-for-%E5%BE%AA%E7%8E%AF"><span class="toc-number">4.2.2.</span> <span class="toc-text">第二步：执行 for 循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%87%8D%E7%82%B9%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="toc-number">4.3.</span> <span class="toc-text">三、重点理解：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%82%A3DFS%E6%80%8E%E4%B9%88%E2%80%9C%E7%9F%A5%E9%81%93%E2%80%9D%E5%88%B0%E5%A4%B4%E4%BA%86%EF%BC%9F"><span class="toc-number">4.4.</span> <span class="toc-text">四、那DFS怎么“知道”到头了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BD%A0%E8%A6%81%E7%89%A2%E7%89%A2%E8%AE%B0%E4%BD%8F%E4%B8%80%E5%8F%A5%E8%AF%9D%EF%BC%9A"><span class="toc-number">4.5.</span> <span class="toc-text">五、你要牢牢记住一句话：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%89%93%E4%B8%AA%E6%AF%94%E5%96%BB%EF%BC%9A"><span class="toc-number">4.6.</span> <span class="toc-text">六、打个比喻：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E6%80%BB%E7%BB%93"><span class="toc-number">4.7.</span> <span class="toc-text">✅ 总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3ca83f46.html" title="深搜的相关的知识">深搜的相关的知识</a><time datetime="2025-11-05T05:39:39.000Z" title="发表于 2025-11-05 13:39:39">2025-11-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/97980273.html" title="我的恋爱日记10.30">我的恋爱日记10.30</a><time datetime="2025-10-30T12:00:35.000Z" title="发表于 2025-10-30 20:00:35">2025-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/90a8f6e6.html" title="关于素数的一系列解决办法">关于素数的一系列解决办法</a><time datetime="2025-10-30T11:32:53.000Z" title="发表于 2025-10-30 19:32:53">2025-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/ac6b0799.html" title="gcd的一些用法">gcd的一些用法</a><time datetime="2025-10-30T11:19:30.000Z" title="发表于 2025-10-30 19:19:30">2025-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By mymod</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div>/js/force-dark-pages.js<script>
+  (function () {
+    if (window.__L2D_LOADED__) return;
+    window.__L2D_LOADED__ = true;
+    L2Dwidget.init({
+      model: {
+        jsonPath: "https://unpkg.com/live2d-widget-model-miku/assets/miku.model.json"
+      },
+      display: {
+        position: "right",     // <- 放右边
+        width: 220,
+        height: 420,
+        hOffset: 20,          // 距离左侧 20px
+        vOffset: -60          // 向上提一点，避免挡底部区域
+      },
+      mobile: {
+        show: true,
+        scale: 0.6
+      },
+      react: {
+        opacityDefault: 0.95,
+        opacityOnHover: 1
+      }
+    });
+  })();
+  window.addEventListener("pjax:complete", function () {
+    if (document.getElementById("live2d-widget")) return;
+    L2Dwidget.init({
+      model: {
+        jsonPath: "https://unpkg.com/live2d-widget-model-miku/assets/miku.model.json"
+      },
+      display: {
+        position: "left",
+        width: 220,
+        height: 420,
+        hOffset: 20,
+        vOffset: -60
+      },
+      mobile: {
+        show: true,
+        scale: 0.6
+      },
+      react: {
+        opacityDefault: 0.95,
+        opacityOnHover: 1
+      }
+    });
+  });
+</script>
+<script>
+  (function () {
+    var PLAYLIST_ID = '14437180364'; // 纯数字
+    // 只在本标签页记状态，用 sessionStorage关闭标签后自动丢失
+    var SESSION_KEY = 'ap_state_session';
+
+    function createOnce() {
+      if (window.__AP_FIXED_CREATED__) return;
+      window.__AP_FIXED_CREATED__ = true;
+
+      // 动态创建 <meting-js>，不自动播放
+      var el = document.createElement('meting-js');
+      el.setAttribute('server', 'netease');
+      el.setAttribute('type', 'playlist');
+      el.setAttribute('id', PLAYLIST_ID);
+      el.setAttribute('fixed', 'true');
+      el.setAttribute('order', 'random');
+      el.setAttribute('loop', 'all');
+      el.setAttribute('mutex', 'true');
+      el.setAttribute('preload', 'auto');
+      el.setAttribute('autoplay', 'false');   // ← 进站不自动播
+      document.body.appendChild(el);
+
+      // 等 Meting 渲染出 APlayer,再做“同一会话内的状态恢复”
+      function hook() {
+        var box = document.querySelector('.aplayer-fixed .aplayer');
+        if (!box || !box.aplayer) return setTimeout(hook, 200);
+        var ap = box.aplayer;
+
+        // 仅在当前会话内恢复（切页不断播）；新开标签/重启浏览器不恢复
+        try {
+          var s = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '{}');
+          if (typeof s.index === 'number') ap.list.switch(s.index);
+          if (typeof s.time === 'number') ap.seek(s.time);
+          // 注意：不自动调用 ap.play()，保持暂停等待你手动点
+        } catch (e) {}
+
+        // 会话内保存状态（切页回来接着放）
+        function save() {
+          try {
+            sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+              index: ap.list.index,
+              time: ap.audio.currentTime || 0,
+              playing: !ap.audio.paused
+            }));
+          } catch (e) {}
+        }
+        ['play','pause','seeked','listswitch','ended'].forEach(function (evt) {
+          ap.on(evt, save);
+        });
+
+        // 离开页面前清理一次（加固；大多数浏览器会话结束也会自动清）
+        window.addEventListener('beforeunload', function () {
+          try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
+        });
+      }
+      hook();
+    }
+
+    document.addEventListener('DOMContentLoaded', createOnce);
+    window.addEventListener('pjax:complete', createOnce);
+  })();
+</script>
+<style> .pwa-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111827;color:#e5e7eb; border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;display:flex;gap:10px; align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:9999} .pwa-btn{appearance:none;border:none;border-radius:10px;padding:6px 10px;font-weight:700;cursor:pointer} .pwa-primary{background:linear-gradient(135deg,#3b82f6,#a855f7);color:#fff} .pwa-ghost{background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,.15)} </style><script> (function(){ if(!('serviceWorker' in navigator)) return;
+// 注册 SW navigator.serviceWorker.register('/sw.js').then(function(reg){ // 首次安装的更新监听 function promptUpdate(waitingSW){ // 弹个小条：有新版本，是否刷新 const bar = document.createElement('div'); bar.className = 'pwa-toast'; bar.innerHTML = '<span>发现新版本</span>' + '<button class="pwa-btn pwa-primary" id="pwa-refresh">立即更新</button>' + '<button class="pwa-btn pwa-ghost" id="pwa-later">稍后</button>'; document.body.appendChild(bar);
+document.getElementById('pwa-refresh').onclick = function(){ waitingSW.postMessage('SKIP_WAITING'); }; document.getElementById('pwa-later').onclick = function(){ bar.remove(); };
+// 当新的 SW 接管后，刷新页面 navigator.serviceWorker.addEventListener('controllerchange', function(){ location.reload(); }); }
+// 情况1注册后立即出现 waiting if(reg.waiting) { promptUpdate(reg.waiting); }
+// 情况2更新时 installing -> installed(waiting) reg.addEventListener('updatefound', function(){ const newSW = reg.installing; if(!newSW) return; newSW.addEventListener('statechange', function(){ if(newSW.state === 'installed' && navigator.serviceWorker.controller){ promptUpdate(newSW); } }); });
+// Edge/Chrome 有时更新后的SW会在 `waiting`，再刷新才触发，这里轮询触发一次检查 setInterval(function(){ reg.update(); }, 60*1000); }); })(); </script><script>
+;(function(){
+  /* ====== 需要你改的两处头像路径 ====== */
+  const AVATAR_ME  = '/images/love/me.jpg';
+  const AVATAR_HER = '/images/love/her.jpg';
+  /* ==================================== */
+
+  /* ====== 固定起始时间（你选择了“指定日期开始计时”） ====== */
+  const START_AT = '2025-08-13 00:00:00';  // 指定开始日期
+  const LABEL    = '和宝宝在一起';
+  /* ==================================================== */
+
+  /* ====== 飘心参数（桌面偏密；含移动端降载覆盖） ====== */
+  let HEART_EMIT_EVERY_MS = 260;   // 发射间隔（越小越密）
+  let HEART_MAX_PARALLEL  = 48;    // 同屏最大爱心数量
+  const HEART_COLORS = ['#ff4d6d','#ff6b6b','#ffa6c1','#f783ac','#ff8787'];
+  const HEART_SIZE   = [12,22];    // px
+
+  // 移动端自动降载（<=768px）
+  if (window.matchMedia('(max-width : 768px)').matches){
+    HEART_EMIT_EVERY_MS = 420;
+    HEART_MAX_PARALLEL  = 28;
+  }
+  /* ==================================================== */
+
+  function rand(min,max){return Math.random()*(max-min)+min}
+
+  function mountLoveCard(){
+    const aside = document.querySelector('.aside-content');
+    if(!aside) return;
+    if(document.getElementById('card-love')) return;
+
+    const announce = document.getElementById('card-announcement');
+
+    const card = document.createElement('div');
+    card.id = 'card-love';
+    card.className = 'card-widget';
+    card.innerHTML = `
+      <div class="item-headline">
+        <i class="fas fa-heart"></i><span>我们的相爱记录qwq</span>
+      </div>
+      <div class="love-body">
+        <div class="love-avatars">
+          <img class="avatar" src="${AVATAR_ME}" alt="me">
+          <i class="fas fa-heart heart" aria-hidden="true"></i>
+          <img class="avatar" src="${AVATAR_HER}" alt="her">
+        </div>
+        <div class="love-text">${LABEL} <span id="love-days">0</span> 天</div>
+        <div class="love-sub">自 ${START_AT.split(' ')[0]} 起</div>
+      </div>
+    `;
+
+    if (announce && announce.parentNode === aside) {
+      aside.insertBefore(card, announce);
+    } else {
+      aside.insertBefore(card, aside.firstElementChild);
+    }
+
+    startCounter();
+    startHearts(card.querySelector('.love-body'));
+  }
+
+  /* ====== 计时器：从固定 START_AT 开始累积天数 ====== */
+  function startCounter(){
+    const startTs = new Date(START_AT.replace(/-/g,'/')).getTime();
+    const daysEl = document.getElementById('love-days');
+    if(!daysEl) return;
+
+    function tick(){
+      const now = Date.now();
+      const diff = now - startTs;
+      const days = Math.floor(diff / 86400000);
+      daysEl.textContent = days >= 0 ? String(days) : '0';
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ====== 飘心：可见性节能 + 点击/长按爆发 ====== */
+  function startHearts(container){
+    let layer = container.querySelector('.love-hearts');
+    if(!layer){
+      layer = document.createElement('div');
+      layer.className = 'love-hearts';
+      container.appendChild(layer);
+    }
+    let live = 0;
+    let running = true;
+
+    function emit(){
+      if(!running || live >= HEART_MAX_PARALLEL) return;
+      live++;
+      const el = document.createElement('span');
+      el.className = 'heart-bubble';
+      el.textContent = '❤';                        // 使用 Unicode，渲染稳定
+      el.style.left   = rand(6,94) + '%';          // 若想更集中：改成 rand(38,62)
+      el.style.color  = HEART_COLORS[(Math.random()*HEART_COLORS.length)|0];
+      el.style.fontSize = rand(HEART_SIZE[0],HEART_SIZE[1]) + 'px';
+      el.style.animationDuration = rand(2.6,4.2)+'s';
+      layer.appendChild(el);
+      el.addEventListener('animationend', ()=>{ el.remove(); live--; });
+    }
+
+    const timer = setInterval(emit, HEART_EMIT_EVERY_MS);
+    for(let i=0;i<10;i++) setTimeout(emit, i*120); // 首屏补偿
+
+    // 只在可见时发射（节能）
+    if ('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries)=>{
+        running = entries[0]?.isIntersecting ?? true;
+      }, {threshold: 0.01});
+      io.observe(container);
+    }
+
+    // 点击/长按爆发
+    function burst(n=10){ for(let i=0;i<n;i++) setTimeout(emit, i*30); }
+    container.addEventListener('click', ()=>burst(14));
+    let pressTimer;
+    container.addEventListener('mousedown', ()=>{ pressTimer=setInterval(()=>burst(6), 120); });
+    ['mouseup','mouseleave','blur'].forEach(ev=>document.addEventListener(ev, ()=>clearInterval(pressTimer), {passive:true}));
+
+    // PJAX 清理
+    const obs = new MutationObserver(() => {
+      if(!document.body.contains(container)){
+        clearInterval(timer);
+        obs.disconnect();
+      }
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  }
+
+  document.addEventListener('DOMContentLoaded', mountLoveCard);
+  document.addEventListener('pjax:complete',  mountLoveCard);
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.getElementById('card-info-btn');
+  if (btn) btn.remove();
+});
+document.addEventListener('pjax:complete', function () {
+  var btn = document.getElementById('card-info-btn');
+  if (btn) btn.remove();
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.1"></script></div></div><!-- hexo injector body_end start --><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><!-- hexo injector body_end end --></body></html>
