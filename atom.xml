@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-11-13T02:01:19.654Z</updated>
+  <updated>2025-11-20T05:20:35.499Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C语言出错概念</title>
+    <link href="http://example.com/posts/3bf41286.html"/>
+    <id>http://example.com/posts/3bf41286.html</id>
+    <published>2025-11-20T05:19:40.000Z</published>
+    <updated>2025-11-20T05:20:35.499Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="C语言期末考客观题出错汇总"><a href="#C语言期末考客观题出错汇总" class="headerlink" title="C语言期末考客观题出错汇总"></a>C语言期末考客观题出错汇总</h1><ol><li>C语言源程序的基本单位是<code>函数</code></li><li>C语言是一种<code>高级</code>程序语言</li><li>在一个源程序中，main函数的位置<code>可以任意</code></li><li>能将高级语言程序转换成目标语言程序的是<code>编译程序</code></li><li>C语言中的每条可执行语句最终都将被转成二进制的机器指令</li><li>C语言程序从<code>main函数</code>开始执行</li><li>C语言中的<strong>简单数据类型</strong>包括<code>整型,实型,字符型</code></li><li>printf(“%d%d%d”,sizeof(int),sizeof(char), sizeof(“56”));正确结果是<code>413</code></li><li>逻辑运算符两侧运算对象的数据类型可以是<code>任何类型的数据</code></li><li>为了避免嵌套的if-else语句的二义性，C语言规定else总是<code>与在其之前尚未配对的最近的if</code>组成配对关系。</li><li>C语言中，逻辑运算符的优先级从高到低依次是<code>! &amp;&amp; ||</code></li><li>使用scanf的时候<code>它的格式字符串中不能包含函变量名</code></li><li>下列关于单目运算符++、—的叙述中 <code>他们的运算对象可以是char,int,float</code></li><li>程序的三种基本结构是<code>顺序结构,循环结构,选择结构</code></li><li>符号常量就是用<code>#define定义的</code></li><li>break语句的功能是<code>跳出循环</code>，执行后面的语句</li><li>else子句总是<code>与其之前最近的if</code>配对</li><li>while(x)中等价于<code>while(x!=0)</code></li><li>在大循环中 一定要有能使while后面表达式的值变成零(“假”)的操作</li><li>for循环的执行流程是<code>先执行初始化表达式，然后不断循环执行条件表达式、循环体和迭代表达式</code></li><li>do…while语句的特点是<code>循环体至少执行一次</code></li><li>循环结构的循环体<code>可以不用使用花括号{}括起来</code></li><li>while循环的循环体至少会执行一次(<code>错的</code>)</li><li>循环结构的三要素包括<code>循环变量、循环体和循环终止条件</code></li><li>在C语言中，<strong>当型循环语句</strong>是while语句</li><li>只要<strong>适当地修改代码</strong>，就可以将<code>do-while与while</code><strong>相互转换</strong></li><li>在C语言中，for循环可以嵌套使用，例如一个for循环内部还可以包含另一个for循环 这种称为<code>嵌套循环</code></li><li>switch语句中必须有break语句，否则无法退出switch语句。(<code>错</code>)</li><li>若i为整型变量，则以下循环i=0;while(i=0) i++;一次也不执行(<code>错</code>) 这个写法也没有问题 while(i=0)等价于while(里面是i的值)因为i=0 那么语句可以等价为while(0)</li><li><strong>break语句</strong>只能用在<code>循环体内和switch语句</code>体内</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;&#92;assets&#92;css&#92;APlayer.min.css&quot;&gt;&lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="应付考试" scheme="http://example.com/tags/%E5%BA%94%E4%BB%98%E8%80%83%E8%AF%95/"/>
+    
+    <category term="C语言" scheme="http://example.com/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="基础概念" scheme="http://example.com/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>深搜的相关的知识&amp;树的一些</title>
