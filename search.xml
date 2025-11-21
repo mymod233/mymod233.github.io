@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>c语言期中考试错题汇总</title>
+      <link href="/posts/828471d6.html"/>
+      <url>/posts/828471d6.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="期中考错题汇总"><a href="#期中考错题汇总" class="headerlink" title="期中考错题汇总"></a>期中考错题汇总</h1><p>行，我给你把这一题整理成一份干净、可直接放入错题本的 <strong>Markdown 版本</strong>，排版简洁、复制即用。</p><hr><h1 id="❌-错题记录：C-语言八进制陷阱"><a href="#❌-错题记录：C-语言八进制陷阱" class="headerlink" title="❌ 错题记录：C 语言八进制陷阱"></a>❌ 错题记录：C 语言八进制陷阱</h1><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a><strong>题目：</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>、【单选题】下列程序段输出结果为：（ ）</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x = <span class="number">1</span>, y = <span class="number">012</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, y * x++);</span><br></pre></td></tr></table></figure><h3 id="你的答案："><a href="#你的答案：" class="headerlink" title="你的答案："></a><strong>你的答案：</strong></h3><p><strong>B. 12（错误）</strong></p><h3 id="正确答案："><a href="#正确答案：" class="headerlink" title="正确答案："></a><strong>正确答案：</strong></h3><p><strong>C. 10</strong></p><hr><h1 id="✅-解析："><a href="#✅-解析：" class="headerlink" title="✅ 解析："></a>✅ 解析：</h1><h3 id="关键点：012-是八进制数"><a href="#关键点：012-是八进制数" class="headerlink" title="关键点：012 是八进制数"></a><strong>关键点：<code>012</code> 是八进制数</strong></h3><ul><li>C 语言中，<strong>以 0 开头的整数是八进制（base 8）</strong></li><li><code>012</code> = 八进制 12 = 十进制 <code>1*8 + 2 = 10</code></li></ul><p>所以：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = 10</span><br></pre></td></tr></table></figure><hr><h3 id="表达式：y-x"><a href="#表达式：y-x" class="headerlink" title="表达式：y \* x++"></a><strong>表达式：<code>y \* x++</code></strong></h3><ul><li><code>x++</code> 是后置自增：先使用，再自增</li><li>表达式中使用的是 x = 1</li><li>用完之后 x → 2（但与输出无关）</li></ul><p>因此：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y * x++ = 10 * 1 = 10</span><br></pre></td></tr></table></figure><hr><h1 id="🎯-最终输出："><a href="#🎯-最终输出：" class="headerlink" title="🎯 最终输出："></a>🎯 最终输出：</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure><p>下面是这道题的 <strong>Markdown 错题本格式版本</strong>，你可以直接复制到你的错题本中使用。</p><hr><h1 id="🔹-题目-10：赋值表达式右结合陷阱"><a href="#🔹-题目-10：赋值表达式右结合陷阱" class="headerlink" title="🔹 题目 10：赋值表达式右结合陷阱"></a>🔹 题目 10：赋值表达式右结合陷阱</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h3><p>执行以下语句后，<code>a</code> 的值为多少？</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">5</span>;</span><br><span class="line">a += a = <span class="number">5</span>;</span><br></pre></td></tr></table></figure><p>选项：</p><ul><li>A. 15</li><li>B. 10</li><li>C. 20</li><li>D. 5</li></ul><h3 id="我的答案"><a href="#我的答案" class="headerlink" title="我的答案"></a><strong>我的答案</strong></h3><p>D. 5（错误）</p><h3 id="正确答案"><a href="#正确答案" class="headerlink" title="正确答案"></a><strong>正确答案</strong></h3><p>B. 10</p><hr><h1 id="✅-解析"><a href="#✅-解析" class="headerlink" title="✅ 解析"></a>✅ 解析</h1><p>表达式：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a += a = 5;</span><br></pre></td></tr></table></figure><p>关键点：</p><h3 id="①-赋值运算符-的结果值是右侧的值"><a href="#①-赋值运算符-的结果值是右侧的值" class="headerlink" title="① 赋值运算符 = 的结果值是右侧的值"></a>① 赋值运算符 <code>=</code> 的结果值是右侧的值</h3><p>所以：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a = 5) 的结果值是 5</span><br></pre></td></tr></table></figure><h3 id="②-赋值表达式从右向左结合"><a href="#②-赋值表达式从右向左结合" class="headerlink" title="② 赋值表达式从右向左结合"></a>② 赋值表达式从右向左结合</h3><p>所以执行顺序是：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 5;          // 第一次赋值</span><br><span class="line">a += (a = 5);   // 先执行右侧 a = 5，再将值 5 加到前面的 a 上</span><br></pre></td></tr></table></figure><h3 id="③-执行过程逐步展开："><a href="#③-执行过程逐步展开：" class="headerlink" title="③ 执行过程逐步展开："></a>③ 执行过程逐步展开：</h3><ol><li><p>执行 <code>a = 5</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 5</span><br></pre></td></tr></table></figure></li><li><p>计算右边 <code>(a = 5)</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 5</span><br><span class="line">表达式值为 5</span><br></pre></td></tr></table></figure></li><li><p>执行 <code>a += 5</code><br> 等价于：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = a + 5 = 5 + 5 = 10</span><br></pre></td></tr></table></figure></li></ol><hr><h1 id="🎯-最终结果"><a href="#🎯-最终结果" class="headerlink" title="🎯 最终结果"></a>🎯 最终结果</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 10</span><br></pre></td></tr></table></figure><p>下面是你要的 <strong>Markdown 错题本版本</strong>，我只写关键点（逗号导致 if 范围扩大），不写推理过程。</p><hr><h1 id="🔹-题目-16：if-语句作用域被逗号误读"><a href="#🔹-题目-16：if-语句作用域被逗号误读" class="headerlink" title="🔹 题目 16：if 语句作用域被逗号误读"></a>🔹 题目 16：if 语句作用域被逗号误读</h1><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a><strong>题目</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i, x, y;</span><br><span class="line">i = x = y = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    ++i;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">2</span>)</span><br><span class="line">        x += i,</span><br><span class="line">        i++;</span><br><span class="line">    y += i++;</span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt;= <span class="number">7</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d %d %d&quot;</span>, i, x, y);</span><br></pre></td></tr></table></figure><h3 id="我的答案-1"><a href="#我的答案-1" class="headerlink" title="我的答案"></a><strong>我的答案</strong></h3><p>9 8 15（错误）</p><h3 id="正确答案-1"><a href="#正确答案-1" class="headerlink" title="正确答案"></a><strong>正确答案</strong></h3><p>9 1 20</p><h3 id="错误原因（关键点）"><a href="#错误原因（关键点）" class="headerlink" title="错误原因（关键点）"></a><strong>错误原因（关键点）</strong></h3><ul><li><code>x += i,</code> 这一行末尾没有分号</li><li><strong>下面的 <code>i++</code> 实际上是和上面一起属于 if 语句块</strong></li></ul><p>也就是说：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i % <span class="number">2</span>) &#123;</span><br><span class="line">    x += i;</span><br><span class="line">    i++;     <span class="comment">// 这个 i++ 也在 if 里面</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你原本把它误解成：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i % <span class="number">2</span>)</span><br><span class="line">    x += i;</span><br><span class="line">i++;         <span class="comment">// 实际上不是这样的</span></span><br></pre></td></tr></table></figure><p>因此 if 每次只在奇数 i 才会执行两句，而你之前把第二句当成 if 外的逻辑，导致结果计算错误。</p><hr><p>需要继续整理下一题，继续发给我就行。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 应付考试 </tag>
+            
+            <tag> C语言 </tag>
+            
+            <tag> 基础概念 </tag>
+            
+            <tag> 错题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言出错概念</title>
       <link href="/posts/3bf41286.html"/>
       <url>/posts/3bf41286.html</url>
@@ -161,54 +192,10 @@
     
     <entry>
       <title></title>
-      <link href="/manifest.json"/>
-      <url>/manifest.json</url>
-      
-        <content type="html"><![CDATA[{"name":"mymod233","short_name":"mymod","start_url":"/","display":"standalone","background_color":"#1e1e2e","theme_color":"#1e1e2e","icons":[{"src":"/images/icons/icon-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}]}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/sw.js"/>
-      <url>/sw.js</url>
-      
-        <content type="html"><![CDATA[/* sw.js — mymod233 进阶版 PWA   功能：静态资源 Cache First、页面 Network First、离线 fallback、更新提醒*/const CACHE_VERSION = 'v3';              // ← 每次改动SW时+1，强制让用户拿到新版本const RUNTIME_CACHE = `pwa-mymod-${CACHE_VERSION}`;const STATIC_PATTERN = /\.(?:js|css|png|jpg|jpeg|gif|svg|woff2?)$/i;const OFFLINE_URL = '/offline.html';// 安装：预缓存离线页（不要预缓存一大堆，Hexo 更新频繁）self.addEventListener('install', event => {  event.waitUntil(    caches.open(RUNTIME_CACHE).then(cache => cache.addAll([OFFLINE_URL])).then(() => self.skipWaiting())  );});// 激活：清理旧缓存，接管页面self.addEventListener('activate', event => {  event.waitUntil(    caches.keys().then(keys =>      Promise.all(keys.filter(k => k !== RUNTIME_CACHE).map(k => caches.delete(k)))    ).then(() => self.clients.claim())  );});// 获取：静态资源 Cache First，页面 Network First + 离线兜底self.addEventListener('fetch', event => {  const req = event.request;  if (req.method !== 'GET') return;  const url = new URL(req.url);  // 静态资源：缓存优先  if (STATIC_PATTERN.test(url.pathname)) {    event.respondWith(      caches.open(RUNTIME_CACHE).then(cache =>        cache.match(req).then(hit => {          const fromNet = fetch(req).then(res => {            if (res.ok) cache.put(req, res.clone());            return res;          }).catch(() => hit);          return hit || fromNet;        })      )    );    return;  }  // 页面：网络优先，失败用缓存，再失败给离线页  if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {    event.respondWith(      fetch(req).then(res => {        const clone = res.clone();        caches.open(RUNTIME_CACHE).then(c => c.put(req, clone));        return res;      }).catch(async () => {        const cached = await caches.match(req);        return cached || caches.match(OFFLINE_URL);      })    );    return;  }  // 其他 GET：尽量走网络，失败尝试缓存  event.respondWith(    fetch(req).catch(() => caches.match(req))  );});// 接收页面消息：允许页面请求立即激活新SWself.addEventListener('message', event => {  if (!event.data) return;  if (event.data === 'SKIP_WAITING') {    self.skipWaiting();  }});]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/offline.html"/>
       <url>/offline.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!doctype html><html lang="zh-CN"><head>  <meta charset="utf-8">  <title>离线模式 | mymod233</title>  <meta name="viewport" content="width=device-width, initial-scale=1">  <meta name="theme-color" content="#1e1e2e">  <style>    :root { --bg:#1e1e2e; --fg:#e5e7eb; --muted:#9aa4b2; --accent1:#3b82f6; --accent2:#a855f7; }    html,body{height:100%}    body{      margin:0; background: radial-gradient(1200px 800px at 20% 10%, rgba(59,130,246,.15), transparent 60%),                 radial-gradient(1000px 700px at 80% 90%, rgba(168,85,247,.12), transparent 60%),                 var(--bg);      color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial;      display:flex; align-items:center; justify-content:center; padding:24px;    }    .card{width:min(720px,90vw); background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06);      border-radius:20px; padding:28px 28px 22px; box-shadow:0 10px 30px rgba(0,0,0,.35); backdrop-filter: blur(6px);}    .logo{width:84px;height:84px;border-radius:24px;background:      linear-gradient(135deg, rgba(59,130,246,.9), rgba(168,85,247,.9));      display:flex;align-items:center;justify-content:center;margin-bottom:14px; box-shadow:0 8px 24px rgba(99,102,241,.35);}    .logo span{font-weight:800;font-size:52px;color:white;letter-spacing:.5px}    h1{margin:0 0 6px 0;font-size:26px;font-weight:800}    p{margin:6px 0;color:var(--muted)}    .actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}    .btn{appearance:none;border:none;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}    .primary{background:linear-gradient(135deg, #3b82f6, #a855f7); color:#fff}    .ghost{background:transparent; color:#cbd5e1; border:1px solid rgba(255,255,255,.15)}    .tips{margin-top:10px;font-size:13px;color:#b3bdc9}    code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}  </style></head><body>  <main class="card" role="main" aria-label="离线提示">    <div class="logo"><span>M</span></div>    <h1>你现在处于离线状态</h1>    <p>网络连接不可用。已缓存的页面和静态资源仍可访问。恢复网络后会自动回到最新内容。</p>    <div class="actions">      <button class="btn primary" onclick="location.reload()">重试连接</button>      <button class="btn ghost" onclick="history.back()">返回上一页</button>    </div>    <p class="tips">提示：当你再次联网后，浏览器会自动更新缓存。如果仍旧显示旧内容，按 <code>Ctrl/Cmd + F5</code> 强刷。</p>  </main></body></html>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p class='p center logo large'>个人介绍</p><p class='p center small'>A Wonderful Theme for Hexo</p><h2 id="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠"><a href="#大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠" class="headerlink" title="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)"></a>大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)</h2><p>本人也就只是懂<strong>一点点</strong>电脑技术罢了 并不是那种比较会的哦 什么<strong>GitHub</strong>那些也都是最近才弄的啦！(⁠╯⁠︵⁠╰⁠,⁠)</p><p>本人的<strong>兴趣爱好</strong>都比较多啦 最喜欢的就是<strong>听音乐</strong> (<psw>猜猜我喜欢听什么www</psw>)其次才是弄<strong>电脑</strong> 体育的话喜欢<strong>棒球</strong>和<strong>职业摔角</strong>(<del>这么小众的爱好应该没有人喜欢</del>) 但是最喜欢的运动还是<strong>职业摔角</strong>啦 当然最了解的也是职业摔角www（我可是5岁看摔角看到现在的呢！(⁠ ⁠；⁠∀⁠；⁠)）</p><p>我大学的专业是<strong>计算机科学与技术</strong> 因为我想<strong>逃避算法</strong>www(<emp>事实证明我是错的呜呜呜</emp>) 我初中就是打<strong>算法竞赛</strong>的 给我弄的长脑子了</p><p>我听音乐的话主要是我小时候<strong>学架子鼓</strong> 因此对音乐都是<strong>非常敏感</strong>的 小<strong>时候还被老师夸过说我很有天赋欸嘿嘿</strong>(<del>真的很自豪的说</del>) 所以说我<strong>听音乐也是很广泛</strong>的 中文的话比较喜欢<strong>中文说唱 主要是旋律说唱emo说唱二次元说唱之类的</strong> 因为听这些其实对于我来说<strong>像是找共鸣 因为他们的歌词很直白也很贴近生活嘛 正是因为门槛低所以我就很喜欢</strong> 日语的歌的话倒是流行的都听 因为日本那边的音乐都是挺好的嘛 <strong>至于欧美的话我就偏向于neo-soul啊R&amp;B之类</strong>(<del>又小众了起来嘤嘤</del>)的 我很喜欢爵士还有neo-soul 类似的风格 因为很独特很舒服 这一类的歌就不在意歌词了 如果是听中文说唱对于我来说那就是旋律+歌词和那种意识是我最喜欢的啦</p><p>说到这里推荐几位歌手啦!(<del>当然是中文说唱的www</del>)<br><div class="tag link"><a class="link-card" title="MISTERK" href="https://music.163.com/#/artist?id=12256230"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">MISTERK</p><p class="url">https://music.163.com/#/artist?id=12256230</p></div></a></div></p><h2 id="这位是真的非常非常喜欢啦-二次原说唱是最屌的"><a href="#这位是真的非常非常喜欢啦-二次原说唱是最屌的" class="headerlink" title="这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!()"></a>这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!(<del>不接受任何反驳</del>)</h2><div class="tag link"><a class="link-card" title="河南说唱之神" href="https://music.163.com/#/artist?id=15194340"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">河南说唱之神</p><p class="url">https://music.163.com/#/artist?id=15194340</p></div></a></div><h2 id="忧郁之神啦-母庸置疑的"><a href="#忧郁之神啦-母庸置疑的" class="headerlink" title="忧郁之神啦!!!母庸置疑的"></a>忧郁之神啦!!!母庸置疑的</h2><div class="tag link"><a class="link-card" title="BOBBYNOPACE" href="https://music.163.com/#/artist?id=48277407"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">BOBBYNOPACE</p><p class="url">https://music.163.com/#/artist?id=48277407</p></div></a></div><h2 id=""><a href="#" class="headerlink" title=""></a><del>永远的佐助</del></h2><h2 id="总而言之-最喜欢大家啦"><a href="#总而言之-最喜欢大家啦" class="headerlink" title="总而言之 最喜欢大家啦!!!"></a>总而言之 最喜欢大家啦!!!</h2>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>message</title>
-      <link href="/message/index.html"/>
-      <url>/message/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
       
     </entry>
     
@@ -220,6 +207,17 @@
       <url>/css/custom.css</url>
       
         <content type="html"><![CDATA[/* 一张全站壁纸：滚动也不换场景 */html,body{height:100%}body{  background-image:url('/images/icons/wall.jpg');  background-size:cover;  background-position:center center;  background-repeat:no-repeat;  background-attachment:fixed;}/* 封面就是“文字层”：把封面自己的底图和大遮罩关掉 */.cover, .cover .cover-img, .cover .bg{  background:transparent !important;  background-image:none !important;}.cover .mask, .cover .cover-mask{  background: rgba(0,0,0,0.15) !important; /* 想更通透就再小点或直接透明 */}/* 封面高度铺满一屏，像你给的样例一样 */.cover{height:100vh !important}/* 下面整块布局别再铺白底，全部透下去 */#page, #body-wrap, .layout, .main-inner, #content-inner, #recent-posts, .aside-content{  background:transparent !important;}/* 卡片半透明 + 轻磨砂，保证读得清 */.card, .card-widget, .recent-posts .recent-post-item, .post-block, .post-content,.timeline, .category-list, .tag-cloud, .pagination .page-number, .pagination .extend{  background: rgba(255,255,255,0.82) !important;  backdrop-filter: blur(10px) saturate(180%);  -webkit-backdrop-filter: blur(10px) saturate(180%);}/* 夜间模式下的卡片透明度 */[data-theme="dark"] .card, [data-theme="dark"] .card-widget,[data-theme="dark"] .recent-posts .recent-post-item, [data-theme="dark"] .post-block,[data-theme="dark"] .post-content, [data-theme="dark"] .timeline,[data-theme="dark"] .category-list, [data-theme="dark"] .tag-cloud,[data-theme="dark"] .pagination .page-number, [data-theme="dark"] .pagination .extend{  background: rgba(0,0,0,0.42) !important;}/* 顶栏也做成悬浮透明（需要的话） */#nav{background:transparent !important; box-shadow:none !important}#nav .menus_items .menus_item:hover{background:rgba(0,0,0,0.08)}[data-theme="dark"] #nav .menus_items .menus_item:hover{background:rgba(255,255,255,0.08)}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/manifest.json"/>
+      <url>/manifest.json</url>
+      
+        <content type="html"><![CDATA[{"name":"mymod233","short_name":"mymod","start_url":"/","display":"standalone","background_color":"#1e1e2e","theme_color":"#1e1e2e","icons":[{"src":"/images/icons/icon-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/icons/icon-512x512.png","sizes":"512x512","type":"image/png"}]}]]></content>
       
     </entry>
     
@@ -242,6 +240,39 @@
       <url>/js/force-dark-pages.js</url>
       
         <content type="html"><![CDATA[;(function () {  // 需要强制暗色的路径规则，自行补充  var forceDark = /^\/(page|about|links|music)(\/|$)/i.test(location.pathname);  if (!forceDark) return;  // 1) 立刻设为 dark  try { localStorage.setItem('theme', 'dark'); } catch (e) {}  var html = document.documentElement;  html.setAttribute('data-theme', 'dark');  html.classList.add('force-dark-page');  // 2) 隐藏可能存在的主题切换按钮（多写几种常见选择器以防主题版本差异）  var hideSwitch = function () {    var selectors = [      '#toggle-mode', '.toggle-mode', '.toggle-theme', '.darkmode-switch',      '.mode', '.site-nav .mode', '.navbar .mode'    ];    selectors.forEach(function (sel) {      document.querySelectorAll(sel).forEach(function (el) {        el.style.setProperty('display', 'none', 'important');        el.setAttribute('aria-hidden', 'true');      });    });  };  hideSwitch();  // 3) 监听 data-theme，防止被外部脚本改回 light  var obs = new MutationObserver(function (muts) {    if (html.getAttribute('data-theme') !== 'dark') {      html.setAttribute('data-theme', 'dark');    }    hideSwitch();  });  obs.observe(html, { attributes: true, attributeFilter: ['data-theme'] });  // 4) 某些主题用 prefers-color-scheme，直接硬顶一层样式变量  var css = document.createElement('style');  css.textContent =    'html.force-dark-page{color-scheme: dark !important;}';  document.head.appendChild(css);})();]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/sw.js"/>
+      <url>/sw.js</url>
+      
+        <content type="html"><![CDATA[/* sw.js — mymod233 进阶版 PWA   功能：静态资源 Cache First、页面 Network First、离线 fallback、更新提醒*/const CACHE_VERSION = 'v3';              // ← 每次改动SW时+1，强制让用户拿到新版本const RUNTIME_CACHE = `pwa-mymod-${CACHE_VERSION}`;const STATIC_PATTERN = /\.(?:js|css|png|jpg|jpeg|gif|svg|woff2?)$/i;const OFFLINE_URL = '/offline.html';// 安装：预缓存离线页（不要预缓存一大堆，Hexo 更新频繁）self.addEventListener('install', event => {  event.waitUntil(    caches.open(RUNTIME_CACHE).then(cache => cache.addAll([OFFLINE_URL])).then(() => self.skipWaiting())  );});// 激活：清理旧缓存，接管页面self.addEventListener('activate', event => {  event.waitUntil(    caches.keys().then(keys =>      Promise.all(keys.filter(k => k !== RUNTIME_CACHE).map(k => caches.delete(k)))    ).then(() => self.clients.claim())  );});// 获取：静态资源 Cache First，页面 Network First + 离线兜底self.addEventListener('fetch', event => {  const req = event.request;  if (req.method !== 'GET') return;  const url = new URL(req.url);  // 静态资源：缓存优先  if (STATIC_PATTERN.test(url.pathname)) {    event.respondWith(      caches.open(RUNTIME_CACHE).then(cache =>        cache.match(req).then(hit => {          const fromNet = fetch(req).then(res => {            if (res.ok) cache.put(req, res.clone());            return res;          }).catch(() => hit);          return hit || fromNet;        })      )    );    return;  }  // 页面：网络优先，失败用缓存，再失败给离线页  if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {    event.respondWith(      fetch(req).then(res => {        const clone = res.clone();        caches.open(RUNTIME_CACHE).then(c => c.put(req, clone));        return res;      }).catch(async () => {        const cached = await caches.match(req);        return cached || caches.match(OFFLINE_URL);      })    );    return;  }  // 其他 GET：尽量走网络，失败尝试缓存  event.respondWith(    fetch(req).catch(() => caches.match(req))  );});// 接收页面消息：允许页面请求立即激活新SWself.addEventListener('message', event => {  if (!event.data) return;  if (event.data === 'SKIP_WAITING') {    self.skipWaiting();  }});]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>message</title>
+      <link href="/message/index.html"/>
+      <url>/message/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p class='p center logo large'>个人介绍</p><p class='p center small'>A Wonderful Theme for Hexo</p><h2 id="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠"><a href="#大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！-⁠-⁠≧⁠Д⁠≦⁠" class="headerlink" title="大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)"></a>大家好哦欢迎大家光临我的网站啦啦啦啦啦！！！(⁠ ⁠≧⁠Д⁠≦⁠)</h2><p>本人也就只是懂<strong>一点点</strong>电脑技术罢了 并不是那种比较会的哦 什么<strong>GitHub</strong>那些也都是最近才弄的啦！(⁠╯⁠︵⁠╰⁠,⁠)</p><p>本人的<strong>兴趣爱好</strong>都比较多啦 最喜欢的就是<strong>听音乐</strong> (<psw>猜猜我喜欢听什么www</psw>)其次才是弄<strong>电脑</strong> 体育的话喜欢<strong>棒球</strong>和<strong>职业摔角</strong>(<del>这么小众的爱好应该没有人喜欢</del>) 但是最喜欢的运动还是<strong>职业摔角</strong>啦 当然最了解的也是职业摔角www（我可是5岁看摔角看到现在的呢！(⁠ ⁠；⁠∀⁠；⁠)）</p><p>我大学的专业是<strong>计算机科学与技术</strong> 因为我想<strong>逃避算法</strong>www(<emp>事实证明我是错的呜呜呜</emp>) 我初中就是打<strong>算法竞赛</strong>的 给我弄的长脑子了</p><p>我听音乐的话主要是我小时候<strong>学架子鼓</strong> 因此对音乐都是<strong>非常敏感</strong>的 小<strong>时候还被老师夸过说我很有天赋欸嘿嘿</strong>(<del>真的很自豪的说</del>) 所以说我<strong>听音乐也是很广泛</strong>的 中文的话比较喜欢<strong>中文说唱 主要是旋律说唱emo说唱二次元说唱之类的</strong> 因为听这些其实对于我来说<strong>像是找共鸣 因为他们的歌词很直白也很贴近生活嘛 正是因为门槛低所以我就很喜欢</strong> 日语的歌的话倒是流行的都听 因为日本那边的音乐都是挺好的嘛 <strong>至于欧美的话我就偏向于neo-soul啊R&amp;B之类</strong>(<del>又小众了起来嘤嘤</del>)的 我很喜欢爵士还有neo-soul 类似的风格 因为很独特很舒服 这一类的歌就不在意歌词了 如果是听中文说唱对于我来说那就是旋律+歌词和那种意识是我最喜欢的啦</p><p>说到这里推荐几位歌手啦!(<del>当然是中文说唱的www</del>)<br><div class="tag link"><a class="link-card" title="MISTERK" href="https://music.163.com/#/artist?id=12256230"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">MISTERK</p><p class="url">https://music.163.com/#/artist?id=12256230</p></div></a></div></p><h2 id="这位是真的非常非常喜欢啦-二次原说唱是最屌的"><a href="#这位是真的非常非常喜欢啦-二次原说唱是最屌的" class="headerlink" title="这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!()"></a>这位是真的非常非常喜欢啦 二次原说唱是最屌的!!!(<del>不接受任何反驳</del>)</h2><div class="tag link"><a class="link-card" title="河南说唱之神" href="https://music.163.com/#/artist?id=15194340"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">河南说唱之神</p><p class="url">https://music.163.com/#/artist?id=15194340</p></div></a></div><h2 id="忧郁之神啦-母庸置疑的"><a href="#忧郁之神啦-母庸置疑的" class="headerlink" title="忧郁之神啦!!!母庸置疑的"></a>忧郁之神啦!!!母庸置疑的</h2><div class="tag link"><a class="link-card" title="BOBBYNOPACE" href="https://music.163.com/#/artist?id=48277407"><div class="left"><img src="/img/link.png"/></div><div class="right"><p class="text">BOBBYNOPACE</p><p class="url">https://music.163.com/#/artist?id=48277407</p></div></a></div><h2 id=""><a href="#" class="headerlink" title=""></a><del>永远的佐助</del></h2><h2 id="总而言之-最喜欢大家啦"><a href="#总而言之-最喜欢大家啦" class="headerlink" title="总而言之 最喜欢大家啦!!!"></a>总而言之 最喜欢大家啦!!!</h2>]]></content>
       
     </entry>
     

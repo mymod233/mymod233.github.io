@@ -1,0 +1,684 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>c语言期中考试错题汇总 | mymod的博客</title><meta name="author" content="mymod"><meta name="copyright" content="mymod"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="期中考错题汇总行，我给你把这一题整理成一份干净、可直接放入错题本的 Markdown 版本，排版简洁、复制即用。  ❌ 错题记录：C 语言八进制陷阱题目：12344、【单选题】下列程序段输出结果为：（ ）int x &#x3D; 1, y &#x3D; 012;printf(&quot;%d&quot;, y * x++); 你的答案：B. 12（错误） 正确答案：C. 10  ✅ 解析：关键点：012 是八进制数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言期中考试错题汇总">
+<meta property="og:url" content="http://example.com/posts/828471d6.html">
+<meta property="og:site_name" content="mymod的博客">
+<meta property="og:description" content="期中考错题汇总行，我给你把这一题整理成一份干净、可直接放入错题本的 Markdown 版本，排版简洁、复制即用。  ❌ 错题记录：C 语言八进制陷阱题目：12344、【单选题】下列程序段输出结果为：（ ）int x &#x3D; 1, y &#x3D; 012;printf(&quot;%d&quot;, y * x++); 你的答案：B. 12（错误） 正确答案：C. 10  ✅ 解析：关键点：012 是八进制数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg">
+<meta property="article:published_time" content="2025-11-21T02:43:16.000Z">
+<meta property="article:modified_time" content="2025-11-21T02:43:58.998Z">
+<meta property="article:author" content="mymod">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="基础概念">
+<meta property="article:tag" content="应付考试">
+<meta property="article:tag" content="错题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/%E5%A4%B4%E5%83%8F.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "c语言期中考试错题汇总",
+  "url": "http://example.com/posts/828471d6.html",
+  "image": "http://example.com/img/%E5%A4%B4%E5%83%8F.jpg",
+  "datePublished": "2025-11-21T02:43:16.000Z",
+  "dateModified": "2025-11-21T02:43:58.998Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "mymod",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/posts/828471d6.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c语言期中考试错题汇总',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="manifest" href="/manifest.json"><style>
+html,body{height:100%;margin:0}
+/* 全站唯一壁纸：滚动不换场景 */
+body{
+  background-image:url('/images/wall.jpg');   /* ← 把文件放在 source/images/wall.jpg */
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+/* 封面只留打字机文本，别再铺自己的底图 */
+.cover, .cover .cover-img, .cover .bg,
+.cover:before, .cover:after{
+  background:transparent !important;
+  background-image:none !important;
+}
+.cover .mask, .cover .cover-mask{
+  background:rgba(0,0,0,0.12) !important;  /* 想更通透就调更小或设为0 */
+}
+.cover{height:100vh !important}
+
+/* 把封面下面那些爱铺白底的容器统统打透明 */
+#web_bg,#page,#body-wrap,.layout,.main-inner,#content-inner,#recent-posts,.aside-content{
+  background:transparent !important;
+}
+
+/* 卡片半透明 + 轻磨砂，保证可读 */
+.card,.card-widget,.recent-posts .recent-post-item,.post-block,.post-content,
+.timeline,.category-list,.tag-cloud,.pagination .page-number,.pagination .extend{
+  background:rgba(255,255,255,0.82) !important;
+  backdrop-filter:blur(10px) saturate(180%);
+  -webkit-backdrop-filter:blur(10px) saturate(180%);
+}
+[data-theme="dark"] .card,[data-theme="dark"] .card-widget,
+[data-theme="dark"] .recent-posts .recent-post-item,[data-theme="dark"] .post-block,
+[data-theme="dark"] .post-content,[data-theme="dark"] .timeline,
+[data-theme="dark"] .category-list,[data-theme="dark"] .tag-cloud,
+[data-theme="dark"] .pagination .page-number,[data-theme="dark"] .pagination .extend{
+  background:rgba(0,0,0,0.42) !important;
+}
+/* 顶栏透明悬浮（不想透明就删掉这行） */
+#nav{background:transparent !important;box-shadow:none !important}
+/* 页脚透明 */
+#footer, .footer, footer{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#footer:before, #footer:after{
+  background: transparent !important;
+}
+/* 1) 页面头部容器改透明，不要背景色 */
+/* 保留主页透明，但恢复正文容器为非透明以承托文字 *
+#web_bg, .cover, .aside-content { background: transparent !important; }
+/* 恢复正文外围容器的背景承托 */
+</style>
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script><style>
+  /* 恋爱计时卡片（与公告一致） */
+  #card-love.card-widget{padding:0;position:relative;overflow:hidden;}
+  #card-love .item-headline{
+    display:flex;align-items:center;gap:.5rem;
+    padding:14px 18px;border-bottom:1px solid rgba(0,0,0,.06)
+  }
+  [data-theme="dark"] #card-love .item-headline{border-color:rgba(255,255,255,.06)}
+  #card-love .item-headline i{color:#e25555}
+  #card-love .love-body{padding:18px;position:relative;z-index:2;}
+  #card-love .love-avatars{
+    display:flex;align-items:center;justify-content:center;
+    gap:18px;margin-bottom:10px
+  }
+  #card-love .love-avatars .avatar{
+    width:58px;height:58px;border-radius:50%;
+    object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,.12)
+  }
+  #card-love .love-avatars .heart{
+    font-size:18px;color:#e25555;opacity:.9
+  }
+  #card-love .love-text{
+    text-align:center;font-size:18px;font-weight:600;margin:8px 0 2px;
+  }
+  #card-love .love-sub{text-align:center;font-size:12px;opacity:.7}
+
+  /* 飘心层与动画（仅在卡片内部） */
+  #card-love .love-hearts{position:absolute;inset:0;z-index:1;pointer-events:none;}
+  #card-love .heart-bubble{
+    position:absolute;bottom:-12px;opacity:0;line-height:1;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));
+    animation:love-rise 3.6s ease-in forwards;
+  }
+  @keyframes love-rise{
+     0%{transform:translateY(0) scale(.8) rotate(0deg);opacity:0;}
+    10%{opacity:.9;}
+    70%{opacity:.9;}
+   100%{transform:translateY(-120%) scale(1.25) rotate(12deg);opacity:0;}
+  }
+</style>
+<style>
+/* 精准隐藏侧栏个人卡片里的 Follow Me 按钮（不伤社交图标） */
+#card-info #card-info-btn,
+#card-info .card-info-btn {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+/* 如果主题原本给按钮下方预留了空隙，顺手收一下间距 */
+#card-info .card-info-social-icons {
+  margin-top: 12px !important; /* 需要更紧就改小；需要更松就改大 */
+}
+</style>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="mymod的博客" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(/url('/images/%E5%A3%81%E7%BA%B8.jpg'));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%A6/"><i class="fa-fw fas fa-code"></i><span> 数学</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">mymod的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">c语言期中考试错题汇总</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%A6/"><i class="fa-fw fas fa-code"></i><span> 数学</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">c语言期中考试错题汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-21T02:43:16.000Z" title="发表于 2025-11-21 10:43:16">2025-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-21T02:43:58.998Z" title="更新于 2025-11-21 10:43:58">2025-11-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="期中考错题汇总"><a href="#期中考错题汇总" class="headerlink" title="期中考错题汇总"></a>期中考错题汇总</h1><p>行，我给你把这一题整理成一份干净、可直接放入错题本的 <strong>Markdown 版本</strong>，排版简洁、复制即用。</p>
+<hr>
+<h1 id="❌-错题记录：C-语言八进制陷阱"><a href="#❌-错题记录：C-语言八进制陷阱" class="headerlink" title="❌ 错题记录：C 语言八进制陷阱"></a>❌ 错题记录：C 语言八进制陷阱</h1><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a><strong>题目：</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>、【单选题】下列程序段输出结果为：（ ）</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> x = <span class="number">1</span>, y = <span class="number">012</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, y * x++);</span><br></pre></td></tr></table></figure>
+<h3 id="你的答案："><a href="#你的答案：" class="headerlink" title="你的答案："></a><strong>你的答案：</strong></h3><p><strong>B. 12（错误）</strong></p>
+<h3 id="正确答案："><a href="#正确答案：" class="headerlink" title="正确答案："></a><strong>正确答案：</strong></h3><p><strong>C. 10</strong></p>
+<hr>
+<h1 id="✅-解析："><a href="#✅-解析：" class="headerlink" title="✅ 解析："></a>✅ 解析：</h1><h3 id="关键点：012-是八进制数"><a href="#关键点：012-是八进制数" class="headerlink" title="关键点：012 是八进制数"></a><strong>关键点：<code>012</code> 是八进制数</strong></h3><ul>
+<li>C 语言中，<strong>以 0 开头的整数是八进制（base 8）</strong></li>
+<li><code>012</code> = 八进制 12 = 十进制 <code>1*8 + 2 = 10</code></li>
+</ul>
+<p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = 10</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="表达式：y-x"><a href="#表达式：y-x" class="headerlink" title="表达式：y \* x++"></a><strong>表达式：<code>y \* x++</code></strong></h3><ul>
+<li><code>x++</code> 是后置自增：先使用，再自增</li>
+<li>表达式中使用的是 x = 1</li>
+<li>用完之后 x → 2（但与输出无关）</li>
+</ul>
+<p>因此：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y * x++ = 10 * 1 = 10</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="🎯-最终输出："><a href="#🎯-最终输出：" class="headerlink" title="🎯 最终输出："></a>🎯 最终输出：</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure>
+<p>下面是这道题的 <strong>Markdown 错题本格式版本</strong>，你可以直接复制到你的错题本中使用。</p>
+<hr>
+<h1 id="🔹-题目-10：赋值表达式右结合陷阱"><a href="#🔹-题目-10：赋值表达式右结合陷阱" class="headerlink" title="🔹 题目 10：赋值表达式右结合陷阱"></a>🔹 题目 10：赋值表达式右结合陷阱</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h3><p>执行以下语句后，<code>a</code> 的值为多少？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">5</span>;</span><br><span class="line">a += a = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<p>选项：</p>
+<ul>
+<li>A. 15</li>
+<li>B. 10</li>
+<li>C. 20</li>
+<li>D. 5</li>
+</ul>
+<h3 id="我的答案"><a href="#我的答案" class="headerlink" title="我的答案"></a><strong>我的答案</strong></h3><p>D. 5（错误）</p>
+<h3 id="正确答案"><a href="#正确答案" class="headerlink" title="正确答案"></a><strong>正确答案</strong></h3><p>B. 10</p>
+<hr>
+<h1 id="✅-解析"><a href="#✅-解析" class="headerlink" title="✅ 解析"></a>✅ 解析</h1><p>表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a += a = 5;</span><br></pre></td></tr></table></figure>
+<p>关键点：</p>
+<h3 id="①-赋值运算符-的结果值是右侧的值"><a href="#①-赋值运算符-的结果值是右侧的值" class="headerlink" title="① 赋值运算符 = 的结果值是右侧的值"></a>① 赋值运算符 <code>=</code> 的结果值是右侧的值</h3><p>所以：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a = 5) 的结果值是 5</span><br></pre></td></tr></table></figure>
+<h3 id="②-赋值表达式从右向左结合"><a href="#②-赋值表达式从右向左结合" class="headerlink" title="② 赋值表达式从右向左结合"></a>② 赋值表达式从右向左结合</h3><p>所以执行顺序是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 5;          // 第一次赋值</span><br><span class="line">a += (a = 5);   // 先执行右侧 a = 5，再将值 5 加到前面的 a 上</span><br></pre></td></tr></table></figure>
+<h3 id="③-执行过程逐步展开："><a href="#③-执行过程逐步展开：" class="headerlink" title="③ 执行过程逐步展开："></a>③ 执行过程逐步展开：</h3><ol>
+<li><p>执行 <code>a = 5</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算右边 <code>(a = 5)</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 5</span><br><span class="line">表达式值为 5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行 <code>a += 5</code><br> 等价于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = a + 5 = 5 + 5 = 10</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h1 id="🎯-最终结果"><a href="#🎯-最终结果" class="headerlink" title="🎯 最终结果"></a>🎯 最终结果</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 10</span><br></pre></td></tr></table></figure>
+<p>下面是你要的 <strong>Markdown 错题本版本</strong>，我只写关键点（逗号导致 if 范围扩大），不写推理过程。</p>
+<hr>
+<h1 id="🔹-题目-16：if-语句作用域被逗号误读"><a href="#🔹-题目-16：if-语句作用域被逗号误读" class="headerlink" title="🔹 题目 16：if 语句作用域被逗号误读"></a>🔹 题目 16：if 语句作用域被逗号误读</h1><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a><strong>题目</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i, x, y;</span><br><span class="line">i = x = y = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    ++i;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">2</span>)</span><br><span class="line">        x += i,</span><br><span class="line">        i++;</span><br><span class="line">    y += i++;</span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt;= <span class="number">7</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d %d %d&quot;</span>, i, x, y);</span><br></pre></td></tr></table></figure>
+<h3 id="我的答案-1"><a href="#我的答案-1" class="headerlink" title="我的答案"></a><strong>我的答案</strong></h3><p>9 8 15（错误）</p>
+<h3 id="正确答案-1"><a href="#正确答案-1" class="headerlink" title="正确答案"></a><strong>正确答案</strong></h3><p>9 1 20</p>
+<h3 id="错误原因（关键点）"><a href="#错误原因（关键点）" class="headerlink" title="错误原因（关键点）"></a><strong>错误原因（关键点）</strong></h3><ul>
+<li><code>x += i,</code> 这一行末尾没有分号</li>
+<li><strong>下面的 <code>i++</code> 实际上是和上面一起属于 if 语句块</strong></li>
+</ul>
+<p>也就是说：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i % <span class="number">2</span>) &#123;</span><br><span class="line">    x += i;</span><br><span class="line">    i++;     <span class="comment">// 这个 i++ 也在 if 里面</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你原本把它误解成：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (i % <span class="number">2</span>)</span><br><span class="line">    x += i;</span><br><span class="line">i++;         <span class="comment">// 实际上不是这样的</span></span><br></pre></td></tr></table></figure>
+<p>因此 if 每次只在奇数 i 才会执行两句，而你之前把第二句当成 if 外的逻辑，导致结果计算错误。</p>
+<hr>
+<p>需要继续整理下一题，继续发给我就行。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">mymod</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/828471d6.html">http://example.com/posts/828471d6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">mymod的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BA%94%E4%BB%98%E8%80%83%E8%AF%95/">应付考试</a><a class="post-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a><a class="post-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">基础概念</a><a class="post-meta__tags" href="/tags/%E9%94%99%E9%A2%98/">错题</a></div><div class="post-share"><div class="social-share" data-image="/img/%E5%A4%B4%E5%83%8F.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/3bf41286.html" title="C语言出错概念"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">C语言出错概念</div></div><div class="info-2"><div class="info-item-1">C语言期末考客观题出错汇总 C语言源程序的基本单位是函数 C语言是一种高级程序语言 在一个源程序中，main函数的位置可以任意 能将高级语言程序转换成目标语言程序的是编译程序 C语言中的每条可执行语句最终都将被转成二进制的机器指令 C语言程序从main函数开始执行 C语言中的简单数据类型包括整型,实型,字符型 printf(“%d%d%d”,sizeof(int),sizeof(char), sizeof(“56”));正确结果是413 逻辑运算符两侧运算对象的数据类型可以是任何类型的数据 为了避免嵌套的if-else语句的二义性，C语言规定else总是与在其之前尚未配对的最近的if组成配对关系。 C语言中，逻辑运算符的优先级从高到低依次是! &amp;&amp; || 使用scanf的时候它的格式字符串中不能包含函变量名 下列关于单目运算符++、—的叙述中 他们的运算对象可以是char,int,float 程序的三种基本结构是顺序结构,循环结构,选择结构 符号常量就是用#define定义的 break语句的功能是跳出循环，执行后面的语句 else子句总是与其之前最近的if配对 ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/3bf41286.html" title="C语言出错概念"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-20</div><div class="info-item-2">C语言出错概念</div></div><div class="info-2"><div class="info-item-1">C语言期末考客观题出错汇总 C语言源程序的基本单位是函数 C语言是一种高级程序语言 在一个源程序中，main函数的位置可以任意 能将高级语言程序转换成目标语言程序的是编译程序 C语言中的每条可执行语句最终都将被转成二进制的机器指令 C语言程序从main函数开始执行 C语言中的简单数据类型包括整型,实型,字符型 printf(“%d%d%d”,sizeof(int),sizeof(char), sizeof(“56”));正确结果是413 逻辑运算符两侧运算对象的数据类型可以是任何类型的数据 为了避免嵌套的if-else语句的二义性，C语言规定else总是与在其之前尚未配对的最近的if组成配对关系。 C语言中，逻辑运算符的优先级从高到低依次是! &amp;&amp; || 使用scanf的时候它的格式字符串中不能包含函变量名 下列关于单目运算符++、—的叙述中 他们的运算对象可以是char,int,float 程序的三种基本结构是顺序结构,循环结构,选择结构 符号常量就是用#define定义的 break语句的功能是跳出循环，执行后面的语句 else子句总是与其之前最近的if配对 ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">mymod</div><div class="author-info-description">这是属于本人的博客啦 本人十分友好是好人哦嘻嘻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/mymod233" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/images/qr/wechat.png" target="_blank" title="WeChat"><i class="fab fa-weixin" style="color: #1aad19;"></i></a><a class="social-icon" href="https://t.me/mymod114" target="_blank" title="Telegram"><i class="fab fa-telegram-plane" style="color: #179cde;"></i></a><a class="social-icon" href="https://x.com/Anei1Ma" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a><a class="social-icon" href="https://www.instagram.com/jim31104?igsh=MXg3cXQwbmZ2Mnl5cQ==" target="_blank" title="Instagram"><i class="fab fa-instagram" style="color: #d63384;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%9F%E4%B8%AD%E8%80%83%E9%94%99%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-number">1.</span> <span class="toc-text">期中考错题汇总</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%9D%8C-%E9%94%99%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%9AC-%E8%AF%AD%E8%A8%80%E5%85%AB%E8%BF%9B%E5%88%B6%E9%99%B7%E9%98%B1"><span class="toc-number">2.</span> <span class="toc-text">❌ 错题记录：C 语言八进制陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A"><span class="toc-number">2.0.1.</span> <span class="toc-text">题目：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E7%9A%84%E7%AD%94%E6%A1%88%EF%BC%9A"><span class="toc-number">2.0.2.</span> <span class="toc-text">你的答案：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E7%AD%94%E6%A1%88%EF%BC%9A"><span class="toc-number">2.0.3.</span> <span class="toc-text">正确答案：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%9C%85-%E8%A7%A3%E6%9E%90%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">✅ 解析：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9%EF%BC%9A012-%E6%98%AF%E5%85%AB%E8%BF%9B%E5%88%B6%E6%95%B0"><span class="toc-number">3.0.1.</span> <span class="toc-text">关键点：012 是八进制数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9Ay-x"><span class="toc-number">3.0.2.</span> <span class="toc-text">表达式：y \* x++</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%8E%AF-%E6%9C%80%E7%BB%88%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">🎯 最终输出：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%94%B9-%E9%A2%98%E7%9B%AE-10%EF%BC%9A%E8%B5%8B%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%B3%E7%BB%93%E5%90%88%E9%99%B7%E9%98%B1"><span class="toc-number">5.</span> <span class="toc-text">🔹 题目 10：赋值表达式右结合陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">5.0.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%AD%94%E6%A1%88"><span class="toc-number">5.0.2.</span> <span class="toc-text">我的答案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E7%AD%94%E6%A1%88"><span class="toc-number">5.0.3.</span> <span class="toc-text">正确答案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%9C%85-%E8%A7%A3%E6%9E%90"><span class="toc-number">6.</span> <span class="toc-text">✅ 解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6-%E7%9A%84%E7%BB%93%E6%9E%9C%E5%80%BC%E6%98%AF%E5%8F%B3%E4%BE%A7%E7%9A%84%E5%80%BC"><span class="toc-number">6.0.1.</span> <span class="toc-text">① 赋值运算符 &#x3D; 的结果值是右侧的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1-%E8%B5%8B%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BB%8E%E5%8F%B3%E5%90%91%E5%B7%A6%E7%BB%93%E5%90%88"><span class="toc-number">6.0.2.</span> <span class="toc-text">② 赋值表达式从右向左结合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2-%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E9%80%90%E6%AD%A5%E5%B1%95%E5%BC%80%EF%BC%9A"><span class="toc-number">6.0.3.</span> <span class="toc-text">③ 执行过程逐步展开：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%8E%AF-%E6%9C%80%E7%BB%88%E7%BB%93%E6%9E%9C"><span class="toc-number">7.</span> <span class="toc-text">🎯 最终结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%94%B9-%E9%A2%98%E7%9B%AE-16%EF%BC%9Aif-%E8%AF%AD%E5%8F%A5%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A2%AB%E9%80%97%E5%8F%B7%E8%AF%AF%E8%AF%BB"><span class="toc-number">8.</span> <span class="toc-text">🔹 题目 16：if 语句作用域被逗号误读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1"><span class="toc-number">8.0.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%AD%94%E6%A1%88-1"><span class="toc-number">8.0.2.</span> <span class="toc-text">我的答案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E7%AD%94%E6%A1%88-1"><span class="toc-number">8.0.3.</span> <span class="toc-text">正确答案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%8E%9F%E5%9B%A0%EF%BC%88%E5%85%B3%E9%94%AE%E7%82%B9%EF%BC%89"><span class="toc-number">8.0.4.</span> <span class="toc-text">错误原因（关键点）</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/828471d6.html" title="c语言期中考试错题汇总">c语言期中考试错题汇总</a><time datetime="2025-11-21T02:43:16.000Z" title="发表于 2025-11-21 10:43:16">2025-11-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3bf41286.html" title="C语言出错概念">C语言出错概念</a><time datetime="2025-11-20T05:19:40.000Z" title="发表于 2025-11-20 13:19:40">2025-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3ca83f46.html" title="深搜的相关的知识&amp;树的一些">深搜的相关的知识&amp;树的一些</a><time datetime="2025-11-05T05:39:39.000Z" title="发表于 2025-11-05 13:39:39">2025-11-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/97980273.html" title="我的恋爱日记10.30">我的恋爱日记10.30</a><time datetime="2025-10-30T12:00:35.000Z" title="发表于 2025-10-30 20:00:35">2025-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/90a8f6e6.html" title="关于素数的一系列解决办法">关于素数的一系列解决办法</a><time datetime="2025-10-30T11:32:53.000Z" title="发表于 2025-10-30 19:32:53">2025-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By mymod</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"></div>/js/force-dark-pages.js<script>
+  (function () {
+    if (window.__L2D_LOADED__) return;
+    window.__L2D_LOADED__ = true;
+    L2Dwidget.init({
+      model: {
+        jsonPath: "https://unpkg.com/live2d-widget-model-miku/assets/miku.model.json"
+      },
+      display: {
+        position: "right",     // <- 放右边
+        width: 220,
+        height: 420,
+        hOffset: 20,          // 距离左侧 20px
+        vOffset: -60          // 向上提一点，避免挡底部区域
+      },
+      mobile: {
+        show: true,
+        scale: 0.6
+      },
+      react: {
+        opacityDefault: 0.95,
+        opacityOnHover: 1
+      }
+    });
+  })();
+  window.addEventListener("pjax:complete", function () {
+    if (document.getElementById("live2d-widget")) return;
+    L2Dwidget.init({
+      model: {
+        jsonPath: "https://unpkg.com/live2d-widget-model-miku/assets/miku.model.json"
+      },
+      display: {
+        position: "left",
+        width: 220,
+        height: 420,
+        hOffset: 20,
+        vOffset: -60
+      },
+      mobile: {
+        show: true,
+        scale: 0.6
+      },
+      react: {
+        opacityDefault: 0.95,
+        opacityOnHover: 1
+      }
+    });
+  });
+</script>
+<script>
+  (function () {
+    var PLAYLIST_ID = '14437180364'; // 纯数字
+    // 只在本标签页记状态，用 sessionStorage关闭标签后自动丢失
+    var SESSION_KEY = 'ap_state_session';
+
+    function createOnce() {
+      if (window.__AP_FIXED_CREATED__) return;
+      window.__AP_FIXED_CREATED__ = true;
+
+      // 动态创建 <meting-js>，不自动播放
+      var el = document.createElement('meting-js');
+      el.setAttribute('server', 'netease');
+      el.setAttribute('type', 'playlist');
+      el.setAttribute('id', PLAYLIST_ID);
+      el.setAttribute('fixed', 'true');
+      el.setAttribute('order', 'random');
+      el.setAttribute('loop', 'all');
+      el.setAttribute('mutex', 'true');
+      el.setAttribute('preload', 'auto');
+      el.setAttribute('autoplay', 'false');   // ← 进站不自动播
+      document.body.appendChild(el);
+
+      // 等 Meting 渲染出 APlayer,再做“同一会话内的状态恢复”
+      function hook() {
+        var box = document.querySelector('.aplayer-fixed .aplayer');
+        if (!box || !box.aplayer) return setTimeout(hook, 200);
+        var ap = box.aplayer;
+
+        // 仅在当前会话内恢复（切页不断播）；新开标签/重启浏览器不恢复
+        try {
+          var s = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '{}');
+          if (typeof s.index === 'number') ap.list.switch(s.index);
+          if (typeof s.time === 'number') ap.seek(s.time);
+          // 注意：不自动调用 ap.play()，保持暂停等待你手动点
+        } catch (e) {}
+
+        // 会话内保存状态（切页回来接着放）
+        function save() {
+          try {
+            sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+              index: ap.list.index,
+              time: ap.audio.currentTime || 0,
+              playing: !ap.audio.paused
+            }));
+          } catch (e) {}
+        }
+        ['play','pause','seeked','listswitch','ended'].forEach(function (evt) {
+          ap.on(evt, save);
+        });
+
+        // 离开页面前清理一次（加固；大多数浏览器会话结束也会自动清）
+        window.addEventListener('beforeunload', function () {
+          try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
+        });
+      }
+      hook();
+    }
+
+    document.addEventListener('DOMContentLoaded', createOnce);
+    window.addEventListener('pjax:complete', createOnce);
+  })();
+</script>
+<style> .pwa-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111827;color:#e5e7eb; border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;display:flex;gap:10px; align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:9999} .pwa-btn{appearance:none;border:none;border-radius:10px;padding:6px 10px;font-weight:700;cursor:pointer} .pwa-primary{background:linear-gradient(135deg,#3b82f6,#a855f7);color:#fff} .pwa-ghost{background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,.15)} </style><script> (function(){ if(!('serviceWorker' in navigator)) return;
+// 注册 SW navigator.serviceWorker.register('/sw.js').then(function(reg){ // 首次安装的更新监听 function promptUpdate(waitingSW){ // 弹个小条：有新版本，是否刷新 const bar = document.createElement('div'); bar.className = 'pwa-toast'; bar.innerHTML = '<span>发现新版本</span>' + '<button class="pwa-btn pwa-primary" id="pwa-refresh">立即更新</button>' + '<button class="pwa-btn pwa-ghost" id="pwa-later">稍后</button>'; document.body.appendChild(bar);
+document.getElementById('pwa-refresh').onclick = function(){ waitingSW.postMessage('SKIP_WAITING'); }; document.getElementById('pwa-later').onclick = function(){ bar.remove(); };
+// 当新的 SW 接管后，刷新页面 navigator.serviceWorker.addEventListener('controllerchange', function(){ location.reload(); }); }
+// 情况1注册后立即出现 waiting if(reg.waiting) { promptUpdate(reg.waiting); }
+// 情况2更新时 installing -> installed(waiting) reg.addEventListener('updatefound', function(){ const newSW = reg.installing; if(!newSW) return; newSW.addEventListener('statechange', function(){ if(newSW.state === 'installed' && navigator.serviceWorker.controller){ promptUpdate(newSW); } }); });
+// Edge/Chrome 有时更新后的SW会在 `waiting`，再刷新才触发，这里轮询触发一次检查 setInterval(function(){ reg.update(); }, 60*1000); }); })(); </script><script>
+;(function(){
+  /* ====== 需要你改的两处头像路径 ====== */
+  const AVATAR_ME  = '/images/love/me.jpg';
+  const AVATAR_HER = '/images/love/her.jpg';
+  /* ==================================== */
+
+  /* ====== 固定起始时间（你选择了“指定日期开始计时”） ====== */
+  const START_AT = '2025-08-13 00:00:00';  // 指定开始日期
+  const LABEL    = '和宝宝在一起';
+  /* ==================================================== */
+
+  /* ====== 飘心参数（桌面偏密；含移动端降载覆盖） ====== */
+  let HEART_EMIT_EVERY_MS = 260;   // 发射间隔（越小越密）
+  let HEART_MAX_PARALLEL  = 48;    // 同屏最大爱心数量
+  const HEART_COLORS = ['#ff4d6d','#ff6b6b','#ffa6c1','#f783ac','#ff8787'];
+  const HEART_SIZE   = [12,22];    // px
+
+  // 移动端自动降载（<=768px）
+  if (window.matchMedia('(max-width : 768px)').matches){
+    HEART_EMIT_EVERY_MS = 420;
+    HEART_MAX_PARALLEL  = 28;
+  }
+  /* ==================================================== */
+
+  function rand(min,max){return Math.random()*(max-min)+min}
+
+  function mountLoveCard(){
+    const aside = document.querySelector('.aside-content');
+    if(!aside) return;
+    if(document.getElementById('card-love')) return;
+
+    const announce = document.getElementById('card-announcement');
+
+    const card = document.createElement('div');
+    card.id = 'card-love';
+    card.className = 'card-widget';
+    card.innerHTML = `
+      <div class="item-headline">
+        <i class="fas fa-heart"></i><span>我们的相爱记录qwq</span>
+      </div>
+      <div class="love-body">
+        <div class="love-avatars">
+          <img class="avatar" src="${AVATAR_ME}" alt="me">
+          <i class="fas fa-heart heart" aria-hidden="true"></i>
+          <img class="avatar" src="${AVATAR_HER}" alt="her">
+        </div>
+        <div class="love-text">${LABEL} <span id="love-days">0</span> 天</div>
+        <div class="love-sub">自 ${START_AT.split(' ')[0]} 起</div>
+      </div>
+    `;
+
+    if (announce && announce.parentNode === aside) {
+      aside.insertBefore(card, announce);
+    } else {
+      aside.insertBefore(card, aside.firstElementChild);
+    }
+
+    startCounter();
+    startHearts(card.querySelector('.love-body'));
+  }
+
+  /* ====== 计时器：从固定 START_AT 开始累积天数 ====== */
+  function startCounter(){
+    const startTs = new Date(START_AT.replace(/-/g,'/')).getTime();
+    const daysEl = document.getElementById('love-days');
+    if(!daysEl) return;
+
+    function tick(){
+      const now = Date.now();
+      const diff = now - startTs;
+      const days = Math.floor(diff / 86400000);
+      daysEl.textContent = days >= 0 ? String(days) : '0';
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ====== 飘心：可见性节能 + 点击/长按爆发 ====== */
+  function startHearts(container){
+    let layer = container.querySelector('.love-hearts');
+    if(!layer){
+      layer = document.createElement('div');
+      layer.className = 'love-hearts';
+      container.appendChild(layer);
+    }
+    let live = 0;
+    let running = true;
+
+    function emit(){
+      if(!running || live >= HEART_MAX_PARALLEL) return;
+      live++;
+      const el = document.createElement('span');
+      el.className = 'heart-bubble';
+      el.textContent = '❤';                        // 使用 Unicode，渲染稳定
+      el.style.left   = rand(6,94) + '%';          // 若想更集中：改成 rand(38,62)
+      el.style.color  = HEART_COLORS[(Math.random()*HEART_COLORS.length)|0];
+      el.style.fontSize = rand(HEART_SIZE[0],HEART_SIZE[1]) + 'px';
+      el.style.animationDuration = rand(2.6,4.2)+'s';
+      layer.appendChild(el);
+      el.addEventListener('animationend', ()=>{ el.remove(); live--; });
+    }
+
+    const timer = setInterval(emit, HEART_EMIT_EVERY_MS);
+    for(let i=0;i<10;i++) setTimeout(emit, i*120); // 首屏补偿
+
+    // 只在可见时发射（节能）
+    if ('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries)=>{
+        running = entries[0]?.isIntersecting ?? true;
+      }, {threshold: 0.01});
+      io.observe(container);
+    }
+
+    // 点击/长按爆发
+    function burst(n=10){ for(let i=0;i<n;i++) setTimeout(emit, i*30); }
+    container.addEventListener('click', ()=>burst(14));
+    let pressTimer;
+    container.addEventListener('mousedown', ()=>{ pressTimer=setInterval(()=>burst(6), 120); });
+    ['mouseup','mouseleave','blur'].forEach(ev=>document.addEventListener(ev, ()=>clearInterval(pressTimer), {passive:true}));
+
+    // PJAX 清理
+    const obs = new MutationObserver(() => {
+      if(!document.body.contains(container)){
+        clearInterval(timer);
+        obs.disconnect();
+      }
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  }
+
+  document.addEventListener('DOMContentLoaded', mountLoveCard);
+  document.addEventListener('pjax:complete',  mountLoveCard);
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.getElementById('card-info-btn');
+  if (btn) btn.remove();
+});
+document.addEventListener('pjax:complete', function () {
+  var btn = document.getElementById('card-info-btn');
+  if (btn) btn.remove();
+});
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.1"></script></div></div><!-- hexo injector body_end start --><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><!-- hexo injector body_end end --></body></html>
