@@ -197,63 +197,7 @@ body{
 #web_bg, .cover, .aside-content { background: transparent !important; }
 /* 恢复正文外围容器的背景承托 */
 </style>
-<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script><style>
-  /* 恋爱计时卡片（与公告一致） */
-  #card-love.card-widget{padding:0;position:relative;overflow:hidden;}
-  #card-love .item-headline{
-    display:flex;align-items:center;gap:.5rem;
-    padding:14px 18px;border-bottom:1px solid rgba(0,0,0,.06)
-  }
-  [data-theme="dark"] #card-love .item-headline{border-color:rgba(255,255,255,.06)}
-  #card-love .item-headline i{color:#e25555}
-  #card-love .love-body{padding:18px;position:relative;z-index:2;}
-  #card-love .love-avatars{
-    display:flex;align-items:center;justify-content:center;
-    gap:18px;margin-bottom:10px
-  }
-  #card-love .love-avatars .avatar{
-    width:58px;height:58px;border-radius:50%;
-    object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,.12)
-  }
-  #card-love .love-avatars .heart{
-    font-size:18px;color:#e25555;opacity:.9
-  }
-  #card-love .love-text{
-    text-align:center;font-size:18px;font-weight:600;margin:8px 0 2px;
-  }
-  #card-love .love-sub{text-align:center;font-size:12px;opacity:.7}
-
-  /* 飘心层与动画（仅在卡片内部） */
-  #card-love .love-hearts{position:absolute;inset:0;z-index:1;pointer-events:none;}
-  #card-love .heart-bubble{
-    position:absolute;bottom:-12px;opacity:0;line-height:1;
-    filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));
-    animation:love-rise 3.6s ease-in forwards;
-  }
-  @keyframes love-rise{
-     0%{transform:translateY(0) scale(.8) rotate(0deg);opacity:0;}
-    10%{opacity:.9;}
-    70%{opacity:.9;}
-   100%{transform:translateY(-120%) scale(1.25) rotate(12deg);opacity:0;}
-  }
-</style>
-<style>
-/* 精准隐藏侧栏个人卡片里的 Follow Me 按钮（不伤社交图标） */
-#card-info #card-info-btn,
-#card-info .card-info-btn {
-  display: none !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-/* 如果主题原本给按钮下方预留了空隙，顺手收一下间距 */
-#card-info .card-info-social-icons {
-  margin-top: 12px !important; /* 需要更紧就改小；需要更松就改大 */
-}
-</style>
-<!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="mymod的博客" type="application/atom+xml">
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.0.0"><link rel="alternate" href="/atom.xml" title="mymod的博客" type="application/atom+xml">
 </head><body><div id="web_bg" style="background-image: url(/url('/images/%E5%A3%81%E7%BA%B8.jpg'));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%A6/"><i class="fa-fw fas fa-code"></i><span> 数学</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">mymod的博客</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 精选音乐</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder"></i><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术</span></a></li><li><a class="site-page child" href="/categories/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-heart"></i><span> 生活</span></a></li><li><a class="site-page child" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><i class="fa-fw fas fa-heart"></i><span> 恋爱足迹</span></a></li><li><a class="site-page child" href="/categories/%E6%95%B0%E5%AD%A6/"><i class="fa-fw fas fa-code"></i><span> 数学</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">C语言</h1></header><main class="layout" id="content-inner"><div id="tag"><div class="article-sort-title">标签 - C语言</div><div class="article-sort"><div class="article-sort-item year">2025</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2025-11-21T02:43:16.000Z" title="发表于 2025-11-21 10:43:16">2025-11-21</time></div><a class="article-sort-item-title" href="/posts/828471d6.html" title="c语言期中考试错题汇总">c语言期中考试错题汇总</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2025-11-20T05:19:40.000Z" title="发表于 2025-11-20 13:19:40">2025-11-20</time></div><a class="article-sort-item-title" href="/posts/3bf41286.html" title="C语言出错概念">C语言出错概念</a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">mymod</div><div class="author-info-description">这是属于本人的博客啦 本人十分友好是好人哦嘻嘻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/mymod233" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/images/qr/wechat.png" target="_blank" title="WeChat"><i class="fab fa-weixin" style="color: #1aad19;"></i></a><a class="social-icon" href="https://t.me/mymod114" target="_blank" title="Telegram"><i class="fab fa-telegram-plane" style="color: #179cde;"></i></a><a class="social-icon" href="https://x.com/Anei1Ma" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a><a class="social-icon" href="https://www.instagram.com/jim31104?igsh=MXg3cXQwbmZ2Mnl5cQ==" target="_blank" title="Instagram"><i class="fab fa-instagram" style="color: #d63384;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/ac6b0799.html" title="Web期末错题汇总">Web期末错题汇总</a><time datetime="2026-01-09T06:12:28.000Z" title="发表于 2026-01-09 14:12:28">2026-01-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/66897121.html" title="Web题目汇总">Web题目汇总</a><time datetime="2026-01-09T06:12:28.000Z" title="发表于 2026-01-09 14:12:28">2026-01-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/828471d6.html" title="c语言期中考试错题汇总">c语言期中考试错题汇总</a><time datetime="2025-11-21T02:43:16.000Z" title="发表于 2025-11-21 10:43:16">2025-11-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3bf41286.html" title="C语言出错概念">C语言出错概念</a><time datetime="2025-11-20T05:19:40.000Z" title="发表于 2025-11-20 13:19:40">2025-11-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3ca83f46.html" title="深搜的相关的知识&amp;树的一些">深搜的相关的知识&amp;树的一些</a><time datetime="2025-11-05T05:39:39.000Z" title="发表于 2025-11-05 13:39:39">2025-11-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
@@ -261,7 +205,7 @@ body{
           </div>
           <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%81%8B%E7%88%B1%E8%B6%B3%E8%BF%B9/"><span class="card-category-list-name">恋爱足迹</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">技术</span><span class="card-category-list-count">7</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%98%9F%E9%85%B1/" style="font-size: 1.1em; color: #999">星酱</a> <a href="/tags/Web%E7%A8%8B%E5%BA%8F/" style="font-size: 1.3em; color: #99a1ac">Web程序</a> <a href="/tags/%E6%9E%81%E5%BA%A6%E7%88%B1/" style="font-size: 1.1em; color: #999">极度爱</a> <a href="/tags/%E6%A0%91/" style="font-size: 1.1em; color: #999">树</a> <a href="/tags/%E9%94%99%E9%A2%98/" style="font-size: 1.1em; color: #999">错题</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0/" style="font-size: 1.1em; color: #999">最大公因数</a> <a href="/tags/%E7%AE%97%E6%B3%95%E7%B1%BB/" style="font-size: 1.5em; color: #99a9bf">算法类</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" style="font-size: 1.3em; color: #99a1ac">基础概念</a> <a href="/tags/%E5%BA%94%E8%AF%95/" style="font-size: 1.3em; color: #99a1ac">应试</a> <a href="/tags/%E5%9C%B0%E9%9B%B7/" style="font-size: 1.1em; color: #999">地雷</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/" style="font-size: 1.1em; color: #999">线性筛</a> <a href="/tags/%E6%A0%87%E5%87%86%E7%AD%9B/" style="font-size: 1.1em; color: #999">标准筛</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/" style="font-size: 1.1em; color: #999">最小公倍数</a> <a href="/tags/%E6%81%8B%E7%88%B1/" style="font-size: 1.1em; color: #999">恋爱</a> <a href="/tags/gcd/" style="font-size: 1.1em; color: #999">gcd</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.3em; color: #99a1ac">C语言</a> <a href="/tags/%E5%BF%AB%E7%AD%9B/" style="font-size: 1.1em; color: #999">快筛</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 1.1em; color: #999">深度优先搜索</a> <a href="/tags/%E6%B1%82%E7%B4%A0%E6%95%B0/" style="font-size: 1.1em; color: #999">求素数</a> <a href="/tags/%E5%BA%94%E4%BB%98%E8%80%83%E8%AF%95/" style="font-size: 1.3em; color: #99a1ac">应付考试</a></div></div><div class="card-widget card-archives">
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/" style="font-size: 1.1em; color: #999">最小公倍数</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/" style="font-size: 1.1em; color: #999">线性筛</a> <a href="/tags/%E6%B1%82%E7%B4%A0%E6%95%B0/" style="font-size: 1.1em; color: #999">求素数</a> <a href="/tags/%E5%BA%94%E4%BB%98%E8%80%83%E8%AF%95/" style="font-size: 1.3em; color: #99a1ac">应付考试</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.3em; color: #99a1ac">C语言</a> <a href="/tags/%E5%BA%94%E8%AF%95/" style="font-size: 1.3em; color: #99a1ac">应试</a> <a href="/tags/%E7%AE%97%E6%B3%95%E7%B1%BB/" style="font-size: 1.5em; color: #99a9bf">算法类</a> <a href="/tags/Web%E7%A8%8B%E5%BA%8F/" style="font-size: 1.3em; color: #99a1ac">Web程序</a> <a href="/tags/%E6%98%9F%E9%85%B1/" style="font-size: 1.1em; color: #999">星酱</a> <a href="/tags/%E5%BF%AB%E7%AD%9B/" style="font-size: 1.1em; color: #999">快筛</a> <a href="/tags/%E5%9C%B0%E9%9B%B7/" style="font-size: 1.1em; color: #999">地雷</a> <a href="/tags/gcd/" style="font-size: 1.1em; color: #999">gcd</a> <a href="/tags/%E6%A0%91/" style="font-size: 1.1em; color: #999">树</a> <a href="/tags/%E6%9E%81%E5%BA%A6%E7%88%B1/" style="font-size: 1.1em; color: #999">极度爱</a> <a href="/tags/%E9%94%99%E9%A2%98/" style="font-size: 1.1em; color: #999">错题</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" style="font-size: 1.3em; color: #99a1ac">基础概念</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 1.1em; color: #999">深度优先搜索</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0/" style="font-size: 1.1em; color: #999">最大公因数</a> <a href="/tags/%E6%81%8B%E7%88%B1/" style="font-size: 1.1em; color: #999">恋爱</a> <a href="/tags/%E6%A0%87%E5%87%86%E7%AD%9B/" style="font-size: 1.1em; color: #999">标准筛</a></div></div><div class="card-widget card-archives">
     <div class="item-headline">
       <i class="fas fa-archive"></i>
       <span>归档</span>
@@ -417,141 +361,6 @@ document.getElementById('pwa-refresh').onclick = function(){ waitingSW.postMessa
 // 情况1注册后立即出现 waiting if(reg.waiting) { promptUpdate(reg.waiting); }
 // 情况2更新时 installing -> installed(waiting) reg.addEventListener('updatefound', function(){ const newSW = reg.installing; if(!newSW) return; newSW.addEventListener('statechange', function(){ if(newSW.state === 'installed' && navigator.serviceWorker.controller){ promptUpdate(newSW); } }); });
 // Edge/Chrome 有时更新后的SW会在 `waiting`，再刷新才触发，这里轮询触发一次检查 setInterval(function(){ reg.update(); }, 60*1000); }); })(); </script><script>
-;(function(){
-  /* ====== 需要你改的两处头像路径 ====== */
-  const AVATAR_ME  = '/images/love/me.jpg';
-  const AVATAR_HER = '/images/love/her.jpg';
-  /* ==================================== */
-
-  /* ====== 固定起始时间（你选择了“指定日期开始计时”） ====== */
-  const START_AT = '2025-08-13 00:00:00';  // 指定开始日期
-  const LABEL    = '和宝宝在一起';
-  /* ==================================================== */
-
-  /* ====== 飘心参数（桌面偏密；含移动端降载覆盖） ====== */
-  let HEART_EMIT_EVERY_MS = 260;   // 发射间隔（越小越密）
-  let HEART_MAX_PARALLEL  = 48;    // 同屏最大爱心数量
-  const HEART_COLORS = ['#ff4d6d','#ff6b6b','#ffa6c1','#f783ac','#ff8787'];
-  const HEART_SIZE   = [12,22];    // px
-
-  // 移动端自动降载（<=768px）
-  if (window.matchMedia('(max-width : 768px)').matches){
-    HEART_EMIT_EVERY_MS = 420;
-    HEART_MAX_PARALLEL  = 28;
-  }
-  /* ==================================================== */
-
-  function rand(min,max){return Math.random()*(max-min)+min}
-
-  function mountLoveCard(){
-    const aside = document.querySelector('.aside-content');
-    if(!aside) return;
-    if(document.getElementById('card-love')) return;
-
-    const announce = document.getElementById('card-announcement');
-
-    const card = document.createElement('div');
-    card.id = 'card-love';
-    card.className = 'card-widget';
-    card.innerHTML = `
-      <div class="item-headline">
-        <i class="fas fa-heart"></i><span>我们的相爱记录qwq</span>
-      </div>
-      <div class="love-body">
-        <div class="love-avatars">
-          <img class="avatar" src="${AVATAR_ME}" alt="me">
-          <i class="fas fa-heart heart" aria-hidden="true"></i>
-          <img class="avatar" src="${AVATAR_HER}" alt="her">
-        </div>
-        <div class="love-text">${LABEL} <span id="love-days">0</span> 天</div>
-        <div class="love-sub">自 ${START_AT.split(' ')[0]} 起</div>
-      </div>
-    `;
-
-    if (announce && announce.parentNode === aside) {
-      aside.insertBefore(card, announce);
-    } else {
-      aside.insertBefore(card, aside.firstElementChild);
-    }
-
-    startCounter();
-    startHearts(card.querySelector('.love-body'));
-  }
-
-  /* ====== 计时器：从固定 START_AT 开始累积天数 ====== */
-  function startCounter(){
-    const startTs = new Date(START_AT.replace(/-/g,'/')).getTime();
-    const daysEl = document.getElementById('love-days');
-    if(!daysEl) return;
-
-    function tick(){
-      const now = Date.now();
-      const diff = now - startTs;
-      const days = Math.floor(diff / 86400000);
-      daysEl.textContent = days >= 0 ? String(days) : '0';
-    }
-    tick();
-    setInterval(tick, 1000);
-  }
-
-  /* ====== 飘心：可见性节能 + 点击/长按爆发 ====== */
-  function startHearts(container){
-    let layer = container.querySelector('.love-hearts');
-    if(!layer){
-      layer = document.createElement('div');
-      layer.className = 'love-hearts';
-      container.appendChild(layer);
-    }
-    let live = 0;
-    let running = true;
-
-    function emit(){
-      if(!running || live >= HEART_MAX_PARALLEL) return;
-      live++;
-      const el = document.createElement('span');
-      el.className = 'heart-bubble';
-      el.textContent = '❤';                        // 使用 Unicode，渲染稳定
-      el.style.left   = rand(6,94) + '%';          // 若想更集中：改成 rand(38,62)
-      el.style.color  = HEART_COLORS[(Math.random()*HEART_COLORS.length)|0];
-      el.style.fontSize = rand(HEART_SIZE[0],HEART_SIZE[1]) + 'px';
-      el.style.animationDuration = rand(2.6,4.2)+'s';
-      layer.appendChild(el);
-      el.addEventListener('animationend', ()=>{ el.remove(); live--; });
-    }
-
-    const timer = setInterval(emit, HEART_EMIT_EVERY_MS);
-    for(let i=0;i<10;i++) setTimeout(emit, i*120); // 首屏补偿
-
-    // 只在可见时发射（节能）
-    if ('IntersectionObserver' in window){
-      const io = new IntersectionObserver((entries)=>{
-        running = entries[0]?.isIntersecting ?? true;
-      }, {threshold: 0.01});
-      io.observe(container);
-    }
-
-    // 点击/长按爆发
-    function burst(n=10){ for(let i=0;i<n;i++) setTimeout(emit, i*30); }
-    container.addEventListener('click', ()=>burst(14));
-    let pressTimer;
-    container.addEventListener('mousedown', ()=>{ pressTimer=setInterval(()=>burst(6), 120); });
-    ['mouseup','mouseleave','blur'].forEach(ev=>document.addEventListener(ev, ()=>clearInterval(pressTimer), {passive:true}));
-
-    // PJAX 清理
-    const obs = new MutationObserver(() => {
-      if(!document.body.contains(container)){
-        clearInterval(timer);
-        obs.disconnect();
-      }
-    });
-    obs.observe(document.body, {childList:true,subtree:true});
-  }
-
-  document.addEventListener('DOMContentLoaded', mountLoveCard);
-  document.addEventListener('pjax:complete',  mountLoveCard);
-})();
-</script>
-<script>
 document.addEventListener('DOMContentLoaded', function () {
   var btn = document.getElementById('card-info-btn');
   if (btn) btn.remove();
